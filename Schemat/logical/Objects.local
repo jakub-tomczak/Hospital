@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="E21A04D0-8D6F-1B7F-C372-B1D9FDEEE53B" name="Oddział" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="C9EA5F4C-1FD4-4DED-DA7E-C4D2A84B37F8" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="C0E3E42E-1E1F-0E60-4B94-DE87DFE04A8A" name="Operacja" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="C9EA5F4C-1FD4-4DED-DA7E-C4D2A84B37F8" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="C2B8BD12-D1B0-D9D2-B954-2AC7DF4B51DD" name="Osoba" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="C9EA5F4C-1FD4-4DED-DA7E-C4D2A84B37F8" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="3D37FFFB-AE2A-C2E0-51A8-1FE523785272" name="Sala" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="C9EA5F4C-1FD4-4DED-DA7E-C4D2A84B37F8" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="6051BE1E-5D21-C4C3-F59A-E64E248A3354" name="Szpital" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="C9EA5F4C-1FD4-4DED-DA7E-C4D2A84B37F8" propertySourceId="" propertyTargetId=""/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>
