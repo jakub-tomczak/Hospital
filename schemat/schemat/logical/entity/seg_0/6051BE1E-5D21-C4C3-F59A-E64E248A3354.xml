@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6051BE1E-5D21-C4C3-F59A-E64E248A3354" name="Pracownik">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-10-07 13:52:03 UTC</createdTime>
+<ownerDesignName>schemat</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<preferredAbbreviation>Pracownicy</preferredAbbreviation>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Imie" id="806F1DA5-8A52-79F6-FA7E-6ED72055F200">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-10-11 10:14:54 UTC</createdTime>
+<ownerDesignName>schemat</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwisko" id="5B10AC22-7D83-B7CE-ADB0-CF8E0D5DF883">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-10-11 10:15:15 UTC</createdTime>
+<ownerDesignName>schemat</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Stanowisko" id="01657DA7-4E00-5F0C-DEAD-1FA552EF0321">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-10-11 10:15:29 UTC</createdTime>
+<ownerDesignName>schemat</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Pensja" id="34526A84-6B24-7EC6-2F95-649B01EE96CC">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-10-11 10:15:42 UTC</createdTime>
+<ownerDesignName>schemat</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>5</dataTypeScale>
+<ownDataTypeParameters>,2,5</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>
