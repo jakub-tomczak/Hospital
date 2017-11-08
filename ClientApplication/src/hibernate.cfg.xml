@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/areszt</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/test</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.connection.pool_size">1</property>
@@ -13,6 +13,6 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
-        <mapping resource="Person.hbm.xml" />
+        <mapping resource="sample/Person.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

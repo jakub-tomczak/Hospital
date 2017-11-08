@@ -17,7 +17,12 @@ public class ManagePeople {
     }
     public Integer addPerson(String firstName, String lastName)
     {
-        Session session = factory.openSession();
+        Session session = null;
+        try {
+            session = factory.openSession();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
         Transaction tx = null;
         Integer personID = null;
 
@@ -45,7 +50,7 @@ public class ManagePeople {
 
         try {
             tx = session.beginTransaction();
-            List people = session.createQuery("FROM testowa").list();
+            List people = session.createQuery("FROM Person").list();
             for (Iterator iterator = people.iterator(); iterator.hasNext();){
                 Person person = (Person) iterator.next();
                 System.out.print("First Name: " + person.getFirstName());

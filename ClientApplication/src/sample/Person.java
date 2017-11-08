@@ -1,6 +1,12 @@
 package sample;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Person {
+
     private String firstName;
     private String lastName;
     private int id;

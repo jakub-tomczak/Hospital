@@ -18,36 +18,22 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+
+        SessionFactory factory  = null;
         try
         {
-            Configuration cfg = new Configuration()
-                    .addResource("/src/sample/Person.hbm.xml");
+            factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 
-        }catch(HibernateException e)
+        }catch (Throwable ex)
         {
-            System.out.println(e.getMessage() + "\n" + e.getStackTrace());
-        }
-        SessionFactory factory = null;
-
-        /*
-        return;
-        try
-        {
-            factory = cfg.buildSessionFactory();
-
-        }catch (Throwable e)
-        {
-            System.err.println("Failed to create SessionFactory object");
-        }
-        if(factory == null)
-        {
+            System.err.println(ex);
             System.err.println("Factory is null");
-            return;
+
         }
+        factory.openSession();
 
         ManagePeople peopleManager = new ManagePeople(factory);
         peopleManager.listPeople();
-*/
 
 
 
