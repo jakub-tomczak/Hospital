@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B6D07E6F-1887-01D0-4176-D3253D86AF5D" name="Leczenie">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>5A8DF849-9AD8-41BC-CB42-67265C6A605F</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Data_rozpoczęcia" id="B7731CFA-0E86-1DBA-B9CB-31FBF0395238">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>DFA635C4-1419-9E49-DFF8-1B8C7A6FC9F9</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Data_zakończenia" id="9EE51F44-00DD-40D1-EE89-F9D7078B87E4">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>EBCDB21B-55B3-03F7-B5B1-8C78A42CD17E</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Dawka" id="96BCBAC3-E449-3C6D-D497-6F89B14B15C3">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>43B6CB94-B97A-3AB8-CD7A-025E0B5A4FF4</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pacjenci_ID" id="33352813-CB1D-C421-44E4-ABAE8E15CCA9">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>CE055912-7FA9-E6E3-1B50-635C6CFFD6E1</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="21A7D4FA-BF24-AB8B-B3A8-EFEC6F021210" referredColumn="513472F7-2E9E-6A4F-3798-6D52D27F8C56"/>
+</associations>
+</Column>
+<Column name="Choroby_ID" id="0B7F7DBE-7E32-9B5D-C205-1EDE275817EA">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>136C5882-EB73-7D9F-C064-5FF87F8B7128</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C031F359-2DD0-F6BC-A8D9-571B03211F8F" referredColumn="1ADF502C-18BC-3BC3-062C-2F5993B09378"/>
+</associations>
+</Column>
+<Column name="Leczenie_ID" id="AA220F56-1B66-B13C-FBB0-9EAE12CB3833">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DF81C269-6B2F-E948-7D98-CC0808CA7A2B" name="Leczenie_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="AA220F56-1B66-B13C-FBB0-9EAE12CB3833"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56A8E2CC-0983-0E4F-2EDA-D6F6CF441364" name="Leczenie_Pacjenci_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>0DE697B8-E28F-671E-8E4F-32FD09D22AF9</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33352813-CB1D-C421-44E4-ABAE8E15CCA9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9E7CCDDF-8536-50C9-87AF-EC807378A7F0" name="Leczenie_Choroby_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>B095938D-B952-AAD9-5D24-E58C798F887B</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0B7F7DBE-7E32-9B5D-C205-1EDE275817EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

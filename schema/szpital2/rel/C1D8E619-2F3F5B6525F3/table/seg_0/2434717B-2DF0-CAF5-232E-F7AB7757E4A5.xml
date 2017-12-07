@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2434717B-2DF0-CAF5-232E-F7AB7757E4A5" name="Pacjenci">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>B5ADA85F-4A46-E4F9-78D1-A8A151A23EFD</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="513472F7-2E9E-6A4F-3798-6D52D27F8C56">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>1C1250CF-7FA3-190B-65F8-16C2970759E5</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Imie" id="C03530CA-EAAC-F14C-2F2B-4AFC336882F8">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>DE0CEEDA-80DD-73E6-A7D8-8CFDD96104DF</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nazwisko" id="5671FEC5-0CCF-D606-0C76-D39C247C29C5">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>E3F1BF55-65DA-AF6F-DBCD-1DA07623FC1C</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PESEL" id="BFAD5F5A-FB87-E5EA-5B42-D7549F52E107">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>D3E1A309-FE49-93A4-A945-7D9197D34851</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="07AB9305-90A0-B0F4-D021-5B345AC35678" name="Pacjenci_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>5E7418DF-E931-8BF2-5EB0-6D5CA11DDC39</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="513472F7-2E9E-6A4F-3798-6D52D27F8C56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

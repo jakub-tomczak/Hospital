@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Lek_stosowany_w_leczeniu" directorySegmentName="seg_0" id="18E043D9-A131-C819-24A7-707AAB0C89A3">
+<createdBy>student</createdBy>
+<createdTime>2017-12-07 08:16:35 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnSource>pochodzi z bazy leków</nameOnSource>
+<nameOnTarget>zawiera wystąpienie leku</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>8A51712F-EE15-D708-25AC-D6DE2D211328</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>60E7AEF3-0832-21C5-3B34-37C3450F0A57</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

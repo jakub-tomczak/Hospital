@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="78138B90-B950-7472-CA87-522BB282FF1D" name="Lekarze">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>DF4FEEC0-B479-E1A4-60BB-89AEF48EBDA8</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Pracownicy_Pracownicy_ID" id="4446359E-CB2E-ACF3-7384-2CEB44D47FD0">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0220EC9A-B37A-6810-3CCA-F7B1693163C6" referredColumn="0BA0EA9E-52EB-2A0B-8BC2-2FCCF1E10521"/>
+</associations>
+</Column>
+<Column name="IDLekarza" id="E8568EEE-F95B-8E81-F598-DF72AFE3368A">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>1BB98037-FD19-5C95-6349-EE3EC77E2E2F</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Specjalizacja" id="07B30144-607B-9769-6FA7-06414FBC56EB">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>2ABD1B9E-1064-73B0-1B4A-1A6FCB53D00C</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stopień_naukowy" id="267A3C7E-42D8-64B9-C5C6-F9EF01A70D7D">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>B1C352C3-1AF4-474C-CB4A-2088CFEE44B9</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="59D228EA-AB29-3A27-8930-A9C36D45FBF4" name="Lekarze_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="4446359E-CB2E-ACF3-7384-2CEB44D47FD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="84FC68BA-CA71-0AA7-F9FE-BB89294A8FF2" name="Lekarze_IDLekarza_UN">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>CBF3E2DF-F663-E9BE-2EE4-108BBF4E4B00</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8568EEE-F95B-8E81-F598-DF72AFE3368A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3E8EDBB2-8C11-2DB2-C1F5-21FAED8CC279" name="Lekarze_Pracownicy_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>C9A6403C-E868-BD91-39A8-7F126064F974</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4446359E-CB2E-ACF3-7384-2CEB44D47FD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

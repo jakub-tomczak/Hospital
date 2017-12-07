@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5A8DF849-9AD8-41BC-CB42-67265C6A605F" name="Leczenie">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-10-18 18:09:03 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<preferredAbbreviation>Leczenie</preferredAbbreviation>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Data rozpoczęcia" id="DFA635C4-1419-9E49-DFF8-1B8C7A6FC9F9">
+<createdBy>Kolgi</createdBy>
+<createdTime>2017-12-06 21:42:30 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Data zakończenia" id="EBCDB21B-55B3-03F7-B5B1-8C78A42CD17E">
+<createdBy>Kolgi</createdBy>
+<createdTime>2017-12-06 21:42:40 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Dawka" id="43B6CB94-B97A-3AB8-CD7A-025E0B5A4FF4">
+<createdBy>Kolgi</createdBy>
+<createdTime>2017-12-06 21:43:17 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID" id="CE055912-7FA9-E6E3-1B50-635C6CFFD6E1">
+<createdBy>Kolgi</createdBy>
+<createdTime>2017-12-06 22:13:05 UTC</createdTime>
+<generatorID>0DE697B8-E28F-671E-8E4F-32FD09D22AF9</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<referedAttribute>1C1250CF-7FA3-190B-65F8-16C2970759E5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID1" id="D29EF3D8-2745-98B9-2F34-8358054D0865">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:42:21 UTC</createdTime>
+<generatorID>B095938D-B952-AAD9-5D24-E58C798F887B</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<referedAttribute>61AD9A57-042A-7D0B-A5FB-F517FB8731B5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

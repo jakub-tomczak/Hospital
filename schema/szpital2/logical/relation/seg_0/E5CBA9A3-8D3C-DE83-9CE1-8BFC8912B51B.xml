@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Pobyt_pacjenta" directorySegmentName="seg_0" id="E5CBA9A3-8D3C-DE83-9CE1-8BFC8912B51B">
+<createdBy>Kolgi</createdBy>
+<createdTime>2017-12-06 19:14:58 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<sourcePk>5E7418DF-E931-8BF2-5EB0-6D5CA11DDC39</sourcePk>
+<identifying>true</identifying>
+<nameOnSource>odbywa</nameOnSource>
+<nameOnTarget>jest odbywan przez </nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B5ADA85F-4A46-E4F9-78D1-A8A151A23EFD</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E4094D33-AB67-CA2D-EE78-EC1126152EE0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

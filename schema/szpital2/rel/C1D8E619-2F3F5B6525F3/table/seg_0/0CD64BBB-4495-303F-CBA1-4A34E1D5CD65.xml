@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0CD64BBB-4495-303F-CBA1-4A34E1D5CD65" name="Pielęgniarki">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>4FFC7308-9A09-75C2-FF9A-2BA712C16F93</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Pracownicy_Pracownicy_ID" id="38B2E97D-5BEA-FE69-3ACB-3012A0950BA5">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DDCBBCE8-D9C8-7F4F-9D31-292086DCA033" referredColumn="0BA0EA9E-52EB-2A0B-8BC2-2FCCF1E10521"/>
+</associations>
+</Column>
+<Column name="IDPielegniarki" id="A37D603B-278F-A548-7EE8-21F117372223">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>44299F1D-72CF-D4CD-43E2-DBC204312664</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="22B5A7FF-AC10-7DE9-591C-ECE4AFE13B85" name="Pielęgniarki_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="38B2E97D-5BEA-FE69-3ACB-3012A0950BA5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E7D0B11-8943-4633-664D-987352F30DA8" name="Pielęgniarki_IDPielegniarki_UN">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>80C50595-43CC-6165-E422-39A75E606029</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A37D603B-278F-A548-7EE8-21F117372223"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0201234C-993F-949E-5D59-A9B83619F69B" name="Pielęgniarki_Pracownicy_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 13:19:41 UTC</createdTime>
+<generatorID>E230FFF6-4512-31FE-6151-FE1F7DBD7359</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38B2E97D-5BEA-FE69-3ACB-3012A0950BA5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
