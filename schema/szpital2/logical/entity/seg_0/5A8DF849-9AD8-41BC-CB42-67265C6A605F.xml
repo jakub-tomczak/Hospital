@@ -83,4 +83,22 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="976DD3F5-0789-3CBB-800A-73993B1A931A" name="LeczeniePK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:31:19 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<newElementsIDs>DFA635C4-1419-9E49-DFF8-1B8C7A6FC9F9,EBCDB21B-55B3-03F7-B5B1-8C78A42CD17E,43B6CB94-B97A-3AB8-CD7A-025E0B5A4FF4,0DE697B8-E28F-671E-8E4F-32FD09D22AF9,B095938D-B952-AAD9-5D24-E58C798F887B,98A4AD1B-D26A-A30C-0725-7307575F12E1</newElementsIDs>
+<usedAttributes>
+<attributeRef>DFA635C4-1419-9E49-DFF8-1B8C7A6FC9F9</attributeRef>
+<attributeRef>EBCDB21B-55B3-03F7-B5B1-8C78A42CD17E</attributeRef>
+<attributeRef>43B6CB94-B97A-3AB8-CD7A-025E0B5A4FF4</attributeRef>
+<attributeRef>CE055912-7FA9-E6E3-1B50-635C6CFFD6E1</attributeRef>
+<attributeRef>D29EF3D8-2745-98B9-2F34-8358054D0865</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="24BA4F31-2C6D-7855-77E2-9427E33B27E6" name="SprzetNaOdziale">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Badania_ID" id="DC6F1413-5BE5-56B8-DB79-F96ED8BA2F01">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C0D1DB72-C924-6EF4-DF35-41FE99FFCBE2" referredColumn="A39394B5-9DE9-852A-18E2-6163459EFDDF"/>
+</associations>
+</Column>
+<Column name="Sprzety_ID" id="E90DE2AD-8AAA-95A0-3263-A3A36CD1A570">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="555F69DE-C23A-8B38-0AAC-06D7F9D25A43" referredColumn="DFD08BD3-8003-BD5D-5FCC-637071561B28"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C5CBC705-1A55-57D3-FF90-BFAFB6FC04AB" name="SprzetNaOdziale_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DC6F1413-5BE5-56B8-DB79-F96ED8BA2F01"/>
+<colUsage columnID="E90DE2AD-8AAA-95A0-3263-A3A36CD1A570"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7E00A5D6-657D-95CC-BC41-0501003F72B5" name="SprzetNaOdziale_Badania_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>9B3CA437-E584-DF42-71D7-7088C917D023</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DC6F1413-5BE5-56B8-DB79-F96ED8BA2F01"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8DBA422C-C482-4767-A657-F1F8F64CAF85" name="SprzetNaOdziale_Sprzety_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>9B3CA437-E584-DF42-71D7-7088C917D023</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E90DE2AD-8AAA-95A0-3263-A3A36CD1A570"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

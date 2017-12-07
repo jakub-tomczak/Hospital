@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D71ABB03-E442-E007-5300-3E4BB27FDFD4" name="Pielegniarki">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>4FFC7308-9A09-75C2-FF9A-2BA712C16F93</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PracownikID" id="7372ADCC-9736-95E4-494C-A4041716AEFA">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>89D33E81-C3B7-55C9-5F12-B96B8793E323</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="959FEA2D-BA85-6203-4021-EB058B47DA69" referredColumn="8847BC82-C410-4158-22FC-C5653DD2EDE9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FBAFBF3A-7D71-2933-EA35-E4E1934F05C7" name="Pielegniarki_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>EFDD2F0A-540B-6BD7-0C44-51E3DC46AD6B</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7372ADCC-9736-95E4-494C-A4041716AEFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AEFA9D9A-DE3F-BF5E-13E5-7C71DF6EC4E8" name="Pielegniarki_Pracownicy_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>E230FFF6-4512-31FE-6151-FE1F7DBD7359</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7372ADCC-9736-95E4-494C-A4041716AEFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BC57419E-31CE-DEC6-7A1C-1FC8FA93A224" containerWithKeyObject="537F8AF0-DC96-DE99-1226-0129CCA3C74E" localFKIndex="66D2C880-1748-68C5-3D34-F4B4CF2005CC" name="Relation_17_Leczenie_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>98A4AD1B-D26A-A30C-0725-7307575F12E1</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<referredTableLongName>Leczenie</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>BEC7F720-F300-CDAF-D25A-D3604BD4D3F5</referredTableID>
+<keyObject>4E1829D0-EE9C-7779-5B8B-73D290B802D8</keyObject>
+<referredKeyID>4E1829D0-EE9C-7779-5B8B-73D290B802D8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Data_rozpoczęcia,Data_zakończenia,Dawka,Pacjenci_ID,Choroby_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

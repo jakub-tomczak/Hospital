@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="950B07B1-4E9C-C7BC-6A2D-9576C218A013" name="Lekarze">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>DF4FEEC0-B479-E1A4-60BB-89AEF48EBDA8</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Specjalizacja" id="F8B1A40E-730C-CB95-4C20-6F7A4A259389">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>2ABD1B9E-1064-73B0-1B4A-1A6FCB53D00C</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="StopienNaukowy" id="B79ACFAD-66F2-7A90-2C48-5857F1308275">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>B1C352C3-1AF4-474C-CB4A-2088CFEE44B9</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PracownikID" id="813D9FB1-A046-3867-609B-B5E3CBBDCFAE">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>89D33E81-C3B7-55C9-5F12-B96B8793E323</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6CD95524-21D5-A78F-9510-2EEA8C122D6F" referredColumn="8847BC82-C410-4158-22FC-C5653DD2EDE9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="12EE7CE6-F451-B21A-3739-B8276A021EF1" name="Lekarze_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>EFDD2F0A-540B-6BD7-0C44-51E3DC46AD6B</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="813D9FB1-A046-3867-609B-B5E3CBBDCFAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="737ECACD-C57E-21E5-6062-8F3C6C14A090" name="Lekarze_Pracownicy_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>C9A6403C-E868-BD91-39A8-7F126064F974</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="813D9FB1-A046-3867-609B-B5E3CBBDCFAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

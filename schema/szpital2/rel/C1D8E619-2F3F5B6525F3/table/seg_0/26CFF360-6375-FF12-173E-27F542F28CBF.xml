@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="26CFF360-6375-FF12-173E-27F542F28CBF" name="Sprzety">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>BAB9B983-52AF-4822-0C06-F571120A1DE2</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="DFD08BD3-8003-BD5D-5FCC-637071561B28">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<comment>ID danego wystąpienia sprzętu.</comment>
+<generatorID>1C58EA48-E7F8-3620-398C-3776A309A57C</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nazwa" id="3C493251-E4B1-0CC3-D338-BFA14326A524">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>AE116F41-0EF4-8E4E-94C0-1E77F4C443A9</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rok_produkcji" id="EC10D702-0763-5E78-D477-A82231E075F0">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>0E8A04C6-A229-362E-B8B8-EF78F273613D</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stan" id="C9C6E260-3B9C-89CA-9A52-9495A7A44430">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<comment>Nie wiem czy to potrzebne ale można by określać stan w przedziale 0-100 tak aby móc określać czy już go trzeba wymieinć, czy nie.</comment>
+<generatorID>FC4C35E7-4712-0AB6-6824-54BDAECCE6AC</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Oddzialy_ID" id="455F1E9C-7F26-1467-E3FB-1B9FA9690E20">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>F390E7CE-C0F2-BFC8-1301-40BE16054669</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1B8751D1-7463-6E59-31B7-170805CA03F4" referredColumn="B2706BEE-EFA0-2B91-579F-B5588B74B990"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4CC89865-EEBC-38CF-FAB8-FBD082FEE594" name="Sprzety_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>EDF75237-BC29-83CD-5EE5-0E6BC45F8FA8</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DFD08BD3-8003-BD5D-5FCC-637071561B28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C8A359D2-EC02-C584-18C7-98417199C37D" name="Sprzety_Oddzialy_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:36:21 UTC</createdTime>
+<generatorID>03DA9D63-45C2-B459-F625-8F049C56B08A</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="455F1E9C-7F26-1467-E3FB-1B9FA9690E20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -6,12 +6,13 @@
 <engineerTo>
 <item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
+<sourcePk>976DD3F5-0789-3CBB-800A-73993B1A931A</sourcePk>
 <identifying>false</identifying>
 <nameOnSource>jest prowadzona z użyciem</nameOnSource>
 <nameOnTarget>jest wykorzystywany w</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>true</optionalTarget>
-<sourceCardinality>1</sourceCardinality>
+<sourceCardinality>*</sourceCardinality>
 <sourceEntity>5A8DF849-9AD8-41BC-CB42-67265C6A605F</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
 <targetEntity>8A51712F-EE15-D708-25AC-D6DE2D211328</targetEntity>

@@ -16,7 +16,7 @@
 <normalForm>Third</normalForm>
 <preferredAbbreviation>Operacje</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID" id="72B97F4E-112A-D5C1-F0B2-7BF73E2DC15A">
+<Attribute name="OperacjaID" id="72B97F4E-112A-D5C1-F0B2-7BF73E2DC15A">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-11 10:27:27 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
@@ -68,7 +68,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID2" id="0E9AFC40-C01F-7450-461B-03F7830746BA">
+<Attribute name="ID" id="0E9AFC40-C01F-7450-461B-03F7830746BA">
 <createdBy>student</createdBy>
 <createdTime>2017-12-07 08:00:28 UTC</createdTime>
 <generatorID>2311C88F-08B0-6D3A-32A1-C881B4D8964E</generatorID>

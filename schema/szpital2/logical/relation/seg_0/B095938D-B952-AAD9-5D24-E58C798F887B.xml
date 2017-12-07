@@ -7,7 +7,7 @@
 <item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
 <targetPk>545B8729-B7D3-74C1-E85B-C7A53C3B42FF</targetPk>
-<identifying>false</identifying>
+<identifying>true</identifying>
 <nameOnSource>leczy</nameOnSource>
 <nameOnTarget>jest leczona poprzez</nameOnTarget>
 <optionalSource>false</optionalSource>
