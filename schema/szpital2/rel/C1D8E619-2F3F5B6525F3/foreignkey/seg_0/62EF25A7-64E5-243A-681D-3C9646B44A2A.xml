@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="62EF25A7-64E5-243A-681D-3C9646B44A2A" containerWithKeyObject="E0DFEF6B-3FC5-BF92-6AD2-56BAEC5CB18A" localFKIndex="75FD6003-9D0F-5287-48E7-2BC4BFD38A44" name="Stosowane_leki_Leki_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:54:05 UTC</createdTime>
+<generatorID>18E043D9-A131-C819-24A7-707AAB0C89A3</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<referredTableLongName>Leki</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DB64EA42-7AC1-48A5-B24D-C4C1A7CB0DD1</referredTableID>
+<keyObject>26F62239-B91A-E553-1207-DF2F0FD75E39</keyObject>
+<referredKeyID>26F62239-B91A-E553-1207-DF2F0FD75E39</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Leki_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

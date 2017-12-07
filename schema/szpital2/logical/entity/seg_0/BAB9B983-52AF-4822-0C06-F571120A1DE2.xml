@@ -42,7 +42,7 @@
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Rok produkcji" id="0E8A04C6-A229-362E-B8B8-EF78F273613D">
+<Attribute name="RokProdukcji" id="0E8A04C6-A229-362E-B8B8-EF78F273613D">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-11 11:00:50 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>

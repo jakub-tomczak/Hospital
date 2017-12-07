@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="26BB0D9F-D063-349E-727E-71320BA4E980" name="WykonywaneBadania">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:54:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Lekarze_PracownikID" id="55F775A4-FD9E-884E-98FF-37303F32FA5F">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:54:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="76D7BC1E-8AE3-0410-A9C2-49AC7C1BAC0C" referredColumn="3352BEE7-E466-678C-1174-ED7ABF956FCB"/>
+</associations>
+</Column>
+<Column name="Badania_ID" id="C277C64D-184D-7B30-BC3C-B9D1C173961D">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:54:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1C0EE8E8-8255-CDF7-24A5-DC45BCF2714B" referredColumn="7D6AC3A7-3BE0-19AF-D623-3B123BCF237C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E5213901-017F-2C56-9BDE-B84F227061A4" name="WykonywaneBadania_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:54:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55F775A4-FD9E-884E-98FF-37303F32FA5F"/>
+<colUsage columnID="C277C64D-184D-7B30-BC3C-B9D1C173961D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC1C7BBF-AE4A-446F-B2B1-407783F063F9" name="WykonywaneBadania_Lekarze_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:54:05 UTC</createdTime>
+<generatorID>4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55F775A4-FD9E-884E-98FF-37303F32FA5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4D1B7AD8-6FA7-E0CF-6C61-E354FFF2A8D8" name="WykonywaneBadania_Badania_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:54:05 UTC</createdTime>
+<generatorID>4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C277C64D-184D-7B30-BC3C-B9D1C173961D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

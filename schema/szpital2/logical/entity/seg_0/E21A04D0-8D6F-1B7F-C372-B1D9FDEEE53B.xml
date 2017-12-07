@@ -54,6 +54,18 @@
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="MaksymalnaLiczbaPacjentow" id="05EF0E21-B4CB-7F12-6F37-C41D46BABF14">
+<createdBy>jakub</createdBy>
+<createdTime>2017-12-07 21:45:36 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="E7720C9F-83CF-8DAA-FF8E-9D295B0D9618" name="Oddział PK">
