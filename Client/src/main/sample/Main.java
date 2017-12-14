@@ -1,24 +1,27 @@
-package sample;
+package main.sample;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.Relations.Teams;
 
 import java.sql.*;
 import java.util.Properties;
 
 public class Main extends Application {
-
+    public static ObservableList<Teams> teamsData;
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-
-        Connection conn = connect();
+        ObservableList<Teams> teams;
+                Connection conn = connect();
         if (conn == null)
             return;
 
@@ -28,19 +31,19 @@ public class Main extends Application {
                     "from pracownicy";
             //listWorkers(conn, query);
 
-            query = "select count(*) from pracownicy";
-            exercise1_0(conn, query);
 
-            query = "select count(*), z.nazwa from pracownicy p, zespoly z " +
+            query = "select count(*) as \"ONE\", z.nazwa as \"TWO\" from pracownicy p, zespoly z " +
                     "where p.id_zesp = z.id_zesp " +
                     "group by z.nazwa";
-            exercise1(conn, query);
+
+            teamsData = exercise1(conn, query);
 
         } catch
                 (SQLException ex) {
             System.out.println(
                     "Bład wykonania polecenia"
                             + ex.toString());
+            throw ex;
         } finally {
             if (rs != null) {
                 try {
@@ -68,6 +71,7 @@ public class Main extends Application {
 
     private void exercise1_0(Connection conn, String query) throws SQLException {
         stmt = conn.createStatement();
+
         rs = stmt.executeQuery(
                 query
         );
@@ -81,19 +85,23 @@ public class Main extends Application {
         stmt.close();
     }
 
-    private void exercise1(Connection conn, String query) throws SQLException {
+    private ObservableList<Teams> exercise1(Connection conn, String query) throws SQLException {
+        ObservableList<Teams> teams = FXCollections.observableArrayList();
 
         stmt = conn.createStatement();
         rs = stmt.executeQuery(
                 query
         );
-        while
-                (rs.next()) {
+        while(rs.next()) {
             System.out.println(rs.getInt(1) + " w zespole " + rs.getString(2));
+            teams.add(new Teams(rs.getInt("ONE"), rs.getString("TWO")));
+
         }
 
         rs.close();
         stmt.close();
+
+        return teams;
     }
 
 
