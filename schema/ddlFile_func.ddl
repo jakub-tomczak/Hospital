@@ -35,7 +35,7 @@ ALTER TABLE sz_leczenia ADD CONSTRAINT leczenia_pk PRIMARY KEY ( choroby_id,
 leczenieid );
 
 CREATE TABLE sz_lekarze (
-    specjalizacja    VARCHAR2(20),
+    specjalizacja    VARCHAR2(30),
     stopiennaukowy   VARCHAR2(20),
     pracownikid      INTEGER NOT NULL
 );

@@ -52,9 +52,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT043</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<dataTypeScale>5</dataTypeScale>
-<ownDataTypeParameters>,2,5</ownDataTypeParameters>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="SZ_Oddzialy_ID" id="9A87DD4E-8A39-38E7-7B6F-EB2774545299">
@@ -69,7 +69,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="ADC84BB0-128F-1753-DEAF-8D4396D0827C" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
+<colAssociation fkAssociation="7CEF0B92-6BA2-F5BD-4706-AAC385B38E40" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
 </associations>
 </Column>
 <Column name="PracownikID" id="6D683C37-85CA-D630-66EC-2E84F13387B4">
@@ -97,9 +97,9 @@
 <colUsage columnID="6D683C37-85CA-D630-66EC-2E84F13387B4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="FE901B79-EAB8-0BF1-7127-E0FBAB80287B" name="SZ_Pracownicy_SZ_Oddzialy_FK">
+<ind_PK_UK id="E3BAA9BC-5AA7-0A4B-AD8D-69A64F1F6557" name="SZ_Pracownicy_SZ_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
-<createdTime>2017-12-25 17:18:47 UTC</createdTime>
+<createdTime>2017-12-25 18:25:07 UTC</createdTime>
 <generatorID>2E0AFBB3-9EE6-7B68-33A8-3F8D000572A3</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <indexState>Foreign Key</indexState>
