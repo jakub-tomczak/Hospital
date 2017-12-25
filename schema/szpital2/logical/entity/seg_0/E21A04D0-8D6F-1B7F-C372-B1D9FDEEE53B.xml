@@ -36,6 +36,7 @@
 <engineerTo>
 <item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -72,9 +73,8 @@
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-11 11:07:23 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="false"/>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

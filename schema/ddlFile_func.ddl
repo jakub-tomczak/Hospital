@@ -52,7 +52,7 @@ ALTER TABLE sz_leki ADD CONSTRAINT leki_pk PRIMARY KEY ( leki_id );
 
 CREATE TABLE sz_oddzialy (
     id                          INTEGER NOT NULL,
-    kierownikkliniki            INTEGER NOT NULL,
+    kierownikkliniki            INTEGER NULL,
     nazwa                       VARCHAR2(30) NOT NULL,
     maksymalnaliczbapacjentow   INTEGER NOT NULL
 );
@@ -100,7 +100,7 @@ CREATE TABLE sz_pracownicy (
     imie             VARCHAR2(20) NOT NULL,
     nazwisko         VARCHAR2(20) NOT NULL,
     stanowisko       number(2) NOT NULL,
-    pensja           NUMBER(2,5) NOT NULL,
+    pensja           NUMBER(6, 2) NOT NULL,
     oddzialy_id   INTEGER NOT NULL,
     pracownikid      INTEGER NOT NULL
 );
@@ -263,7 +263,6 @@ CREATE SEQUENCE oddzialy_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE badania_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE sprzet_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE pacjenci_id_seq START WITH 1 NOCACHE ORDER;
-CREATE SEQUENCE sprzet_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE choroby_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE leczenie_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE leki_id_seq START WITH 1 NOCACHE ORDER;
