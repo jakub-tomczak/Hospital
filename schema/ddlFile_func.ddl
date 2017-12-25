@@ -52,7 +52,7 @@ ALTER TABLE sz_leki ADD CONSTRAINT leki_pk PRIMARY KEY ( leki_id );
 
 CREATE TABLE sz_oddzialy (
     id                          INTEGER NOT NULL,
-    kierownikkliniki            INTEGER NULL,
+    kierownikkliniki            INTEGER,
     nazwa                       VARCHAR2(30) NOT NULL,
     maksymalnaliczbapacjentow   INTEGER NOT NULL
 );
