@@ -65,9 +65,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT043</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<dataTypeScale>5</dataTypeScale>
-<ownDataTypeParameters>,2,5</ownDataTypeParameters>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ID" id="8E5798F6-0371-6140-0E91-2042EE229B60">
 <createdBy>Kolgi</createdBy>
@@ -101,9 +101,8 @@
 <createdBy>jakub</createdBy>
 <createdTime>2017-12-07 21:30:04 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="false"/>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
