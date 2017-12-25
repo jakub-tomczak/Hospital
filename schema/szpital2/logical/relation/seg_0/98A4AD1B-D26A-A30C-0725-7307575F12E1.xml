@@ -1,12 +1,11 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_17" directorySegmentName="seg_0" id="98A4AD1B-D26A-A30C-0725-7307575F12E1">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SZ_UzywaneLeki" directorySegmentName="seg_0" id="98A4AD1B-D26A-A30C-0725-7307575F12E1">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-18 18:15:14 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
 <engineerTo>
 <item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
-<sourcePk>976DD3F5-0789-3CBB-800A-73993B1A931A</sourcePk>
 <identifying>false</identifying>
 <nameOnSource>jest prowadzona z użyciem</nameOnSource>
 <nameOnTarget>jest wykorzystywany w</nameOnTarget>

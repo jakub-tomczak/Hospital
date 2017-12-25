@@ -15,7 +15,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Lekarze</preferredAbbreviation>
+<preferredAbbreviation>SZ_Lekarze</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="Specjalizacja" id="2ABD1B9E-1064-73B0-1B4A-1A6FCB53D00C">
 <createdBy>Jakub</createdBy>

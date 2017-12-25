@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Stosowane_leki</preferredAbbreviation>
+<preferredAbbreviation>SZ_StosowaneLeki</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="ID" id="69C29987-801F-C505-6703-3C3748811893">
 <createdBy>Jakub</createdBy>

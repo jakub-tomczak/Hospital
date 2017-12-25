@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FC1829FE-C3AF-ADDC-B842-BAEAC989871D" name="SZ_UzywaneLeki">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SZ_Leczenia_SZ_Choroby_ID" id="59809207-2353-28CF-0664-62E4F5E7144A">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DE0F64E7-576D-46CD-37E8-7F12D4BDE81D" referredColumn="E220D99D-C53E-DE2D-77EC-2F6E49E398C5"/>
+</associations>
+</Column>
+<Column name="SZ_Leczenia_LeczenieID" id="F139F95D-E4BC-0174-B9CB-A1F0185AA65A">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DE0F64E7-576D-46CD-37E8-7F12D4BDE81D" referredColumn="A646EB1A-69E5-573F-3FBF-0016AE123F6D"/>
+</associations>
+</Column>
+<Column name="SZ_StosowaneLeki_ID" id="2C13E532-0ADE-1CF3-981F-7FFC5D439824">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B2C0A6FC-A005-E49E-19A4-953A93B513F9" referredColumn="AC335015-3A9A-0F1B-04EA-9DA1EA970F2B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="036CA66F-F94A-64C5-42F1-3D56DB289799" name="SZ_UzywaneLeki_PK">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="59809207-2353-28CF-0664-62E4F5E7144A"/>
+<colUsage columnID="F139F95D-E4BC-0174-B9CB-A1F0185AA65A"/>
+<colUsage columnID="2C13E532-0ADE-1CF3-981F-7FFC5D439824"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EA7B06CA-28DE-03F9-C0A0-C3C326EF5BA0" name="SZ_UzywaneLeki_SZ_Leczenia_FK">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<generatorID>98A4AD1B-D26A-A30C-0725-7307575F12E1</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="59809207-2353-28CF-0664-62E4F5E7144A"/>
+<colUsage columnID="F139F95D-E4BC-0174-B9CB-A1F0185AA65A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7F6AD8D4-95AE-FB49-27E4-3A4DDF1F149D" name="SZ_UzywaneLeki_SZ_StosowaneLeki_FK">
+<createdBy>Jakub</createdBy>
+<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<generatorID>98A4AD1B-D26A-A30C-0725-7307575F12E1</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C13E532-0ADE-1CF3-981F-7FFC5D439824"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

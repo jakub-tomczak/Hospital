@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="WykonywaneBadania" directorySegmentName="seg_0" id="4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SZ_WykBadania" directorySegmentName="seg_0" id="4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-18 18:12:11 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
@@ -12,7 +12,7 @@
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>*</sourceCardinality>
-<sourceEntity>DF4FEEC0-B479-E1A4-60BB-89AEF48EBDA8</sourceEntity>
+<sourceEntity>6051BE1E-5D21-C4C3-F59A-E64E248A3354</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
 <targetEntity>BACF6199-1ED6-C356-DFFC-FCAD86B6BDCA</targetEntity>
 <transferable>true</transferable>

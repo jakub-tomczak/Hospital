@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Operacje</preferredAbbreviation>
+<preferredAbbreviation>SZ_Operacje</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="OperacjaID" id="72B97F4E-112A-D5C1-F0B2-7BF73E2DC15A">
 <createdBy>Jakub</createdBy>

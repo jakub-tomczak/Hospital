@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Leczenie</preferredAbbreviation>
+<preferredAbbreviation>SZ_Leczenia</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="DataRozpoczecia" id="DFA635C4-1419-9E49-DFF8-1B8C7A6FC9F9">
 <createdBy>Kolgi</createdBy>
@@ -99,8 +99,9 @@
 <createdBy>jakub</createdBy>
 <createdTime>2017-12-07 21:47:35 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

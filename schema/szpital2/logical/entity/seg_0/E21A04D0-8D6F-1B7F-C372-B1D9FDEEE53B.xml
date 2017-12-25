@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Oddzialy</preferredAbbreviation>
+<preferredAbbreviation>SZ_Oddzialy</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="ID" id="07E0E539-8130-5BD2-BE5C-ED16DE62A5AF">
 <createdBy>Jakub</createdBy>

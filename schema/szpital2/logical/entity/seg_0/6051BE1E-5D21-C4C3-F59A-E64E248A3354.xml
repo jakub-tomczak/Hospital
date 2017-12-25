@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Pracownicy</preferredAbbreviation>
+<preferredAbbreviation>SZ_Pracownicy</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="Imie" id="806F1DA5-8A52-79F6-FA7E-6ED72055F200">
 <createdBy>Jakub</createdBy>
@@ -100,8 +100,9 @@
 <createdBy>jakub</createdBy>
 <createdTime>2017-12-07 21:30:04 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

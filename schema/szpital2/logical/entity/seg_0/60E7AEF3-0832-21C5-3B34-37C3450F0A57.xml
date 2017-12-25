@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Leki</preferredAbbreviation>
+<preferredAbbreviation>SZ_Leki</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="ID" id="3AEE8ACA-0DB3-BFCF-4B78-2FCC9FBD2DC8">
 <createdBy>student</createdBy>

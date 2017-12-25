@@ -14,6 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
+<preferredAbbreviation>SZ_Pobyty</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="ID" id="DAB86B62-90C3-9BA9-9C1C-E98EF5862398">
 <createdBy>Kolgi</createdBy>

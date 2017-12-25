@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Badania</preferredAbbreviation>
+<preferredAbbreviation>SZ_Badania</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="ID" id="00290C25-A6C4-3635-3321-2EFE12756814">
 <createdBy>Jakub</createdBy>

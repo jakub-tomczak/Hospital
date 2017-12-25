@@ -14,7 +14,7 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
-<preferredAbbreviation>Choroby</preferredAbbreviation>
+<preferredAbbreviation>SZ_Choroby</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="ID" id="61AD9A57-042A-7D0B-A5FB-F517FB8731B5">
 <createdBy>Kolgi</createdBy>
