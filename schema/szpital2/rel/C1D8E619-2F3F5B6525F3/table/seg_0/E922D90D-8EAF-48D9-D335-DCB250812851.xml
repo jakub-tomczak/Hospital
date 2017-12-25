@@ -24,7 +24,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="1FF49408-E435-5ECD-912B-E43A4423A666" name="SZ_Pielegniarki_PK">
+<ind_PK_UK id="1FF49408-E435-5ECD-912B-E43A4423A666" name="Pielegniarki_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>EFDD2F0A-540B-6BD7-0C44-51E3DC46AD6B</generatorID>
@@ -36,7 +36,7 @@
 <colUsage columnID="5FFD41A7-8179-E495-CC41-1E0E81D39CBE"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="8D516272-97AE-F89F-ACD3-BBEC1F3CED20" name="SZ_Pielegniarki_SZ_Pracownicy_FK">
+<ind_PK_UK id="8D516272-97AE-F89F-ACD3-BBEC1F3CED20" name="Pielegniarki_Pracownicy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>E230FFF6-4512-31FE-6151-FE1F7DBD7359</generatorID>

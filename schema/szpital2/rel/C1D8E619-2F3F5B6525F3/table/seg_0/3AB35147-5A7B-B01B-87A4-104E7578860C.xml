@@ -56,7 +56,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="53F41ACE-78D3-AF13-3968-32E0CE84475A" name="SZ_Oddzialy_PK">
+<ind_PK_UK id="53F41ACE-78D3-AF13-3968-32E0CE84475A" name="Oddzialy_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>E7720C9F-83CF-8DAA-FF8E-9D295B0D9618</generatorID>

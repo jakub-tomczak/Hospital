@@ -37,7 +37,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="62350608-7F14-C7EA-2588-A95C74EACAF7" name="SZ_WykonywaneOperacje_PK">
+<ind_PK_UK id="62350608-7F14-C7EA-2588-A95C74EACAF7" name="WykonywaneOperacje_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
@@ -49,7 +49,7 @@
 <colUsage columnID="316505F6-AEE6-A417-CA40-A77D3A1DE725"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="30AEBAB6-D90D-7876-4D17-B317266455F8" name="SZ_WykonywaneOperacje_SZ_Lekarze_FK">
+<ind_PK_UK id="30AEBAB6-D90D-7876-4D17-B317266455F8" name="WykonywaneOperacje_Lekarze_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F75967EE-4C32-A27B-68A4-6E85D393C200</generatorID>
@@ -60,7 +60,7 @@
 <colUsage columnID="E1E672C9-2D5A-7ED7-7AEC-0DEBA75A7F46"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="29C11E05-1536-D64F-3DDF-E8DAB918016C" name="SZ_WykonywaneOperacje_SZ_Operacje_FK">
+<ind_PK_UK id="29C11E05-1536-D64F-3DDF-E8DAB918016C" name="WykonywaneOperacje_Operacje_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F75967EE-4C32-A27B-68A4-6E85D393C200</generatorID>

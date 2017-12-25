@@ -99,7 +99,7 @@ ALTER TABLE sz_pobyty
 CREATE TABLE sz_pracownicy (
     imie             VARCHAR2(20) NOT NULL,
     nazwisko         VARCHAR2(20) NOT NULL,
-    stanowisko       INTEGER NOT NULL,
+    stanowisko       number(2) NOT NULL,
     pensja           NUMBER(2,5) NOT NULL,
     oddzialy_id   INTEGER NOT NULL,
     pracownikid      INTEGER NOT NULL
@@ -258,6 +258,18 @@ ALTER TABLE sz_wykonywaneoperacje
 --  ERROR: No Discriminator Column found in Arc FKArc_4 - constraint trigger for Arc cannot be generated
 
 CREATE SEQUENCE leki_leki_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE pracownicy_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE oddzialy_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE badania_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE sprzet_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE pacjenci_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE sprzet_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE choroby_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE leczenie_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE leki_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE leczenia_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE operacje_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE pobyty_id_seq START WITH 1 NOCACHE ORDER;
 
 CREATE OR REPLACE TRIGGER leki_leki_id_trg BEFORE
     INSERT ON sz_leki
@@ -267,6 +279,8 @@ BEGIN
     :new.sz_leki_id := leki_leki_id_seq.nextval;
 END;
 /
+
+
 
 
 

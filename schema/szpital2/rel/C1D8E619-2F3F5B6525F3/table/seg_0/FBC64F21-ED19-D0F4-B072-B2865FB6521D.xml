@@ -31,7 +31,7 @@
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SZ_Leki_ID" id="877B5AB3-8F25-ED91-FFDB-34B48E555663">
+<Column name="Leki_ID" id="877B5AB3-8F25-ED91-FFDB-34B48E555663">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
@@ -46,7 +46,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="7FE219BB-114D-FA42-2B6F-47600AA0B836" name="SZ_Leki_PK">
+<ind_PK_UK id="7FE219BB-114D-FA42-2B6F-47600AA0B836" name="Leki_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>

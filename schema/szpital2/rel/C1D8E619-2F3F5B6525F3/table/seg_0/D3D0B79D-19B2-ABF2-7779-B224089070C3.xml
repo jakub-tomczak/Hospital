@@ -85,7 +85,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="4D313B2B-D820-B1A5-5FD8-F7E38083F5C8" name="SZ_Leczenia_PK">
+<ind_PK_UK id="4D313B2B-D820-B1A5-5FD8-F7E38083F5C8" name="Leczenia_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>FF397E88-E654-1993-4669-A3F574A330F8</generatorID>
@@ -98,7 +98,7 @@
 <colUsage columnID="A646EB1A-69E5-573F-3FBF-0016AE123F6D"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="4974AAB5-DBF9-02DF-6336-187C6DA09881" name="SZ_Leczenia_SZ_Pacjenci_FK">
+<ind_PK_UK id="4974AAB5-DBF9-02DF-6336-187C6DA09881" name="Leczenia_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>0DE697B8-E28F-671E-8E4F-32FD09D22AF9</generatorID>
@@ -109,7 +109,7 @@
 <colUsage columnID="3A163759-38AE-E72A-9B53-7D66B96AC47D"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="72B2ECF4-5D21-524D-89BA-ABEFDBCC7B48" name="SZ_Leczenia_SZ_Choroby_FK">
+<ind_PK_UK id="72B2ECF4-5D21-524D-89BA-ABEFDBCC7B48" name="Leczenia_Choroby_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>B095938D-B952-AAD9-5D24-E58C798F887B</generatorID>

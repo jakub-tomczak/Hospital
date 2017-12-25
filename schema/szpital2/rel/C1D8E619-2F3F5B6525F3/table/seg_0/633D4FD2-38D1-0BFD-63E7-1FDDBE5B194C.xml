@@ -41,7 +41,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SZ_Leki_SZ_Leki_ID" id="1BEA051A-B198-0ABD-3237-2751DF200C61">
+<Column name="StosowaneLeki_Leki_ID" id="1BEA051A-B198-0ABD-3237-2751DF200C61">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
@@ -57,7 +57,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="E41A0D7F-70A6-C6B6-1B54-89B35B7B40F4" name="SZ_StosowaneLeki_PK">
+<ind_PK_UK id="E41A0D7F-70A6-C6B6-1B54-89B35B7B40F4" name="StosowaneLeki_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>A4654A61-190E-8BD4-6567-8A70FAB36DFE</generatorID>
@@ -69,7 +69,7 @@
 <colUsage columnID="AC335015-3A9A-0F1B-04EA-9DA1EA970F2B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="A4EC6D6E-47B6-A9DE-8C20-CC40A4613F04" name="SZ_StosowaneLeki_SZ_Leki_FK">
+<ind_PK_UK id="A4EC6D6E-47B6-A9DE-8C20-CC40A4613F04" name="StosowaneLeki_Leki_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>18E043D9-A131-C819-24A7-707AAB0C89A3</generatorID>

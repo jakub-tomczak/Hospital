@@ -43,7 +43,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SZ_Pacjenci_ID" id="E8723A44-714C-8AFD-F91D-614BABFA0ED9">
+<Column name="Pacjenci_ID" id="E8723A44-714C-8AFD-F91D-614BABFA0ED9">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>C7EE1A4D-C5AD-2537-1381-5DE434307181</generatorID>
@@ -58,7 +58,7 @@
 <colAssociation fkAssociation="850901DE-6084-606A-2361-75AD5AD5A082" referredColumn="2E284ECA-1153-3AD2-A06A-7E1A2AB54FED"/>
 </associations>
 </Column>
-<Column name="SZ_Oddzialy_ID" id="B0C241BC-5CED-FD69-4465-443E526EAFDE">
+<Column name="Oddzialy_ID" id="B0C241BC-5CED-FD69-4465-443E526EAFDE">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>0E9AFC40-C01F-7450-461B-03F7830746BA</generatorID>
@@ -75,7 +75,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="21ABF7B8-57E4-4B81-563A-6C7C2E2DA568" name="SZ_Operacje_PK">
+<ind_PK_UK id="21ABF7B8-57E4-4B81-563A-6C7C2E2DA568" name="Operacje_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>72D73E3D-6573-B0D6-B330-28DAA5A71090</generatorID>
@@ -87,7 +87,7 @@
 <colUsage columnID="FFA3A429-0C10-797C-76AC-F56A29D0DB35"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B4F33FE7-FD44-2E20-216A-E3FD6C881B5F" name="SZ_Operacje_SZ_Pacjenci_FK">
+<ind_PK_UK id="B4F33FE7-FD44-2E20-216A-E3FD6C881B5F" name="Operacje_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>4E009323-4828-B18D-61CA-A528CC600D3A</generatorID>
@@ -98,7 +98,7 @@
 <colUsage columnID="E8723A44-714C-8AFD-F91D-614BABFA0ED9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B817A899-2409-C766-CF89-B63B2C6EF180" name="SZ_Operacje_SZ_Oddzialy_FK">
+<ind_PK_UK id="B817A899-2409-C766-CF89-B63B2C6EF180" name="Operacje_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>2311C88F-08B0-6D3A-32A1-C881B4D8964E</generatorID>

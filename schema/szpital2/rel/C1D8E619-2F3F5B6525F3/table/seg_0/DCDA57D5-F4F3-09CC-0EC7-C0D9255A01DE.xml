@@ -39,8 +39,9 @@
 <ownerDesignName>szpital2</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Pensja" id="AA1E5500-F14F-A7AD-7FC2-D7C831F14568">
@@ -56,7 +57,7 @@
 <ownDataTypeParameters>,2,5</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SZ_Oddzialy_ID" id="9A87DD4E-8A39-38E7-7B6F-EB2774545299">
+<Column name="Oddzialy_ID" id="9A87DD4E-8A39-38E7-7B6F-EB2774545299">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>8E5798F6-0371-6140-0E91-2042EE229B60</generatorID>
@@ -68,7 +69,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="D6A8A161-F07D-33D1-709E-5396CCD3626E" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
+<colAssociation fkAssociation="9290E587-88E9-A683-8C3A-CF3C33B6315C" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
 </associations>
 </Column>
 <Column name="PracownikID" id="6D683C37-85CA-D630-66EC-2E84F13387B4">
@@ -84,7 +85,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="09A70C43-89C3-4775-A7B7-5D472DB4C806" name="SZ_Pracownicy_PK">
+<ind_PK_UK id="09A70C43-89C3-4775-A7B7-5D472DB4C806" name="Pracownicy_PK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>EFDD2F0A-540B-6BD7-0C44-51E3DC46AD6B</generatorID>
@@ -96,9 +97,9 @@
 <colUsage columnID="6D683C37-85CA-D630-66EC-2E84F13387B4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B354B7C5-2009-27C0-D0B9-A30016EF4B45" name="SZ_Pracownicy_SZ_Oddzialy_FK">
+<ind_PK_UK id="645C7D5D-5C96-6C40-C873-9409D046274B" name="SZ_Pracownicy_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
-<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<createdTime>2017-12-25 15:39:14 UTC</createdTime>
 <generatorID>2E0AFBB3-9EE6-7B68-33A8-3F8D000572A3</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <indexState>Foreign Key</indexState>
