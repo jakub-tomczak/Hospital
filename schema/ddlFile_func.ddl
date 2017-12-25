@@ -279,6 +279,28 @@ BEGIN
 END;
 /
 
+create or replace procedure dodajLekarza
+    (imie in varchar2,
+    nazwisko in varchar2,
+    stanowisko in number,
+    pensja in number,
+    specjalizacja in varchar2,
+    stopiennaukowy in varchar2,
+    oddzialy_id in number)
+is
+begin 
+    --dodaj pracownika
+        insert into sz_pracownicy
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,pracownikid)
+        values
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,
+            pracownicy_id_seq.nextval);
+    --dodaj lekarza
+    insert into sz_lekarze
+        (specjalizacja, stopiennaukowy, pracownikid)
+        values
+        (specjalizacja, stopiennaukowy, pracownicy_id_seq.currval);
+end dodajLekarza;
 
 
 
