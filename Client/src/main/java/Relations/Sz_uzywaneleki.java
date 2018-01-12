@@ -1,4 +1,4 @@
-package main.Relations;
+package Relations;
 
 public class Sz_uzywaneleki {
   private String leczenia_choroby_id;

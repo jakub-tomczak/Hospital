@@ -1,4 +1,4 @@
-package main.Relations;
+package Relations;
 
 public class Sz_lekarze {
   private String specjalizacja;

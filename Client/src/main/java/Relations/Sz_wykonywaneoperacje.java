@@ -1,4 +1,4 @@
-package main.Relations;
+package Relations;
 
 public class Sz_wykonywaneoperacje {
   private String lekarze_pracownikid;

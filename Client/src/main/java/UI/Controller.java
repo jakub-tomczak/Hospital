@@ -1,15 +1,14 @@
-package main.sample;
+package UI;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import main.Relations.Teams;
-
+import Relations.Teams;
 import java.sql.SQLException;
+import Main.Main;
 
 public class Controller {
     public TableView table;
@@ -33,7 +32,7 @@ public class Controller {
     @FXML
     public void buttonMouseClicked()
     {
-        if(Main.teamsData != null)
+        if( Main.teamsData != null)
         {
             table.setItems(Main.teamsData);
 

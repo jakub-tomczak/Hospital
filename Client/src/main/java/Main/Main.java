@@ -1,5 +1,4 @@
-package main.sample;
-
+package Main;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import main.Relations.Teams;
+import Relations.Teams;
 
 import java.sql.*;
 import java.util.Properties;
@@ -28,15 +27,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         instance = this;
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/UI/sample.fxml"));
         primaryStage.setTitle("Hello World");
         Scene scene = new Scene(root, 1280 , 720);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
+      //  scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         primaryStage.show();
             primaryStage.setOnCloseRequest(
                     new EventHandler<WindowEvent>() {
-                        @Override
                         public void handle(WindowEvent event) {
                             try
                             {

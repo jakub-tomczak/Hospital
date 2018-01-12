@@ -1,4 +1,4 @@
-package main.Relations;
+package Relations;
 
 public class Sz_sprzetnaoddziale {
   private String badania_id;
