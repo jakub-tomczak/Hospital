@@ -1,12 +1,15 @@
 package main.sample;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import main.Relations.Teams;
+
+import java.sql.SQLException;
 
 public class Controller {
     public TableView table;
@@ -40,4 +43,15 @@ public class Controller {
     }
 
 
+    public void addDoctor(ActionEvent actionEvent) {
+        try
+        {
+            Main.getInstance().addDoctor();
+
+            System.out.print("Added doctor\n");
+        }catch (SQLException e)
+        {
+            System.out.print("Adding doctor error!\n");
+        }
+    }
 }

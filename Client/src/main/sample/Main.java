@@ -3,10 +3,12 @@ package main.sample;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import main.Relations.Teams;
 
 import java.sql.*;
@@ -14,15 +16,42 @@ import java.util.Properties;
 
 public class Main extends Application {
     public static ObservableList<Teams> teamsData;
+    private static Main instance;
+
+    Connection connection = null;
+    public static Main getInstance() {
+        if(instance == null)
+            return new Main();
+        return instance;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+        instance = this;
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Scene scene = new Scene(root, 1280 , 720);
+        primaryStage.setScene(scene);
+        scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
         primaryStage.show();
+            primaryStage.setOnCloseRequest(
+                    new EventHandler<WindowEvent>() {
+                        @Override
+                        public void handle(WindowEvent event) {
+                            try
+                            {
+                             connection.close();
+                            }catch(SQLException e) {
+                                ;
+                            }
+
+                        }
+                    }
+            );
+
         ObservableList<Teams> teams;
-                Connection conn = connect();
-        if (conn == null)
+        connection = connect();//connect();
+        if (connection == null)
             return;
 
         try {
@@ -36,7 +65,7 @@ public class Main extends Application {
                     "where p.id_zesp = z.id_zesp " +
                     "group by z.nazwa";
 
-            teamsData = exercise1(conn, query);
+            teamsData = exercise1(connection, query);
 
         } catch
                 (SQLException ex) {
@@ -62,7 +91,7 @@ public class Main extends Application {
             }
         }
 
-        conn.close();
+        //connection.close();
     }
 
     Statement stmt = null;
@@ -97,13 +126,30 @@ public class Main extends Application {
             teams.add(new Teams(rs.getInt("ONE"), rs.getString("TWO")));
 
         }
-
         rs.close();
         stmt.close();
-
         return teams;
     }
 
+
+    public void addDoctor()
+            throws SQLException
+    {
+        if(connection == null)
+        {
+            System.out.println("Connection is null");
+        }
+        String query = "{call dodajLekarza(?, ?, ?, ?, ?, ?, ?)}";
+        CallableStatement statement = connection.prepareCall(query);
+        statement.setString(1, "józef");
+        statement.setString(2, "będziechowski");
+        statement.setInt(3, 1);
+        statement.setDouble(4, 5699);
+        statement.setString(5, "kardiochirurg naczyniowy");
+        statement.setString(6, "profesor");
+        statement.setInt(7, 1);
+        statement.execute();
+    }
 
     private void listWorkers(Connection conn, String query) throws SQLException {
 
