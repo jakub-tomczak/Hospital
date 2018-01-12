@@ -1,4 +1,4 @@
-package UI;
+package Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import Relations.Teams;
 import java.sql.SQLException;
 import Main.Main;
 
-public class Controller {
+public class MainScene {
     public TableView table;
     public Button populateData;
     public TableColumn C2;

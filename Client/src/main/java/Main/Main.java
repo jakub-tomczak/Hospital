@@ -27,18 +27,22 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         instance = this;
-        Parent root = FXMLLoader.load(getClass().getResource("/UI/sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("/views/MainScene.fxml"));
+        primaryStage.setTitle("Hospital");
         Scene scene = new Scene(root, 1280 , 720);
         primaryStage.setScene(scene);
-      //  scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/styles/style.css").toString());
         primaryStage.show();
             primaryStage.setOnCloseRequest(
                     new EventHandler<WindowEvent>() {
                         public void handle(WindowEvent event) {
                             try
                             {
-                             connection.close();
+                                if(connection != null)
+                                {
+                                    connection.close();
+
+                                }
                             }catch(SQLException e) {
                                 ;
                             }
@@ -47,8 +51,13 @@ public class Main extends Application {
                     }
             );
 
+
+    }
+
+
+    private void connector() throws SQLException {
         ObservableList<Teams> teams;
-        connection = connect();//connect();
+        // connection = connect();//connect();
         if (connection == null)
             return;
 
@@ -91,7 +100,6 @@ public class Main extends Application {
 
         //connection.close();
     }
-
     Statement stmt = null;
     ResultSet rs = null;
 
