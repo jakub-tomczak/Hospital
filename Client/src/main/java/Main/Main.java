@@ -41,7 +41,6 @@ public class Main extends Application {
                                 if(connection != null)
                                 {
                                     connection.close();
-
                                 }
                             }catch(SQLException e) {
                                 ;
@@ -50,8 +49,6 @@ public class Main extends Application {
                         }
                     }
             );
-
-
     }
 
 
