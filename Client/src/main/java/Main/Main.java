@@ -1,4 +1,7 @@
 package Main;
+import SQL.Connector;
+import SQL.QueriesManager;
+import Utils.Constants;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import Relations.Teams;
 
+import javax.rmi.CORBA.Util;
 import java.sql.*;
 import java.util.Properties;
 
@@ -33,22 +37,23 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("/styles/style.css").toString());
         primaryStage.show();
-            primaryStage.setOnCloseRequest(
-                    new EventHandler<WindowEvent>() {
-                        public void handle(WindowEvent event) {
-                            try
-                            {
-                                if(connection != null)
-                                {
-                                    connection.close();
-                                }
-                            }catch(SQLException e) {
-                                ;
-                            }
-
-                        }
-                    }
+        primaryStage.setOnCloseRequest(
+                (WindowEvent event) ->
+                {
+                    onApplicationClosing();
+                }
             );
+
+    }
+
+    private void onApplicationClosing() {
+        System.out.println("Zamykanie aplikacji...");
+
+        try {
+            Connector.getInstance().closeConnection();
+        } catch (SQLException e) {
+            System.out.println("Nie udało się zamknąć połączenia : " + e.getMessage());
+        }
     }
 
 
@@ -179,20 +184,7 @@ public class Main extends Application {
 
 
     private Connection connect() throws ClassNotFoundException, SQLException {
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        Properties connectionProps = new Properties();
-        Connection con = null;
-        connectionProps.put("user", "inf127083");
-        connectionProps.put("password", "inf127083");
-        try {
-            con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@admlab2.cs.put.poznan.pl:1521/dblab02_students.cs.put.poznan.pl",
-                    "inf127083", "inf127083");
-            System.out.println("Połączono z bazą danych");
-            return con;
-        } catch (SQLException e) {
-            System.out.println("Błąd wykonania połączenia " + e.getMessage());
-        }
+
         return null;
 
     }

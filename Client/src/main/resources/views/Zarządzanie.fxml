@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane alignment="CENTER" maxHeight="Infinity" prefWidth="Infinity" prefHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          styleClass="gridpane" fx:controller="Controllers.Badania"
+          xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" percentWidth="50" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" percentWidth="50" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="200" vgrow="SOMETIMES" percentHeight="50"/>
+        <RowConstraints minHeight="200" vgrow="SOMETIMES" percentHeight="50"/>
+    </rowConstraints>
+    <children>
+        <Button mnemonicParsing="false" text="Button0" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Button mnemonicParsing="false" text="Button1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Button mnemonicParsing="false" text="Button2" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Button mnemonicParsing="false" text="Button3" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </children>
+</GridPane>
