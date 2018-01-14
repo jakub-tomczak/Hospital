@@ -3,10 +3,10 @@ package Relations;
 public class Sz_pracownicy {
   private String imie;
   private String nazwisko;
-  private String stanowisko;
-  private String pensja;
-  private String oddzialy_id;
-  private String pracownikid;
+  private int stanowisko;
+  private double pensja;
+  private int oddzialy_id;
+  private int pracownikid;
 
   public String getImie() {
     return imie;
@@ -24,35 +24,35 @@ public class Sz_pracownicy {
     this.nazwisko = nazwisko;
   }
 
-  public String getStanowisko() {
+  public int getStanowisko() {
     return stanowisko;
   }
 
-  public void setStanowisko(String stanowisko) {
+  public void setStanowisko(int stanowisko) {
     this.stanowisko = stanowisko;
   }
 
-  public String getPensja() {
+  public double getPensja() {
     return pensja;
   }
 
-  public void setPensja(String pensja) {
+  public void setPensja(double pensja) {
     this.pensja = pensja;
   }
 
-  public String getOddzialy_id() {
+  public int getOddzialy_id() {
     return oddzialy_id;
   }
 
-  public void setOddzialy_id(String oddzialy_id) {
+  public void setOddzialy_id(int oddzialy_id) {
     this.oddzialy_id = oddzialy_id;
   }
 
-  public String getPracownikid() {
+  public int getPracownikid() {
     return pracownikid;
   }
 
-  public void setPracownikid(String pracownikid) {
+  public void setPracownikid(int pracownikid) {
     this.pracownikid = pracownikid;
   }
 }

@@ -43,7 +43,11 @@ public class Main extends Application {
                     onApplicationClosing();
                 }
             );
+        Connector.getInstance().openConnection();
 
+
+
+        Connector.getInstance().closeConnection();
     }
 
     private void onApplicationClosing() {

@@ -1,9 +1,12 @@
 package Controllers;
 
+import Relations.Sz_lekarze;
 import SQL.Command;
 import SQL.QueriesManager;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+
+import java.sql.SQLException;
 
 public class Pracownicy {
 
@@ -14,10 +17,17 @@ public class Pracownicy {
         System.out.println("Sending query!");
 
         QueriesManager queriesManager = new QueriesManager();
-        queriesManager.addDoctor("nowy doktor", "jego nazwisko", () -> {
-            changeAreaText("Elo");
-            return false;
-        });
+        Sz_lekarze lekarz = new Sz_lekarze();
+        lekarz.setImie("Jan");
+        lekarz.setNazwisko("Kowalski");
+        try {
+            queriesManager.addDoctor(lekarz, null);
+        } catch (SQLException e) {
+            System.out.println("Nie udało sie dodać lekarza. " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("class not found Nie udało sie dodać lekarza. " + e.getMessage());
+
+        }
     }
 
     private void changeAreaText(String text)

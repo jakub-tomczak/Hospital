@@ -1,13 +1,13 @@
 package Relations;
 
-public class Sz_pielegniarki {
-  private String pracownikid;
+public class Sz_pielegniarki extends Sz_pracownicy {
+  private int pracownikid;
 
-  public String getPracownikid() {
+  public int getPracownikid() {
     return pracownikid;
   }
 
-  public void setPracownikid(String pracownikid) {
+  public void setPracownikid(int pracownikid) {
     this.pracownikid = pracownikid;
   }
 }
