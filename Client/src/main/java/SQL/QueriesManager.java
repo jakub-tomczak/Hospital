@@ -22,7 +22,7 @@ public class QueriesManager {
         CallableStatement statement = Connector.getInstance().getConnection().prepareCall(query);
         statement.setString(1, lekarz.getImie());
         statement.setString(2, lekarz.getNazwisko());
-        statement.setInt(3, 1);
+        statement.setInt(3, 1); //stanowisko, 1 = lekarz, 2 = pielegniarka
         statement.setDouble(4, lekarz.getPensja());
         statement.setString(5, lekarz.getSpecjalizacja());
         statement.setString(6, lekarz.getStopiennaukowy());

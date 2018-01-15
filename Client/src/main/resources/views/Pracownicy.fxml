@@ -24,7 +24,7 @@
             <children>
                 <Button mnemonicParsing="false" onMouseClicked="#addStuff" text="Dodaj pracownika" />
                 <Button mnemonicParsing="false" text="Button" />
-                <TextArea prefHeight="200.0" fx:id="textArea" prefWidth="200.0" />
+                <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
             </children>
             <opaqueInsets>
                 <Insets />
@@ -38,10 +38,12 @@
                 <Button mnemonicParsing="false" text="Button" />
                 <Button mnemonicParsing="false" text="Button" />
             </children></VBox>
-        <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+        <TableView fx:id="pracownicyTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
             <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="75.0" fx:id="firstName" text="Imię" />
+                <TableColumn prefWidth="75.0" fx:id="lastName" text="Nazwisko" />
+                <TableColumn prefWidth="75.0" fx:id="type" text="Stanowisko" />
+                <TableColumn prefWidth="75.0" fx:id="place" text="Oddział" />
             </columns>
         </TableView>
     </children>

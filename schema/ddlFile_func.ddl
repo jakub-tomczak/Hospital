@@ -257,6 +257,7 @@ ALTER TABLE sz_wykonywaneoperacje
 
 --  ERROR: No Discriminator Column found in Arc FKArc_4 - constraint trigger for Arc cannot be generated
 
+--sekwencje do id
 CREATE SEQUENCE leki_leki_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE pracownicy_id_seq START WITH 1 NOCACHE ORDER;
 CREATE SEQUENCE oddzialy_id_seq START WITH 1 NOCACHE ORDER;
@@ -273,11 +274,15 @@ CREATE SEQUENCE pobyty_id_seq START WITH 1 NOCACHE ORDER;
 CREATE OR REPLACE TRIGGER leki_leki_id_trg BEFORE
     INSERT ON sz_leki
     FOR EACH ROW
-    WHEN ( new.sz_leki_id IS NULL )
+    WHEN ( new.leki_id IS NULL )
 BEGIN
-    :new.sz_leki_id := leki_leki_id_seq.nextval;
+    :new.leki_id := leki_leki_id_seq.nextval;
 END;
 /
+
+
+--procedury, mozna wykonac w sql developerze poprzez call [nazwa procedury]([parametry]);
+--
 
 create or replace procedure dodajLekarza
     (imie in varchar2,
@@ -301,6 +306,31 @@ begin
         values
         (specjalizacja, stopiennaukowy, pracownicy_id_seq.currval);
 end dodajLekarza;
+
+
+create or replace PROCEDURE DODAJPACJENTA 
+(
+  imie_in IN VARCHAR2 
+, nazwisko_in IN VARCHAR2 
+, pesel_in IN VARCHAR2 
+) AS 
+BEGIN
+  insert into sz_pacjenci(id, imie, nazwisko, pesel) values
+  (PACJENCI_ID_SEQ.NEXTVAL, imie_in, nazwisko_in, pesel_in);
+END DODAJPACJENTA;
+
+CREATE OR REPLACE PROCEDURE DODAJODDZIAL 
+(
+  NAZWA_IN IN VARCHAR2 
+, KIEROWNIK_IN IN NUMBER DEFAULT NULL
+, MAKSPACJENTOW_IN IN NUMBER
+) AS 
+BEGIN
+  insert into sz_oddzialy(id, kierownikKliniki, nazwa, maksymalnaliczbapacjentow)
+  values
+  (oddzialy_id_seq.nextval, kierownik_in, nazwa_in, makspacjentow_in);
+
+END DODAJODDZIAL;
 
 
 

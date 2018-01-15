@@ -1,27 +1,49 @@
 package Controllers;
 
 import Relations.Sz_lekarze;
-import SQL.Command;
+import Relations.Sz_pracownicy;
 import SQL.QueriesManager;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pracownicy {
 
 
-    public TextArea textArea;
+    @FXML private TableColumn<Sz_pracownicy, String> firstName;
+    @FXML private TableColumn<Sz_pracownicy, String> lastName;
+    @FXML private TableColumn<Sz_pracownicy, String> type;
+    @FXML private TableColumn<Sz_pracownicy, String> place;
+    @FXML private TextArea textArea;
+    @FXML private TableView<Sz_pracownicy> pracownicyTableView;
+
+
+    @FXML
+    public void initialize() {
+
+        pracownicyTableView.getItems().setAll(getEmployees());
+    }
+
+    private List<Sz_pracownicy> getEmployees() {
+        List<Sz_pracownicy> employees = new ArrayList<>();
+        return employees;
+    }
 
     public void addStuff(MouseEvent mouseEvent) {
         System.out.println("Sending query!");
 
         QueriesManager queriesManager = new QueriesManager();
-        Sz_lekarze lekarz = new Sz_lekarze();
-        lekarz.setImie("Jan");
-        lekarz.setNazwisko("Kowalski");
+        Sz_lekarze doctor = new Sz_lekarze();
+        doctor.setImie("Jan");
+        doctor.setNazwisko("Kowalski");
         try {
-            queriesManager.addDoctor(lekarz, null);
+            queriesManager.addDoctor(doctor, null);
         } catch (SQLException e) {
             System.out.println("Nie udało sie dodać lekarza. " + e.getMessage());
         } catch (ClassNotFoundException e) {
@@ -35,4 +57,6 @@ public class Pracownicy {
         System.out.println("Changed text field text!");
         textArea.setText("Nowy tekst " + text);
     }
+
+
 }

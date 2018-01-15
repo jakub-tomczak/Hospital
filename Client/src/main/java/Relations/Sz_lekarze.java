@@ -4,6 +4,10 @@ public class Sz_lekarze extends Sz_pracownicy {
   private String specjalizacja;
   private String stopiennaukowy;
   private int pracownikid;
+  public Sz_lekarze()
+  {
+    setStanowisko(1);
+  }
 
   public String getSpecjalizacja() {
     return specjalizacja;

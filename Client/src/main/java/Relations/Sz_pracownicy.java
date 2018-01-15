@@ -55,4 +55,5 @@ public class Sz_pracownicy {
   public void setPracownikid(int pracownikid) {
     this.pracownikid = pracownikid;
   }
+
 }
