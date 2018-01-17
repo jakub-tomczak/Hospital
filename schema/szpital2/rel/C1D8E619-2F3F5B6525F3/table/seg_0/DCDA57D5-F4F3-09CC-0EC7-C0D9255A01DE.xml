@@ -69,7 +69,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="7CEF0B92-6BA2-F5BD-4706-AAC385B38E40" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
+<colAssociation fkAssociation="DAEB57FB-7788-B758-7AD5-2845B9228EE4" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
 </associations>
 </Column>
 <Column name="PracownikID" id="6D683C37-85CA-D630-66EC-2E84F13387B4">
@@ -97,9 +97,9 @@
 <colUsage columnID="6D683C37-85CA-D630-66EC-2E84F13387B4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="E3BAA9BC-5AA7-0A4B-AD8D-69A64F1F6557" name="SZ_Pracownicy_SZ_Oddzialy_FK">
+<ind_PK_UK id="097D5CD6-70EC-89F6-7285-3146BA659ED0" name="SZ_Pracownicy_SZ_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
-<createdTime>2017-12-25 18:25:07 UTC</createdTime>
+<createdTime>2018-01-17 17:21:14 UTC</createdTime>
 <generatorID>2E0AFBB3-9EE6-7B68-33A8-3F8D000572A3</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <indexState>Foreign Key</indexState>
