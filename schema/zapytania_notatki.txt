@@ -1,0 +1,39 @@
+--zapytania
+
+--dodanie lekarza
+    --dodaj pracownika
+        insert into sz_pracownicy
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,pracownikid)
+        values
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,
+            pracownicy_id_seq.nextval);
+    --dodaj lekarza
+    insert into sz_lekarze
+        (specjalizacja, stopiennaukowy, pracownikid)
+        values
+        (specjalizacja, stopiennaukowy, pracownicy_id_seq.currval);
+		
+--dodanie pielegniarki
+	    --dodaj pracownika
+        insert into sz_pracownicy
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,pracownikid)
+        values
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,
+            pracownicy_id_seq.nextval);
+		--dodaj pielegniarke
+		insert into sz_pielegniarki
+        (pracownikid)
+        values
+        (pracownicy_id_seq.currval);
+
+--dodanie oddzialu
+	insert into SZ_ODDZIALY
+	values
+	(oddzialy_id_seq.nextval, 'kierownik kliniki id - moze byc null', 'nazwa kliniki', liczba_pacjentow);
+	
+--dodanie operacji
+	
+	
+--dodanie leczenia
+	INSERT INTO SZ_LECZENIA (DATAROZPOCZECIA, DATAZAKONCZENIA, DAWKA, PACJENCI_ID, CHOROBY_ID, LECZENIEID) 
+	VALUES (TO_DATE('2018-01-17 19:18:16', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2018-01-18 19:18:20', 'YYYY-MM-DD HH24:MI:SS'), '.5mg', 1, 1, leczenie_id_seq.nextval);

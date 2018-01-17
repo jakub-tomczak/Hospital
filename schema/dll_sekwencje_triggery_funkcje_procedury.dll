@@ -1,0 +1,152 @@
+--dodane recznie
+
+--sekwencje do id
+CREATE SEQUENCE leki_leki_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE pracownicy_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE oddzialy_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE badania_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE sprzet_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE pacjenci_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE choroby_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE leczenie_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE leki_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE leczenia_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE operacje_id_seq START WITH 1 NOCACHE ORDER;
+CREATE SEQUENCE pobyty_id_seq START WITH 1 NOCACHE ORDER;
+
+
+-------------------------------------------------------------------------
+
+--klucze unikalne
+--klucz unikalny do nazwy oddzialu
+ALTER TABLE SZ_ODDZIALY
+ADD CONSTRAINT SZ_ODDZIALY_UK1 UNIQUE 
+(
+  NAZWA 
+)
+ENABLE;
+
+--klucz unikalny do nazwy leku
+ALTER TABLE SZ_LEKI
+ADD CONSTRAINT SZ_LEKI_UK1 UNIQUE 
+(
+  NAZWA 
+)
+ENABLE;
+
+--klucz unikalny dla PESEL pacjenta
+ALTER TABLE SZ_PACJENCI
+ADD CONSTRAINT SZ_PACJENCI_UK1 UNIQUE 
+(
+  PESEL 
+)
+ENABLE;
+
+-------------------------------------------------------------------------
+
+--triggery
+--trigger do sprawdzania poprawnosci dat przy dodawaniu leczenia
+create or replace trigger leczenie_poprawne_daty_trig
+before insert on sz_leczenia
+for each row
+begin
+    if :new.datarozpoczecia >= :new.datazakonczenia then
+         raise_application_error(-20101, 'Data rozpoczęcia leczenia musi być wcześniejsza niż data zakończenia!');
+    end if;
+end;
+/
+
+
+
+-------------------------------------------------------------------------
+
+
+--procedury
+	--procedure automatycznie robi rollback jeżeli nie wykona sie w calosci - nie trzeba cofac wartosci sekwencji
+	--procedury, mozna wykonac w sql developerze poprzez "call [nazwa procedury]([parametry])" albo execute;
+
+
+--procedura sprawdzajaca czy dany lekarz nie ma operacji w tym samym czasie
+--UWAGA, datagodzina_str powinna byc podana w formacie 'YYYY-MM-DD HH24:MI:SS', bo inaczej padnie konwersja
+create or replace procedure dodajOperacje
+    (nazwa in varchar2,
+    datagodzina_str in varchar2,
+    pacjentid in number,
+    oddzialid in number,
+    lekarzid in number)
+is
+datagodzina date;
+cursor lekarze_daty_operacji(id_lekarza number) is select l.pracownikid as pracownik, o.DATAGODZINAROZPOCZECIA as datagodzina
+                        from sz_operacje o join sz_wykonywaneoperacje wo on o.operacjaid = wo.operacje_operacjaid
+                        join sz_lekarze l on wo.lekarze_pracownikid = l.pracownikid
+                        where l.pracownikid = id_lekarza;
+begin 
+    datagodzina := TO_DATE(datagodzina_str, 'YYYY-MM-DD HH24:MI:SS');
+    --sprawdz czy podany lekarz nie w tym samym czasie operacji
+            FOR lekarz_operacja IN lekarze_daty_operacji(lekarzid)
+            LOOP
+                if lekarz_operacja.datagodzina =  datagodzina then
+                    raise_application_error(-20101, 'Ten lekarz ma już inną operację w tym czasie!');
+                end if;
+            END LOOP; 
+    --dodaj operacje
+        insert into sz_operacje
+        values 
+        (operacje_id_seq.nextval, nazwa ,datagodzina, pacjentid,  oddzialid);
+    --dodaj do wykonywaneoperacje
+        insert into sz_wykonywaneoperacje
+        values
+        (lekarzid, operacje_id_seq.currval);
+end dodajOperacje;
+/
+
+
+--procedura dodajaca lekarza
+create or replace procedure dodajLekarza
+    (imie in varchar2,
+    nazwisko in varchar2,
+    stanowisko in number,
+    pensja in number,
+    specjalizacja in varchar2,
+    stopiennaukowy in varchar2,
+    oddzialy_id in number)
+is
+begin 
+    --dodaj pracownika
+        insert into sz_pracownicy
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,pracownikid)
+        values
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,
+            pracownicy_id_seq.nextval);
+    --dodaj lekarza
+    insert into sz_lekarze
+        (specjalizacja, stopiennaukowy, pracownikid)
+        values
+        (specjalizacja, stopiennaukowy, pracownicy_id_seq.currval);
+end dodajLekarza;
+
+
+create or replace PROCEDURE DODAJPACJENTA 
+(
+  imie_in IN VARCHAR2 
+, nazwisko_in IN VARCHAR2 
+, pesel_in IN VARCHAR2 
+) AS 
+BEGIN
+  insert into sz_pacjenci(id, imie, nazwisko, pesel) values
+  (PACJENCI_ID_SEQ.NEXTVAL, imie_in, nazwisko_in, pesel_in);
+END DODAJPACJENTA;
+
+
+--dodaje oddzial, przy czym mozna 
+CREATE OR REPLACE PROCEDURE DODAJODDZIAL 
+(
+  NAZWA_IN IN VARCHAR2 
+, KIEROWNIK_IN IN NUMBER DEFAULT NULL
+, MAKSPACJENTOW_IN IN NUMBER
+) AS 
+BEGIN
+  insert into sz_oddzialy(id, kierownikKliniki, nazwa, maksymalnaliczbapacjentow)
+  values
+  (oddzialy_id_seq.nextval, kierownik_in, nazwa_in, makspacjentow_in);
+END DODAJODDZIAL;

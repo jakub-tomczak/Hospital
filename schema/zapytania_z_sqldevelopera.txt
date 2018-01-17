@@ -1,0 +1,111 @@
+SET SERVEROUTPUT ON;
+
+--pacjenci
+insert into SZ_PACJENCI
+values
+(pacjenci_id_seq.nextval, 'jan', 'kowalski', '12345678909');
+ALTER TABLE SZ_PACJENCI
+ADD CONSTRAINT SZ_PACJENCI_UK1 UNIQUE 
+(
+  PESEL 
+)
+ENABLE;
+select * from sz_pacjenci;
+
+
+create or replace trigger leczenie_poprawne_daty_trig
+before insert on sz_leczenia
+for each row
+begin
+    if :new.datarozpoczecia >= :new.datazakonczenia then
+         raise_application_error(-20101, 'Data rozpoczęcia leczenia musi być wcześniejsza niż data zakończenia!');
+    end if;
+end;
+/
+
+
+
+select * from sz_leczenia;
+insert into sz_choroby 
+values
+(choroby_id_seq.nextval, 'rzerzączka');
+
+select * from sz_choroby;
+
+INSERT INTO "INF127083"."SZ_LECZENIA" (DATAROZPOCZECIA, DATAZAKONCZENIA, DAWKA, PACJENCI_ID, CHOROBY_ID, LECZENIEID) 
+VALUES (TO_DATE('2019-01-17 19:18:16', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2018-01-18 19:18:20', 'YYYY-MM-DD HH24:MI:SS'), '.5mg', 1, '1', leczenie_id_seq.nextval);
+
+insert into SZ_ODDZIALY
+values
+(oddzialy_id_seq.nextval, null, 'kardiologii', 30);
+select * from sz_oddzialy;
+--operacje
+
+create or replace trigger operacja_poprawne_daty_trig
+before insert on sz_operacje
+for each row
+declare
+cursor lekarze_daty_operacji is select l.pracownikid as pracownik, o.DATAGODZINAROZPOCZECIA as datagodzina
+                        from sz_operacje o join sz_wykonywaneoperacje wo on o.operacjaid = wo.operacje_operacjaid
+                        join sz_lekarze l on wo.lekarze_pracownikid = l.pracownikid;
+begin
+    FOR lekarz_operacja IN lekarze_daty_operacji 
+    LOOP
+        if lekarz_operacja.datagodzina <> :new.DATAGODZINAROZPOCZECIA
+        --DBMS_OUTPUT.PUT_LINE(lekarz_operacja.pracownik || ' ' || lekarz_operacja.datagodzina );
+    END LOOP;    
+end;
+/
+
+--procedure automatycznie robi rollback jeżeli nie wykona sie w calosci - nie trzeba cofac wartosci sekwencji
+drop trigger operacja_poprawne_daty_trig;
+--procedura sprawdzajaca czy dany lekarz nie ma operacji w tym samym czasie
+create or replace procedure dodajOperacje
+    (nazwa in varchar2,
+    datagodzina_str in varchar2,
+    pacjentid in number,
+    oddzialid in number,
+    lekarzid in number)
+is
+datagodzina date;
+cursor lekarze_daty_operacji(id_lekarza number) is select l.pracownikid as pracownik, o.DATAGODZINAROZPOCZECIA as datagodzina
+                        from sz_operacje o join sz_wykonywaneoperacje wo on o.operacjaid = wo.operacje_operacjaid
+                        join sz_lekarze l on wo.lekarze_pracownikid = l.pracownikid
+                        where l.pracownikid = id_lekarza;
+begin 
+    datagodzina := TO_DATE(datagodzina_str, 'YYYY-MM-DD HH24:MI:SS');
+    --sprawdz czy podany lekarz nie w tym samym czasie operacji
+            FOR lekarz_operacja IN lekarze_daty_operacji(lekarzid)
+            LOOP
+                if lekarz_operacja.datagodzina =  datagodzina then
+                    raise_application_error(-20101, 'Ten lekarz ma już inną operację w tym czasie!');
+                end if;
+            END LOOP; 
+    --dodaj operacje
+        insert into sz_operacje
+        values 
+        (operacje_id_seq.nextval, nazwa ,datagodzina, pacjentid,  oddzialid);
+    --dodaj do wykonywaneoperacje
+        insert into sz_wykonywaneoperacje
+        values
+        (lekarzid, operacje_id_seq.currval);
+end dodajOperacje;
+/
+--test dodajOperacje
+execute dodajOperacje('wycięcie ' ,'2020-02-17 19:18:16', 1,  4, 1);
+
+
+
+--wypisanie wszystkich powiazan lekarz <-> data operacji
+select l.pracownikid as pracownik, o.DATAGODZINAROZPOCZECIA as datagodzina
+                        from sz_operacje o join sz_wykonywaneoperacje wo on o.operacjaid = wo.operacje_operacjaid
+                        join sz_lekarze l on wo.lekarze_pracownikid = l.pracownikid;
+
+select pracownikid from sz_lekarze;
+select * from sz_operacje;
+select * from sz_pacjenci;
+insert into sz_wykonywaneoperacje
+values (1, 1);
+
+insert into sz_operacje
+values (operacje_id_seq.nextval, 'wycięcie wyrostka robaczkowego' ,TO_DATE('2019-01-17 19:18:16', 'YYYY-MM-DD HH24:MI:SS'), 1,  4);
