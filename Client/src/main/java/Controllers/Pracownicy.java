@@ -3,6 +3,7 @@ package Controllers;
 import Relations.Sz_lekarze;
 import Relations.Sz_pracownicy;
 import SQL.QueriesManager;
+import Utils.ExceptionHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -45,9 +46,9 @@ public class Pracownicy {
         try {
             queriesManager.addDoctor(doctor, null);
         } catch (SQLException e) {
-            System.out.println("Nie udało sie dodać lekarza. " + e.getMessage());
+            ExceptionHandler.displayException("Nie udało sie dodać lekarza. " + e.getMessage());
         } catch (ClassNotFoundException e) {
-            System.out.println("class not found Nie udało sie dodać lekarza. " + e.getMessage());
+            ExceptionHandler.displayException("class not found Nie udało sie dodać lekarza. " + e.getMessage());
 
         }
     }

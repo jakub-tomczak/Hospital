@@ -9,9 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity"
-          styleClass="gridpane" fx:controller="Controllers.Operacje"
-          xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Operacje">
     <columnConstraints>
         <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="100.0" percentWidth="20" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="60" />
@@ -23,8 +21,8 @@
     <children>
         <VBox depthTest="DISABLE" prefHeight="200.0" prefWidth="100.0" styleClass="vbox">
             <children>
-                <Button mnemonicParsing="false" text="Button" />
-                <Button mnemonicParsing="false" text="Button" />
+                <Button mnemonicParsing="false" onMouseClicked="#addOperation" text="Dodaj operację" />
+                <Button mnemonicParsing="false" onMouseClicked="#showModal1" text="showModal" />
             </children>
             <opaqueInsets>
                 <Insets />
@@ -33,7 +31,7 @@
                 <Insets />
             </GridPane.margin>
         </VBox>
-        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" styleClass="vbox">
+        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="vbox" GridPane.columnIndex="2">
             <children>
                 <Button mnemonicParsing="false" text="Button" />
                 <Button mnemonicParsing="false" text="Button" />

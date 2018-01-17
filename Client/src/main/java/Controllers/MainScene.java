@@ -1,5 +1,6 @@
 package Controllers;
 
+import Utils.ExceptionHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -50,7 +51,7 @@ public class MainScene {
             System.out.print("Added doctor\n");
         }catch (SQLException e)
         {
-            System.out.print("Adding doctor error!\n");
+            ExceptionHandler.displayException("Adding doctor error!");
         }
     }
 }

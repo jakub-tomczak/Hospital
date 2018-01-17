@@ -2,6 +2,7 @@ package Main;
 import SQL.Connector;
 import SQL.QueriesManager;
 import Utils.Constants;
+import Utils.ExceptionHandler;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,8 @@ public class Main extends Application {
     public static ObservableList<Teams> teamsData;
     private static Main instance;
 
+    private Stage mainWindowStage;
+
     Connection connection = null;
     public static Main getInstance() {
         if(instance == null)
@@ -30,6 +33,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        mainWindowStage = primaryStage;
         instance = this;
         Parent root = FXMLLoader.load(getClass().getResource("/views/MainScene.fxml"));
         primaryStage.setTitle("Hospital");
@@ -44,10 +48,6 @@ public class Main extends Application {
                 }
             );
         Connector.getInstance().openConnection();
-
-
-
-        Connector.getInstance().closeConnection();
     }
 
     private void onApplicationClosing() {
@@ -56,7 +56,8 @@ public class Main extends Application {
         try {
             Connector.getInstance().closeConnection();
         } catch (SQLException e) {
-            System.out.println("Nie udało się zamknąć połączenia : " + e.getMessage());
+            ExceptionHandler.displayException("Nie udało się zamknąć połączenia : " + e.getMessage());
+
         }
     }
 
@@ -82,9 +83,8 @@ public class Main extends Application {
 
         } catch
                 (SQLException ex) {
-            System.out.println(
-                    "Bład wykonania polecenia"
-                            + ex.toString());
+            ExceptionHandler.displayException("Bład wykonania polecenia" + ex.toString());
+
             throw ex;
         } finally {
             if (rs != null) {
@@ -99,7 +99,7 @@ public class Main extends Application {
                     stmt.close();
                 } catch
                         (SQLException e) {
-/* kod obsługi */
+                    ExceptionHandler.displayException("Bład wykonania polecenia" + e.toString());
                 }
             }
         }
@@ -195,5 +195,9 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public Stage getMainWindowStage() {
+        return mainWindowStage;
     }
 }
