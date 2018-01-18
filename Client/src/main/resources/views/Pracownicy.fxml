@@ -35,15 +35,15 @@
         </VBox>
         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="vbox" GridPane.columnIndex="2">
             <children>
-                <Button mnemonicParsing="false" text="Button" />
+                <Button mnemonicParsing="false" onMouseClicked="#getLekarze" text="Pobierz lekarzy" />
                 <Button mnemonicParsing="false" text="Button" />
             </children></VBox>
         <TableView fx:id="pracownicyTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
             <columns>
-                <TableColumn prefWidth="75.0" fx:id="firstName" text="Imię" />
-                <TableColumn prefWidth="75.0" fx:id="lastName" text="Nazwisko" />
-                <TableColumn prefWidth="75.0" fx:id="type" text="Stanowisko" />
-                <TableColumn prefWidth="75.0" fx:id="place" text="Oddział" />
+                <TableColumn fx:id="firstName" prefWidth="75.0" text="Imię" />
+                <TableColumn fx:id="lastName" prefWidth="75.0" text="Nazwisko" />
+                <TableColumn fx:id="type" prefWidth="75.0" text="Stanowisko" />
+                <TableColumn fx:id="place" prefWidth="75.0" text="Oddział" />
             </columns>
         </TableView>
     </children>

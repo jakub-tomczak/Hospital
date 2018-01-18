@@ -1,12 +1,12 @@
 package SQL;
 
-import Controllers.Operacje;
+import DataProvider.DataProvider;
 import Relations.Sz_lekarze;
 import Relations.Sz_operacje;
 
-import java.sql.CallableStatement;
-import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 
 public class QueriesManager {
@@ -60,6 +60,35 @@ public class QueriesManager {
         statement.execute();
         statement.close();
         System.out.println("Dodano operacje");
+    }
+
+    public List<Sz_lekarze> getDoctors() throws SQLException {
+        String query = "select p.imie, p.nazwisko, p.pensja, p.oddzialy_id as oddzial, l.specjalizacja, l.stopiennaukowy, l.pracownikid as id " +
+        "from sz_pracownicy p join sz_lekarze l on p.PRACOWNIKID = l.PRACOWNIKID " +
+        "where p.stanowisko = 1";
+
+        List<Sz_lekarze> lekarze = new ArrayList<>();
+
+        Statement stmt = Connector.getInstance().getConnection().createStatement();
+        ResultSet rs;
+        rs = stmt.executeQuery(
+                query
+        );
+
+        while(rs.next()) {
+            // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+            Sz_lekarze lekarz = new Sz_lekarze(
+                    rs.getString(1), rs.getString(2), rs.getDouble(3),
+                    rs.getInt(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+
+            lekarze.add(lekarz);
+
+        }
+        rs.close();
+        stmt.close();
+
+        DataProvider.getInstance().updateLekarze(lekarze);
+        return lekarze;
     }
 
 }

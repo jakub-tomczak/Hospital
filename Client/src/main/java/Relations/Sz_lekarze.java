@@ -8,7 +8,17 @@ public class Sz_lekarze extends Sz_pracownicy {
   {
     setStanowisko(1);
   }
-
+  public Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+  {
+    this();
+    this.setImie(imie);
+    this.setNazwisko(nazwisko);
+    this.setPensja(pensja);
+    this.setOddzialy_id(oddzialID);
+    this.specjalizacja = specjalizacja;
+    this.stopiennaukowy = stopiennaukowy;
+    this.pracownikid = pracownikid;
+  }
   public String getSpecjalizacja() {
     return specjalizacja;
   }
@@ -26,10 +36,10 @@ public class Sz_lekarze extends Sz_pracownicy {
   }
 
   public int getPracownikid() {
-    return pracownikid;
+    return super.getPracownikid();
   }
 
   public void setPracownikid(int pracownikid) {
-    this.pracownikid = pracownikid;
+    super.setPracownikid(pracownikid) ;
   }
 }

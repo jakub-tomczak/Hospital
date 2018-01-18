@@ -41,17 +41,4 @@ public class MainScene {
 
         }
     }
-
-
-    public void addDoctor(ActionEvent actionEvent) {
-        try
-        {
-            Main.getInstance().addDoctor();
-
-            System.out.print("Added doctor\n");
-        }catch (SQLException e)
-        {
-            ExceptionHandler.displayException("Adding doctor error!");
-        }
-    }
 }

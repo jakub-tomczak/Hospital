@@ -31,6 +31,18 @@ public class Pracownicy {
         pracownicyTableView.getItems().setAll(getEmployees());
     }
 
+    @FXML
+    private void getLekarze() {
+        List<Sz_lekarze> lekarze = new ArrayList<>();
+        try {
+            lekarze = (new QueriesManager()).getDoctors();
+        } catch (SQLException e) {
+            ExceptionHandler.displayException(e);
+        }
+
+        System.out.println("Pobrano " + lekarze.size() +" lekarzy.");
+    }
+
     private List<Sz_pracownicy> getEmployees() {
         List<Sz_pracownicy> employees = new ArrayList<>();
         return employees;
