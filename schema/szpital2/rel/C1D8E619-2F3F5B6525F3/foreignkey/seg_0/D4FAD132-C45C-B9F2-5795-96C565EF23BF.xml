@@ -6,7 +6,7 @@
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Pracownicy</referredTableLongName>
 <arc>11B78DB2-271E-4BAB-78DA-72500901A4A5</arc>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>DCDA57D5-F4F3-09CC-0EC7-C0D9255A01DE</referredTableID>
 <keyObject>09A70C43-89C3-4775-A7B7-5D472DB4C806</keyObject>
 <referredKeyID>09A70C43-89C3-4775-A7B7-5D472DB4C806</referredKeyID>

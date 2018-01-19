@@ -16,7 +16,7 @@
 <normalForm>Third</normalForm>
 <preferredAbbreviation>SZ_Pobyty</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID" id="DAB86B62-90C3-9BA9-9C1C-E98EF5862398">
+<Attribute name="PacjentID" id="DAB86B62-90C3-9BA9-9C1C-E98EF5862398">
 <createdBy>Kolgi</createdBy>
 <createdTime>2017-12-06 19:14:58 UTC</createdTime>
 <generatorID>E5CBA9A3-8D3C-DE83-9CE1-8BFC8912B51B</generatorID>
@@ -55,7 +55,7 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID1" id="244788EF-D612-A990-2C35-2DBDBC7E5E25">
+<Attribute name="OddzialID" id="244788EF-D612-A990-2C35-2DBDBC7E5E25">
 <createdBy>Kolgi</createdBy>
 <createdTime>2017-12-06 19:40:50 UTC</createdTime>
 <generatorID>C8FF98BF-F134-F84F-073C-35D62AF8EC04</generatorID>
@@ -69,21 +69,30 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="PobytID" id="0F1B3C8B-F473-141B-EE9E-750EEE0F358A">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 01:07:02 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="21829503-3D9C-065A-B316-26E314A5D508" name="Pobyt PK">
 <createdBy>student</createdBy>
 <createdTime>2017-12-07 07:56:39 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="false"/>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>244788EF-D612-A990-2C35-2DBDBC7E5E25</attributeRef>
-<attributeRef>DAB86B62-90C3-9BA9-9C1C-E98EF5862398</attributeRef>
-<attributeRef>54E969E2-8B9A-9C50-F688-29C26FFFE2D6</attributeRef>
+<attributeRef>0F1B3C8B-F473-141B-EE9E-750EEE0F358A</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

@@ -16,7 +16,7 @@
 <normalForm>Third</normalForm>
 <preferredAbbreviation>SZ_Pacjenci</preferredAbbreviation>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID" id="1C1250CF-7FA3-190B-65F8-16C2970759E5">
+<Attribute name="PacjentID" id="1C1250CF-7FA3-190B-65F8-16C2970759E5">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-11 10:23:50 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>

@@ -68,7 +68,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID1" id="F390E7CE-C0F2-BFC8-1301-40BE16054669">
+<Attribute name="OddzialID" id="F390E7CE-C0F2-BFC8-1301-40BE16054669">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-18 17:56:45 UTC</createdTime>
 <generatorID>03DA9D63-45C2-B459-F625-8F049C56B08A</generatorID>

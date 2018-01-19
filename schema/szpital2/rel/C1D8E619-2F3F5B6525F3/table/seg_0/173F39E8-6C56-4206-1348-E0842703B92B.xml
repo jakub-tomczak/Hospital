@@ -62,7 +62,7 @@
 <colUsage columnID="74EE9D4C-F6E5-C063-85E0-24B9B61EE402"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="1AC66BA3-D41C-8971-8DD5-213B15DEBAB2" name="SZ_Lekarze_SZ_Pracownicy_FK">
+<ind_PK_UK id="1AC66BA3-D41C-8971-8DD5-213B15DEBAB2" name="Lekarze_Pracownicy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>C9A6403C-E868-BD91-39A8-7F126064F974</generatorID>

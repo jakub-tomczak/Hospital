@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DAEB57FB-7788-B758-7AD5-2845B9228EE4" containerWithKeyObject="DCDA57D5-F4F3-09CC-0EC7-C0D9255A01DE" localFKIndex="097D5CD6-70EC-89F6-7285-3146BA659ED0" name="SZ_Pracownicy_SZ_Oddzialy_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D8D53CA5-5478-159B-82A3-4B590B90EC8C" containerWithKeyObject="DCDA57D5-F4F3-09CC-0EC7-C0D9255A01DE" localFKIndex="48B23F13-7C74-0AEC-3830-7B47080D6740" name="Pracownicy_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
-<createdTime>2018-01-17 17:21:14 UTC</createdTime>
+<createdTime>2018-01-19 01:07:42 UTC</createdTime>
 <generatorID>2E0AFBB3-9EE6-7B68-33A8-3F8D000572A3</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Oddzialy</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>SET NULL</deleteRule>
 <referredTableID>3AB35147-5A7B-B01B-87A4-104E7578860C</referredTableID>
 <keyObject>53F41ACE-78D3-AF13-3968-32E0CE84475A</keyObject>
 <referredKeyID>53F41ACE-78D3-AF13-3968-32E0CE84475A</referredKeyID>
-<mandatory>true</mandatory>
-<refColNames>ID</refColNames>
+<mandatory>false</mandatory>
+<refColNames>OddzialID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

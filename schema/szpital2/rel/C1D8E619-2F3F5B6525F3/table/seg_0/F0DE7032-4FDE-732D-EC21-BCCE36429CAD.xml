@@ -61,6 +61,17 @@
 <colAssociation fkAssociation="858BC974-D2FF-4DA2-EB3D-CD8BA806D1DB" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
 </associations>
 </Column>
+<Column name="PobytID" id="CD492B12-6F69-3772-430C-73B2EA426DA7">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 01:07:42 UTC</createdTime>
+<generatorID>0F1B3C8B-F473-141B-EE9E-750EEE0F358A</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="6AD7D407-BF09-B468-039C-8C494C4CC726" name="SZ_Pobyty_PK">
@@ -72,12 +83,10 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="FD49FE12-2933-8440-0FE7-42199EEB7634"/>
-<colUsage columnID="A9611C59-3315-27F3-E5CC-2F640667F648"/>
-<colUsage columnID="12AD009D-85E4-598F-1108-07BB42F662F0"/>
+<colUsage columnID="CD492B12-6F69-3772-430C-73B2EA426DA7"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6B36E9C9-91FB-3916-7D25-EAB3C7B2D0AB" name="SZ_Pobyty_SZ_Oddzialy_FK">
+<ind_PK_UK id="6B36E9C9-91FB-3916-7D25-EAB3C7B2D0AB" name="Pobyty_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>C8FF98BF-F134-F84F-073C-35D62AF8EC04</generatorID>
@@ -88,7 +97,7 @@
 <colUsage columnID="FD49FE12-2933-8440-0FE7-42199EEB7634"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="13416CE0-16E3-F9A2-1DDD-9580599C27AF" name="SZ_Pobyty_SZ_Pacjenci_FK">
+<ind_PK_UK id="13416CE0-16E3-F9A2-1DDD-9580599C27AF" name="Pobyty_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>E5CBA9A3-8D3C-DE83-9CE1-8BFC8912B51B</generatorID>

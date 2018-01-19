@@ -5,7 +5,7 @@
 <generatorID>98A4AD1B-D26A-A30C-0725-7307575F12E1</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Leczenia</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>D3D0B79D-19B2-ABF2-7779-B224089070C3</referredTableID>
 <keyObject>4D313B2B-D820-B1A5-5FD8-F7E38083F5C8</keyObject>
 <referredKeyID>4D313B2B-D820-B1A5-5FD8-F7E38083F5C8</referredKeyID>

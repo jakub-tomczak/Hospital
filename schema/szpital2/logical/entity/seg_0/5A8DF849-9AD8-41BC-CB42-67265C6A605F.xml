@@ -53,7 +53,7 @@
 <dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID" id="CE055912-7FA9-E6E3-1B50-635C6CFFD6E1">
+<Attribute name="PacjentID" id="CE055912-7FA9-E6E3-1B50-635C6CFFD6E1">
 <createdBy>Kolgi</createdBy>
 <createdTime>2017-12-06 22:13:05 UTC</createdTime>
 <generatorID>0DE697B8-E28F-671E-8E4F-32FD09D22AF9</generatorID>

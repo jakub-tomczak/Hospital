@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AE4AE09E-D53D-A1C1-7BB4-7AD3248A21A3" containerWithKeyObject="9DB64961-ED0C-15A0-0ADC-3CD72A8B4552" localFKIndex="EB4F8CDA-8E2B-534A-BE1D-D34FF2FCBE10" name="WykBadania_Pracownicy_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D58E99C3-877F-329A-421D-B41B7A34E9A7" containerWithKeyObject="7DFFF997-8044-D8A2-B289-4226E7FE8632" localFKIndex="C7ED1135-A3BD-98C1-BE52-4043727C8532" name="SZ_Badania_SZ_Pracownicy_FK">
 <createdBy>Jakub</createdBy>
-<createdTime>2017-12-25 14:25:05 UTC</createdTime>
+<createdTime>2018-01-19 00:04:11 UTC</createdTime>
 <generatorID>4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Pracownicy</referredTableLongName>

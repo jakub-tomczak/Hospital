@@ -5,7 +5,7 @@
 <generatorID>F75967EE-4C32-A27B-68A4-6E85D393C200</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Operacje</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>714999DD-14F7-E42C-7237-BF050A125096</referredTableID>
 <keyObject>21ABF7B8-57E4-4B81-563A-6C7C2E2DA568</keyObject>
 <referredKeyID>21ABF7B8-57E4-4B81-563A-6C7C2E2DA568</referredKeyID>

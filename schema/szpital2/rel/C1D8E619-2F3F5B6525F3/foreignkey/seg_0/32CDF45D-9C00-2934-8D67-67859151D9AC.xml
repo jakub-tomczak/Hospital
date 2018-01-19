@@ -5,7 +5,7 @@
 <generatorID>F75967EE-4C32-A27B-68A4-6E85D393C200</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Lekarze</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>173F39E8-6C56-4206-1348-E0842703B92B</referredTableID>
 <keyObject>79F90719-75B4-7A71-A16F-E7B798205F8A</keyObject>
 <referredKeyID>79F90719-75B4-7A71-A16F-E7B798205F8A</referredKeyID>
