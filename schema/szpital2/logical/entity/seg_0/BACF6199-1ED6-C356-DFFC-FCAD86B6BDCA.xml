@@ -53,7 +53,7 @@
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID1" id="5410ADED-2EC2-FFB5-420C-08AEA20125E1">
+<Attribute name="OddzialID" id="5410ADED-2EC2-FFB5-420C-08AEA20125E1">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-18 18:20:57 UTC</createdTime>
 <generatorID>F6900BE9-FA13-FB9A-AD7F-7D906802244D</generatorID>
@@ -67,7 +67,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID2" id="BAA98847-DBEB-8741-C66B-DB3F2217E074">
+<Attribute name="PacjentID" id="BAA98847-DBEB-8741-C66B-DB3F2217E074">
 <createdBy>Kolgi</createdBy>
 <createdTime>2017-12-06 22:01:20 UTC</createdTime>
 <generatorID>F76EA6F4-AA65-4411-16B2-79AB6EE05194</generatorID>
@@ -76,6 +76,20 @@
 <item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
 </engineerTo>
 <referedAttribute>1C1250CF-7FA3-190B-65F8-16C2970759E5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PracownikID" id="63963279-68FB-7435-10D5-131684593F5E">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 00:03:42 UTC</createdTime>
+<generatorID>4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<referedAttribute>89D33E81-C3B7-55C9-5F12-B96B8793E323</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

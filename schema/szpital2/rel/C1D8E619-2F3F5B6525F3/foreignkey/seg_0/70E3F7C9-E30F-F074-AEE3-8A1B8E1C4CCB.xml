@@ -10,7 +10,7 @@
 <keyObject>E6865416-560E-E3DE-0FD8-8A73CCA8A28D</keyObject>
 <referredKeyID>E6865416-560E-E3DE-0FD8-8A73CCA8A28D</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>ID</refColNames>
+<refColNames>PacjentID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

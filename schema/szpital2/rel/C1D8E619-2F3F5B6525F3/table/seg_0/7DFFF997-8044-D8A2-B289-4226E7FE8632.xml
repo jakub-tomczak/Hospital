@@ -47,6 +47,7 @@
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>5410ADED-2EC2-FFB5-420C-08AEA20125E1</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -72,6 +73,21 @@
 <colAssociation fkAssociation="70E3F7C9-E30F-F074-AEE3-8A1B8E1C4CCB" referredColumn="2E284ECA-1153-3AD2-A06A-7E1A2AB54FED"/>
 </associations>
 </Column>
+<Column name="SZ_Pracownicy_PracownikID" id="DF18800A-E30F-F4BD-C908-45D1AD1AB666">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 00:04:11 UTC</createdTime>
+<generatorID>63963279-68FB-7435-10D5-131684593F5E</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D58E99C3-877F-329A-421D-B41B7A34E9A7" referredColumn="6D683C37-85CA-D630-66EC-2E84F13387B4"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="AC3169BE-EC67-9BA1-BB13-28163B66982B" name="SZ_Badania_PK">
@@ -86,7 +102,7 @@
 <colUsage columnID="A0D6D616-A968-782E-EC57-BCF023511821"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="22BD33C7-BBFF-1573-1645-D7E5D3CB1602" name="SZ_Badania_SZ_Oddzialy_FK">
+<ind_PK_UK id="22BD33C7-BBFF-1573-1645-D7E5D3CB1602" name="Badania_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F6900BE9-FA13-FB9A-AD7F-7D906802244D</generatorID>
@@ -106,6 +122,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="05972533-E49A-107E-10E4-CC1908C8E4EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C7ED1135-A3BD-98C1-BE52-4043727C8532" name="SZ_Badania_SZ_Pracownicy_FK">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 00:04:11 UTC</createdTime>
+<generatorID>4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DF18800A-E30F-F4BD-C908-45D1AD1AB666"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -1,12 +1,12 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5673C4E9-990C-AC65-4D4A-285D950AC1C7" containerWithKeyObject="173F39E8-6C56-4206-1348-E0842703B92B" localFKIndex="1AC66BA3-D41C-8971-8DD5-213B15DEBAB2" name="SZ_Lekarze_SZ_Pracownicy_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5673C4E9-990C-AC65-4D4A-285D950AC1C7" containerWithKeyObject="173F39E8-6C56-4206-1348-E0842703B92B" localFKIndex="1AC66BA3-D41C-8971-8DD5-213B15DEBAB2" name="Lekarze_Pracownicy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>C9A6403C-E868-BD91-39A8-7F126064F974</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Pracownicy</referredTableLongName>
 <arc>11B78DB2-271E-4BAB-78DA-72500901A4A5</arc>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>DCDA57D5-F4F3-09CC-0EC7-C0D9255A01DE</referredTableID>
 <keyObject>09A70C43-89C3-4775-A7B7-5D472DB4C806</keyObject>
 <referredKeyID>09A70C43-89C3-4775-A7B7-5D472DB4C806</referredKeyID>

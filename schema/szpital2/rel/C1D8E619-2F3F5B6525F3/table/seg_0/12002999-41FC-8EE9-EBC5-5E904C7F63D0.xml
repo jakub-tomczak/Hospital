@@ -61,6 +61,7 @@
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F390E7CE-C0F2-BFC8-1301-40BE16054669</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -85,7 +86,7 @@
 <colUsage columnID="932E2C5A-6F31-FA71-BAF5-B93AE723F539"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="7541FC76-9AC6-3A10-6555-3BEAE41F642D" name="SZ_Sprzety_SZ_Oddzialy_FK">
+<ind_PK_UK id="7541FC76-9AC6-3A10-6555-3BEAE41F642D" name="Sprzety_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>03DA9D63-45C2-B459-F625-8F049C56B08A</generatorID>

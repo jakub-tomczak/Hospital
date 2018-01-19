@@ -49,7 +49,7 @@
 <colUsage columnID="BAB68D4E-5DE8-C16C-D48A-C4100DDB1618"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="11770CB5-4350-3FA5-1303-FBCED9A44B7E" name="SprzetNaOdziale_Badania_FK">
+<ind_PK_UK id="11770CB5-4350-3FA5-1303-FBCED9A44B7E" name="SprzetyBadania_Badania_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>9B3CA437-E584-DF42-71D7-7088C917D023</generatorID>
@@ -60,7 +60,7 @@
 <colUsage columnID="1609CBD3-1C4C-E29E-E93D-4F0A53B9C624"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="594D21E2-CCA6-334A-EA0C-8F0A400084B1" name="SprzetNaOdziale_Sprzety_FK">
+<ind_PK_UK id="594D21E2-CCA6-334A-EA0C-8F0A400084B1" name="SprzetyBadania_Sprzety_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>9B3CA437-E584-DF42-71D7-7088C917D023</generatorID>

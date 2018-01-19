@@ -54,7 +54,7 @@
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID1" id="C7EE1A4D-C5AD-2537-1381-5DE434307181">
+<Attribute name="PacjentID" id="C7EE1A4D-C5AD-2537-1381-5DE434307181">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-10-18 18:08:11 UTC</createdTime>
 <generatorID>4E009323-4828-B18D-61CA-A528CC600D3A</generatorID>
@@ -68,7 +68,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID" id="0E9AFC40-C01F-7450-461B-03F7830746BA">
+<Attribute name="OddzialID" id="0E9AFC40-C01F-7450-461B-03F7830746BA">
 <createdBy>student</createdBy>
 <createdTime>2017-12-07 08:00:28 UTC</createdTime>
 <generatorID>2311C88F-08B0-6D3A-32A1-C881B4D8964E</generatorID>
