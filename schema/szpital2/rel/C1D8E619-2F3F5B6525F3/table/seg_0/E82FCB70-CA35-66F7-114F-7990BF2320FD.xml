@@ -69,5 +69,15 @@
 <colUsage columnID="2E284ECA-1153-3AD2-A06A-7E1A2AB54FED"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="CAA984B6-21D7-21CF-539E-BD026290C31E" name="SZ_Pacjenci_PESEL_UK">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 02:09:56 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66A5E2F5-0D9F-E08B-9E0A-35B04F2574EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

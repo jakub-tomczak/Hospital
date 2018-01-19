@@ -43,7 +43,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SZ_Pacjenci_ID" id="E8723A44-714C-8AFD-F91D-614BABFA0ED9">
+<Column name="SZ_Pacjenci_PacjentID" id="E8723A44-714C-8AFD-F91D-614BABFA0ED9">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>C7EE1A4D-C5AD-2537-1381-5DE434307181</generatorID>
@@ -59,7 +59,7 @@
 <colAssociation fkAssociation="850901DE-6084-606A-2361-75AD5AD5A082" referredColumn="2E284ECA-1153-3AD2-A06A-7E1A2AB54FED"/>
 </associations>
 </Column>
-<Column name="SZ_Oddzialy_ID" id="B0C241BC-5CED-FD69-4465-443E526EAFDE">
+<Column name="SZ_Oddzialy_OddzialID" id="B0C241BC-5CED-FD69-4465-443E526EAFDE">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>0E9AFC40-C01F-7450-461B-03F7830746BA</generatorID>

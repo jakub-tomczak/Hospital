@@ -1,11 +1,11 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="70E3F7C9-E30F-F074-AEE3-8A1B8E1C4CCB" containerWithKeyObject="7DFFF997-8044-D8A2-B289-4226E7FE8632" localFKIndex="5557E5B6-49A1-108B-0E61-E8308EE60D09" name="SZ_Badania_SZ_Pacjenci_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="70E3F7C9-E30F-F074-AEE3-8A1B8E1C4CCB" containerWithKeyObject="7DFFF997-8044-D8A2-B289-4226E7FE8632" localFKIndex="5557E5B6-49A1-108B-0E61-E8308EE60D09" name="Badania_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F76EA6F4-AA65-4411-16B2-79AB6EE05194</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Pacjenci</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>E82FCB70-CA35-66F7-114F-7990BF2320FD</referredTableID>
 <keyObject>E6865416-560E-E3DE-0FD8-8A73CCA8A28D</keyObject>
 <referredKeyID>E6865416-560E-E3DE-0FD8-8A73CCA8A28D</referredKeyID>

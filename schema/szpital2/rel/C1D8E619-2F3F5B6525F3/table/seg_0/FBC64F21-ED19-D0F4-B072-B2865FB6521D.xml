@@ -56,5 +56,15 @@
 <colUsage columnID="877B5AB3-8F25-ED91-FFDB-34B48E555663"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="43EFC7E0-5BFD-D55C-98F3-DF015970C548" name="SZ_Leki_NAZWA_UK">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 02:00:42 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FBB18AF8-88FE-DB2A-0B4D-E0531084A85A"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

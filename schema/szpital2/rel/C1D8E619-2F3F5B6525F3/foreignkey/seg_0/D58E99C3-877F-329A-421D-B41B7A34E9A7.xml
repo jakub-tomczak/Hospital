@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D58E99C3-877F-329A-421D-B41B7A34E9A7" containerWithKeyObject="7DFFF997-8044-D8A2-B289-4226E7FE8632" localFKIndex="C7ED1135-A3BD-98C1-BE52-4043727C8532" name="SZ_Badania_SZ_Pracownicy_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D58E99C3-877F-329A-421D-B41B7A34E9A7" containerWithKeyObject="7DFFF997-8044-D8A2-B289-4226E7FE8632" localFKIndex="C7ED1135-A3BD-98C1-BE52-4043727C8532" name="Badania_Pracownicy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2018-01-19 00:04:11 UTC</createdTime>
 <generatorID>4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Pracownicy</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>SET NULL</deleteRule>
 <referredTableID>DCDA57D5-F4F3-09CC-0EC7-C0D9255A01DE</referredTableID>
 <keyObject>09A70C43-89C3-4775-A7B7-5D472DB4C806</keyObject>
 <referredKeyID>09A70C43-89C3-4775-A7B7-5D472DB4C806</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>PracownikID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

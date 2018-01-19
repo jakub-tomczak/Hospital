@@ -56,7 +56,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SZ_Oddzialy_ID" id="35663DFE-5607-D195-D9C1-779911888927">
+<Column name="SZ_Oddzialy_OddzialID" id="35663DFE-5607-D195-D9C1-779911888927">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F390E7CE-C0F2-BFC8-1301-40BE16054669</generatorID>

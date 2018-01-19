@@ -42,7 +42,7 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SZ_Pacjenci_ID" id="3A163759-38AE-E72A-9B53-7D66B96AC47D">
+<Column name="SZ_Pacjenci_PacjentID" id="3A163759-38AE-E72A-9B53-7D66B96AC47D">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>CE055912-7FA9-E6E3-1B50-635C6CFFD6E1</generatorID>
@@ -68,9 +68,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="9EC70419-A5FC-7003-FD16-2161AAD0A635" referredColumn="6BB4A2C5-A429-EC8D-5635-DC90D617DC16"/>
-</associations>
 </Column>
 <Column name="LeczenieID" id="A646EB1A-69E5-573F-3FBF-0016AE123F6D">
 <createdBy>Jakub</createdBy>
@@ -81,6 +78,18 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Choroba" id="A7810ED3-94AB-355B-C5B5-6F90C74AE5E7">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-19 02:06:34 UTC</createdTime>
+<generatorID>6D2413EF-5F71-C232-7945-3B368F18D9E3</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
@@ -94,7 +103,6 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="E220D99D-C53E-DE2D-77EC-2F6E49E398C5"/>
 <colUsage columnID="A646EB1A-69E5-573F-3FBF-0016AE123F6D"/>
 </indexColumnUsage>
 </ind_PK_UK>
@@ -107,17 +115,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="3A163759-38AE-E72A-9B53-7D66B96AC47D"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="72B2ECF4-5D21-524D-89BA-ABEFDBCC7B48" name="Leczenia_Choroby_FK">
-<createdBy>Jakub</createdBy>
-<createdTime>2017-12-25 14:25:05 UTC</createdTime>
-<generatorID>B095938D-B952-AAD9-5D24-E58C798F887B</generatorID>
-<ownerDesignName>szpital2</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="E220D99D-C53E-DE2D-77EC-2F6E49E398C5"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
