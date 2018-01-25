@@ -1,6 +1,5 @@
 package SQL;
 
-import DataProvider.DataProvider;
 import Relations.Sz_lekarze;
 import Relations.Sz_operacje;
 
@@ -87,7 +86,6 @@ public class QueriesManager {
         rs.close();
         stmt.close();
 
-        DataProvider.getInstance().updateLekarze(lekarze);
         return lekarze;
     }
 
