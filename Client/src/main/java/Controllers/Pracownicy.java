@@ -4,6 +4,7 @@ import Relations.Sz_lekarze;
 import Relations.Sz_pracownicy;
 import SQL.QueriesManager;
 import Utils.ExceptionHandler;
+import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,18 +18,29 @@ import java.util.List;
 public class Pracownicy {
 
 
-    @FXML private TableColumn<Sz_pracownicy, String> firstName;
-    @FXML private TableColumn<Sz_pracownicy, String> lastName;
-    @FXML private TableColumn<Sz_pracownicy, String> type;
-    @FXML private TableColumn<Sz_pracownicy, String> place;
+    public TableView pielegniarkiTableView;
+    public TableColumn firstNameNurse;
+    public TableColumn lastNameNurse;
+    public TableColumn typeNurse;
+    public TableColumn placaNurse;
+
+
+    @FXML private TableColumn<Sz_pracownicy, String> firstNameDoctor;
+    @FXML private TableColumn<Sz_pracownicy, String> lastNameDoctor;
+    @FXML private TableColumn<Sz_pracownicy, String> typeDoctor;
+    @FXML private TableColumn<Sz_pracownicy, String> placaDoctor;
     @FXML private TextArea textArea;
-    @FXML private TableView<Sz_pracownicy> pracownicyTableView;
+    @FXML private TableView<Sz_pracownicy> lekarzeTableView;
 
 
     @FXML
     public void initialize() {
 
-        pracownicyTableView.getItems().setAll(getEmployees());
+        lekarzeTableView.getItems().setAll(getEmployees());
+        FilterSupport.addFilter(firstNameDoctor);
+        FilterSupport.addFilter(lastNameDoctor);
+        FilterSupport.addFilter(typeDoctor);
+        FilterSupport.addFilter(placaDoctor);
     }
 
     @FXML

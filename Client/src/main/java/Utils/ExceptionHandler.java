@@ -4,7 +4,6 @@ import Controllers.OknoBlad;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -31,7 +30,7 @@ public class ExceptionHandler {
             modal.setTitle("Błąd");
             Scene scene = new Scene(root, 600, 400);
             modal.setScene(scene);
-            scene.getStylesheets().add(ExceptionHandler.class.getClass().getResource("/styles/style.css").toString());
+            scene.getStylesheets().add(ExceptionHandler.class.getClass().getResource("/styles/mainscene_style.css").toString());
             modal.show();
 
         }catch(Exception e)

@@ -36,7 +36,7 @@ public class Main extends Application {
         primaryStage.setTitle("Hospital");
         Scene scene = new Scene(root, 1280 , 720);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add(getClass().getResource("/styles/style.css").toString());
+        //scene.getStylesheets().add(getClass().getResource("/styles/mainscene_style.css").toString());
         primaryStage.show();
         primaryStage.setOnCloseRequest(
                 (WindowEvent event) ->
