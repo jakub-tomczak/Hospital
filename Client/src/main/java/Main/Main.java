@@ -53,7 +53,7 @@ public class Main extends Application {
         try {
             Connector.getInstance().closeConnection();
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie udało się zamknąć połączenia : " + e.getMessage());
+            ExceptionHandler.displayException("Nie udało się zamknąć połączenia z bazą!");
 
         }
     }

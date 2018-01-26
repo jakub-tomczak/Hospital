@@ -42,7 +42,7 @@ public class Connector {
             System.out.println("Połączono z bazą danych");
             connectionEstablished = true;
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie można się połączyć z bazą. " + e.getMessage());
+            ExceptionHandler.displayException("Nie udało się połączyć z bazą danych.");
         }
     }
 
