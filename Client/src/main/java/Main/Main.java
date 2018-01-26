@@ -13,10 +13,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import Relations.Teams;
-
-import javax.rmi.CORBA.Util;
 import java.sql.*;
-import java.util.Properties;
 
 public class Main extends Application {
     public static ObservableList<Teams> teamsData;

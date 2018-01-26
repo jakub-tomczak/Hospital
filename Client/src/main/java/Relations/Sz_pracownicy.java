@@ -1,28 +1,17 @@
 package Relations;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 public class Sz_pracownicy {
-  private String imie;
-  private String nazwisko;
+  private StringProperty imie;
+  private StringProperty nazwisko;
+  private StringProperty stanowiskoString;
   private int stanowisko;
-  private double pensja;
-  private int oddzialy_id;
-  private int pracownikid;
-
-  public String getImie() {
-    return imie;
-  }
-
-  public void setImie(String imie) {
-    this.imie = imie;
-  }
-
-  public String getNazwisko() {
-    return nazwisko;
-  }
-
-  public void setNazwisko(String nazwisko) {
-    this.nazwisko = nazwisko;
-  }
+  private DoubleProperty pensja;
+  private IntegerProperty oddzialy_id;
+  private IntegerProperty pracownikid;
 
   public int getStanowisko() {
     return stanowisko;
@@ -32,28 +21,79 @@ public class Sz_pracownicy {
     this.stanowisko = stanowisko;
   }
 
+  public String getImie() {
+    return imie.get();
+  }
+
+  public StringProperty imieProperty() {
+    return imie;
+  }
+
+  public void setImie(String imie) {
+    this.imie.set(imie);
+  }
+
+  public String getNazwisko() {
+    return nazwisko.get();
+  }
+
+  public StringProperty nazwiskoProperty() {
+    return nazwisko;
+  }
+
+  public void setNazwisko(String nazwisko) {
+    this.nazwisko.set(nazwisko);
+  }
+
+  public String getStanowiskoString() {
+    return stanowiskoString.get();
+  }
+
+  public StringProperty stanowiskoStringProperty() {
+    if (this.stanowisko == 1) {
+      this.stanowiskoString.setValue("Lekarz");
+    } else if (this.stanowisko == 2) {
+      this.stanowiskoString.setValue("Pielęgniarka");
+    } else {
+      this.stanowiskoString.setValue("Inne");
+    }
+    return stanowiskoString;
+  }
+
+
   public double getPensja() {
+    return pensja.get();
+  }
+
+  public DoubleProperty pensjaProperty() {
     return pensja;
   }
 
   public void setPensja(double pensja) {
-    this.pensja = pensja;
+    this.pensja.set(pensja);
   }
 
   public int getOddzialy_id() {
+    return oddzialy_id.get();
+  }
+
+  public IntegerProperty oddzialy_idProperty() {
     return oddzialy_id;
   }
 
   public void setOddzialy_id(int oddzialy_id) {
-    this.oddzialy_id = oddzialy_id;
+    this.oddzialy_id.set(oddzialy_id);
   }
 
   public int getPracownikid() {
+    return pracownikid.get();
+  }
+
+  public IntegerProperty pracownikidProperty() {
     return pracownikid;
   }
 
   public void setPracownikid(int pracownikid) {
-    this.pracownikid = pracownikid;
+    this.pracownikid.set(pracownikid);
   }
-
 }

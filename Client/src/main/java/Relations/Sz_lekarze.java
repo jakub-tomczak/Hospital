@@ -1,9 +1,12 @@
 package Relations;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 public class Sz_lekarze extends Sz_pracownicy {
-  private String specjalizacja;
-  private String stopiennaukowy;
-  private int pracownikid;
+  private StringProperty specjalizacja;
+  private StringProperty stopiennaukowy;
+  private IntegerProperty pracownikid;
   public Sz_lekarze()
   {
     setStanowisko(1);
@@ -15,24 +18,9 @@ public class Sz_lekarze extends Sz_pracownicy {
     this.setNazwisko(nazwisko);
     this.setPensja(pensja);
     this.setOddzialy_id(oddzialID);
-    this.specjalizacja = specjalizacja;
-    this.stopiennaukowy = stopiennaukowy;
-    this.pracownikid = pracownikid;
-  }
-  public String getSpecjalizacja() {
-    return specjalizacja;
-  }
-
-  public void setSpecjalizacja(String specjalizacja) {
-    this.specjalizacja = specjalizacja;
-  }
-
-  public String getStopiennaukowy() {
-    return stopiennaukowy;
-  }
-
-  public void setStopiennaukowy(String stopiennaukowy) {
-    this.stopiennaukowy = stopiennaukowy;
+    this.setSpecjalizacja(specjalizacja);
+    this.setStopiennaukowy(stopiennaukowy);
+    this.pracownikid.setValue(ID);
   }
 
   public int getPracownikid() {
@@ -41,5 +29,29 @@ public class Sz_lekarze extends Sz_pracownicy {
 
   public void setPracownikid(int pracownikid) {
     super.setPracownikid(pracownikid) ;
+  }
+
+  public String getSpecjalizacja() {
+    return specjalizacja.get();
+  }
+
+  public StringProperty specjalizacjaProperty() {
+    return specjalizacja;
+  }
+
+  public void setSpecjalizacja(String specjalizacja) {
+    this.specjalizacja.set(specjalizacja);
+  }
+
+  public String getStopiennaukowy() {
+    return stopiennaukowy.get();
+  }
+
+  public StringProperty stopiennaukowyProperty() {
+    return stopiennaukowy;
+  }
+
+  public void setStopiennaukowy(String stopiennaukowy) {
+    this.stopiennaukowy.set(stopiennaukowy);
   }
 }
