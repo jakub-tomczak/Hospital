@@ -1,9 +1,12 @@
 package SQL;
 
 import Utils.Constants;
+import Utils.ExceptionHandler;
 import jdk.nashorn.internal.codegen.CompilerConstants;
+import oracle.jdbc.OracleConnection;
 
 import java.sql.*;
+import java.util.Properties;
 
 public class Connector {
     private static Connector instance;
@@ -28,13 +31,18 @@ public class Connector {
         }
         Class.forName("oracle.jdbc.driver.OracleDriver");
         try {
+            Properties properties = new Properties();
+            properties.setProperty("user", Constants.DB_USERNAME);
+            properties.setProperty("password", Constants.DB_PASSWORD);
+            properties.setProperty(OracleConnection.CONNECTION_PROPERTY_THIN_NET_CONNECT_TIMEOUT, "1500");
+
             connection = DriverManager.getConnection(
                     "jdbc:oracle:thin:@admlab2.cs.put.poznan.pl:1521/dblab02_students.cs.put.poznan.pl",
-                    Constants.DB_USERNAME, Constants.DB_PASSWORD);
+                    properties);
             System.out.println("Połączono z bazą danych");
             connectionEstablished = true;
         } catch (SQLException e) {
-            System.out.println("Błąd wykonania połączenia " + e.getMessage());
+            ExceptionHandler.displayException("Nie można się połączyć z bazą. " + e.getMessage());
         }
     }
 
