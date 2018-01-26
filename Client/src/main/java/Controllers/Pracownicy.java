@@ -6,6 +6,7 @@ import SQL.QueriesManager;
 import Utils.ExceptionHandler;
 import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -37,6 +38,7 @@ public class Pracownicy {
     public void initialize() {
 
         lekarzeTableView.getItems().setAll(getEmployees());
+       // lekarzeTableView.setPlaceholder(new Label("Brak danych w tabeli"));
         FilterSupport.addFilter(firstNameDoctor);
         FilterSupport.addFilter(lastNameDoctor);
         FilterSupport.addFilter(typeDoctor);
