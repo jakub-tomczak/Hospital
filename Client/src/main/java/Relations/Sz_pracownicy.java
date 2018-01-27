@@ -30,7 +30,7 @@ public class Sz_pracownicy {
   }
 
   public void setImie(String imie) {
-    this.imie.set(imie);
+    this.imie.setValue(imie);
   }
 
   public String getNazwisko() {

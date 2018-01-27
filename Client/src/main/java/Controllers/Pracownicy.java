@@ -5,12 +5,12 @@ import Relations.Sz_pracownicy;
 import SQL.QueriesManager;
 import Utils.ExceptionHandler;
 import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,6 +24,8 @@ public class Pracownicy {
     public TableColumn lastNameNurse;
     public TableColumn typeNurse;
     public TableColumn placaNurse;
+    public ToggleGroup typPracownika;
+    public RadioButton typPracownikaPielegniarka;
 
 
     @FXML private TableColumn<Sz_pracownicy, String> firstNameDoctor;
@@ -32,7 +34,7 @@ public class Pracownicy {
     @FXML private TableColumn<Sz_pracownicy, String> placaDoctor;
     @FXML private TextArea textArea;
     @FXML private TableView<Sz_pracownicy> lekarzeTableView;
-
+    @FXML private GridPane lekarzDodatkoweDane;
 
     @FXML
     public void initialize() {
@@ -43,6 +45,13 @@ public class Pracownicy {
         FilterSupport.addFilter(lastNameDoctor);
         FilterSupport.addFilter(typeDoctor);
         FilterSupport.addFilter(placaDoctor);
+
+        typPracownika.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                lekarzDodatkoweDane.setVisible(newValue != typPracownikaPielegniarka);
+            }
+        });
     }
 
     @FXML

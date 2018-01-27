@@ -49,3 +49,12 @@
     -fx-text-fill: #393c3e;
 
 }
+
+.formGridPane
+{
+    -fx-font-family: Arial;
+    -fx-font-size: 15;
+    -fx-text-fill: #3e86a0;
+    -fx-padding: 5px;
+
+}
