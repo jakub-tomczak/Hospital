@@ -2,7 +2,6 @@ package SQL;
 
 import Utils.Constants;
 import Utils.ExceptionHandler;
-import jdk.nashorn.internal.codegen.CompilerConstants;
 import oracle.jdbc.OracleConnection;
 
 import java.sql.*;

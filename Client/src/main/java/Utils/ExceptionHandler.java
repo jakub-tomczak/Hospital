@@ -38,4 +38,13 @@ public class ExceptionHandler {
             System.out.println("Nastąpił błąd podczas wyświetlania okna");
         }
     }
+    public static String getMessage(Exception e)
+    {
+        if(e.getMessage().contains("naruszono"))
+            return "W bazie istnieje już rekord o podanym unikalnym polu!";
+        else
+            return e.getMessage();
+
+    }
+
 }

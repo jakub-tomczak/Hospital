@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane stylesheets="/styles/subviews_style.css"
-          alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Pacjenci">
+<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Pacjenci">
     <columnConstraints>
         <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="100.0" percentWidth="20" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="60" />
@@ -22,7 +21,7 @@
     <children>
         <VBox depthTest="DISABLE" prefHeight="200.0" prefWidth="100.0" styleClass="vbox">
             <children>
-                <Button mnemonicParsing="false" text="Pacjenci" />
+                <Button fx:id="addPatient" mnemonicParsing="false" onMouseClicked="#showModal" text="Dodaj pacjenta" />
                 <Button mnemonicParsing="false" text="Button" />
             </children>
             <opaqueInsets>

@@ -2,6 +2,8 @@ package SQL;
 
 import Relations.Sz_lekarze;
 import Relations.Sz_operacje;
+import Relations.Sz_pacjenci;
+import oracle.jdbc.proxy.annotation.Pre;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -61,7 +63,25 @@ public class QueriesManager {
         System.out.println("Dodano operacje");
     }
 
-    public List<Sz_lekarze> getDoctors() throws SQLException {
+    public void addPatient(Sz_pacjenci p) throws SQLException {
+        PreparedStatement stmt = null;
+        String insertPatient = "insert into SZ_PACJENCI " +
+                "(id,imie,nazwisko,pesel,adres,miasto,kod) values " +
+                "(?,?,?,?,?,?,?)";
+        stmt = Connector.getInstance().getConnection().prepareStatement(insertPatient);
+        stmt.setInt(1,p.getId());
+        stmt.setString(2,p.getImie());
+        stmt.setString(3,p.getNazwisko());
+        stmt.setString(4,p.getPesel());
+        stmt.setString(5,p.getAdres());
+        stmt.setString(6,p.getMiasto());
+        stmt.setString(7,p.getKod());
+        stmt.executeUpdate();
+        System.out.println("Wstawiono pacjenta");
+        stmt.close();
+    }
+
+        public List<Sz_lekarze> getDoctors() throws SQLException {
         String query = "select p.imie, p.nazwisko, p.pensja, p.oddzialy_id as oddzial, l.specjalizacja, l.stopiennaukowy, l.pracownikid as id " +
         "from sz_pracownicy p join sz_lekarze l on p.PRACOWNIKID = l.PRACOWNIKID " +
         "where p.stanowisko = 1";
