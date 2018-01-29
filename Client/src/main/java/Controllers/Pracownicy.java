@@ -1,12 +1,15 @@
 package Controllers;
 
+import Main.Main;
 import Relations.Sz_lekarze;
 import Relations.Sz_pracownicy;
 import SQL.QueriesManager;
 import Utils.ExceptionHandler;
+import Utils.IDisplayedScreen;
 import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -16,7 +19,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pracownicy {
+public class Pracownicy implements IDisplayedScreen {
 
 
     public TableView pielegniarkiTableView;
@@ -26,6 +29,12 @@ public class Pracownicy {
     public TableColumn placaNurse;
     public ToggleGroup typPracownika;
     public RadioButton typPracownikaPielegniarka;
+    public TextField firstNameTextInput;
+    public TextField lastNameTextInput;
+    public TextField salaryTextInput;
+    public TextField specializationTextInput;
+    public TextField degreeTextInput;
+    public ComboBox oddzialyComboBox;
 
 
     @FXML private TableColumn<Sz_pracownicy, String> firstNameDoctor;
@@ -38,6 +47,8 @@ public class Pracownicy {
 
     @FXML
     public void initialize() {
+        //dodaje siebie do listy ekranów odświeżalnych
+        Main.screensList.add(this);
 
         lekarzeTableView.getItems().setAll(getEmployees());
        // lekarzeTableView.setPlaceholder(new Label("Brak danych w tabeli"));
@@ -52,6 +63,22 @@ public class Pracownicy {
                 lekarzDodatkoweDane.setVisible(newValue != typPracownikaPielegniarka);
             }
         });
+    }
+
+    public void refresh()
+    {
+        QueriesManager queriesManager = new QueriesManager();
+
+        //update oddzialy
+        List<String> listaOddzialow = null;
+        try
+        {
+            listaOddzialow = queriesManager.getOddzialy();
+            oddzialyComboBox.setItems(FXCollections.observableArrayList(listaOddzialow));
+        }catch(SQLException e)
+        {
+            ExceptionHandler.displayException("Nie udało się pobrac najnowszej listy oddziałów!");
+        }
     }
 
     @FXML
@@ -75,6 +102,7 @@ public class Pracownicy {
         System.out.println("Sending query!");
 
         QueriesManager queriesManager = new QueriesManager();
+
         Sz_lekarze doctor = new Sz_lekarze();
         doctor.setImie("Jan");
         doctor.setNazwisko("Kowalski");

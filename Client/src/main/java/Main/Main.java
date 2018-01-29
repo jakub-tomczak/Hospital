@@ -1,12 +1,9 @@
 package Main;
 import SQL.Connector;
-import SQL.QueriesManager;
-import Utils.Constants;
 import Utils.ExceptionHandler;
+import Utils.IDisplayedScreen;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +11,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import Relations.Teams;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
     public static ObservableList<Teams> teamsData;
+    public static List<IDisplayedScreen> screensList = new ArrayList<>();
     private static Main instance;
 
     private Stage mainWindowStage;
@@ -45,6 +45,12 @@ public class Main extends Application {
                 }
             );
         Connector.getInstance().openConnection();
+
+        //refresh all available screens
+        for(IDisplayedScreen displayedScreen: screensList)
+        {
+            displayedScreen.refresh();
+        }
     }
 
     private void onApplicationClosing() {
