@@ -100,28 +100,11 @@ CREATE TABLE sz_pracownicy (
     stanowisko              NUMBER(2) NOT NULL,
     pensja                  NUMBER(6,2) NOT NULL,
     sz_oddzialy_oddzialid   INTEGER,
-    pracownikid             INTEGER NOT NULL
+    pracownikid             INTEGER NOT NULL,
+	zatrudniony				CHAR (1) NOT NULL
 );
 
 ALTER TABLE sz_pracownicy ADD CONSTRAINT sz_pracownicy_pk PRIMARY KEY ( pracownikid );
-
-CREATE TABLE sz_sprzety (
-    id                      INTEGER NOT NULL,
-    nazwa                   VARCHAR2(30) NOT NULL,
-    rokprodukcji            INTEGER NOT NULL,
-    stan                    INTEGER,
-    sz_oddzialy_oddzialid   INTEGER
-);
-
-ALTER TABLE sz_sprzety ADD CONSTRAINT sz_sprzety_pk PRIMARY KEY ( id );
-
-CREATE TABLE sz_sprzetybadania (
-    badania_id   INTEGER NOT NULL,
-    sprzety_id   INTEGER NOT NULL
-);
-
-ALTER TABLE sz_sprzetybadania ADD CONSTRAINT sprzetnaodziale_pk PRIMARY KEY ( badania_id,
-sprzety_id );
 
 CREATE TABLE sz_stosowaneleki (
     id                      INTEGER NOT NULL,
@@ -206,21 +189,6 @@ ALTER TABLE sz_pracownicy
         REFERENCES sz_oddzialy ( oddzialid )
             ON DELETE SET NULL;
 
-ALTER TABLE sz_sprzety
-    ADD CONSTRAINT sprzety_oddzialy_fk FOREIGN KEY ( sz_oddzialy_oddzialid )
-        REFERENCES sz_oddzialy ( oddzialid )
-            ON DELETE SET NULL;
-
-ALTER TABLE sz_sprzetybadania
-    ADD CONSTRAINT sprzetybadania_badania_fk FOREIGN KEY ( badania_id )
-        REFERENCES sz_badania ( id )
-            ON DELETE CASCADE;
-
-ALTER TABLE sz_sprzetybadania
-    ADD CONSTRAINT sprzetybadania_sprzety_fk FOREIGN KEY ( sprzety_id )
-        REFERENCES sz_sprzety ( id )
-            ON DELETE CASCADE;
-
 ALTER TABLE sz_stosowaneleki
     ADD CONSTRAINT stosowaneleki_leki_fk FOREIGN KEY ( stosowaneleki_leki_id )
         REFERENCES sz_leki ( leki_id );
@@ -246,57 +214,3 @@ ALTER TABLE sz_wykonywaneoperacje
         REFERENCES sz_operacje ( operacjaid )
             ON DELETE CASCADE;
 
-CREATE SEQUENCE sz_leki_leki_id_seq START WITH 1 NOCACHE ORDER;
-
-CREATE OR REPLACE TRIGGER sz_leki_leki_id_trg BEFORE
-    INSERT ON sz_leki
-    FOR EACH ROW
-    WHEN ( new.leki_id IS NULL )
-BEGIN
-    :new.leki_id := sz_leki_leki_id_seq.nextval;
-END;
-/
-
-
-
--- Oracle SQL Developer Data Modeler Summary Report: 
--- 
--- CREATE TABLE                            15
--- CREATE INDEX                             0
--- ALTER TABLE                             37
--- CREATE VIEW                              0
--- ALTER VIEW                               0
--- CREATE PACKAGE                           0
--- CREATE PACKAGE BODY                      0
--- CREATE PROCEDURE                         0
--- CREATE FUNCTION                          0
--- CREATE TRIGGER                           1
--- ALTER TRIGGER                            0
--- CREATE COLLECTION TYPE                   0
--- CREATE STRUCTURED TYPE                   0
--- CREATE STRUCTURED TYPE BODY              0
--- CREATE CLUSTER                           0
--- CREATE CONTEXT                           0
--- CREATE DATABASE                          0
--- CREATE DIMENSION                         0
--- CREATE DIRECTORY                         0
--- CREATE DISK GROUP                        0
--- CREATE ROLE                              0
--- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          1
--- CREATE MATERIALIZED VIEW                 0
--- CREATE SYNONYM                           0
--- CREATE TABLESPACE                        0
--- CREATE USER                              0
--- 
--- DROP TABLESPACE                          0
--- DROP DATABASE                            0
--- 
--- REDACTION POLICY                         0
--- 
--- ORDS DROP SCHEMA                         0
--- ORDS ENABLE SCHEMA                       0
--- ORDS ENABLE OBJECT                       0
--- 
--- ERRORS                                   2
--- WARNINGS                                 0
