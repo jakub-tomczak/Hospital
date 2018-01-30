@@ -4,7 +4,6 @@ import Relations.Sz_lekarze;
 import Relations.Sz_operacje;
 import Relations.Sz_pacjenci;
 import Utils.ExceptionHandler;
-import oracle.jdbc.proxy.annotation.Pre;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -73,8 +72,11 @@ public class QueriesManager {
             statement.setString(6, lekarz.getStopiennaukowy());
             statement.setInt(7, lekarz.getOddzialy_id());
             statement.execute();
-        } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie udało się dodać lekarza.");
+        }  catch (SQLException e) {
+            ExceptionHandler.displayException("Nie udało się dodać lekarza");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
         }finally {
             try
             {
@@ -89,7 +91,7 @@ public class QueriesManager {
 
     }
 
-    public void adddOperation(Sz_operacje operacja, int lekarzID){
+    public void addOperation(Sz_operacje operacja, int lekarzID){
         String query = "{call dodajOperacje(?, ?, ?, ?, ?)}";
         CallableStatement statement = null;
         try {
@@ -100,9 +102,11 @@ public class QueriesManager {
             statement.setInt(4, operacja.getOddzialy_id());
             statement.setInt(5, lekarzID);
             statement.execute();
-            statement.close();
-        } catch (SQLException e) {
+        }  catch (SQLException e) {
             ExceptionHandler.displayException("Nie udało się dodać operacji");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
         }finally {
             try
             {
@@ -131,9 +135,11 @@ public class QueriesManager {
             stmt.setString(6, p.getMiasto());
             stmt.setString(7, p.getKod());
             stmt.executeUpdate();
-            stmt.close();
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie udało się dodać pacjenta.");
+            ExceptionHandler.displayException("Nie udało się dodać pacjenta");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
         }finally {
             try
             {
@@ -173,7 +179,10 @@ public class QueriesManager {
                 lekarze.add(lekarz);
             }
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie można pobrać listy z lekarzami");
+            ExceptionHandler.displaySQLException(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
         }finally {
             try
             {
@@ -183,8 +192,6 @@ public class QueriesManager {
                 if (rs != null) {
                     rs.close();
                 }
-
-                System.out.println("Zamknieto kursory");
             }catch(SQLException e)
             {
                 ExceptionHandler.displayException("Nie udało się zamknąć");

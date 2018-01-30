@@ -7,10 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
 public class ExceptionHandler {
     public static void displayException(Exception e)
     {
-        System.out.println(e.getMessage());
+        displayException(e.getMessage());
     }
     public static void displayException(String message)
     {
@@ -37,6 +39,11 @@ public class ExceptionHandler {
         {
             System.out.println("Nastąpił błąd podczas wyświetlania okna");
         }
+    }
+    public static void displaySQLException(SQLException sqlException)
+    {
+      //teraz wyswietl tak samo jak kazdy inny exception ale pozniej mozna dodac lapanie kodów sql zeby wiedziec co jest nie tak
+        displayException(sqlException);
     }
     public static String getMessage(Exception e)
     {

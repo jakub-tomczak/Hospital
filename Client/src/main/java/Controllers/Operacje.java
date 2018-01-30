@@ -12,13 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import oracle.sql.DATE;
-import Controllers.DodajOperacjeModal;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 
 public class Operacje {
     @FXML
@@ -61,7 +57,7 @@ public class Operacje {
 
         QueriesManager query = new QueriesManager();
 
-        query.adddOperation(operacja, 1);
+        query.addOperation(operacja, 1);
 
     }
 }
