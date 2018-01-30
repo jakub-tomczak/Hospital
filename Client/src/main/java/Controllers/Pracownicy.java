@@ -4,32 +4,36 @@ import Main.Main;
 import Relations.Sz_lekarze;
 import Relations.Sz_pracownicy;
 import SQL.QueriesManager;
+import Utils.Constants;
 import Utils.ExceptionHandler;
 import Utils.IDisplayedScreen;
+import Utils.Validator;
 import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.scene.paint.Paint;
 import javafx.util.Callback;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pracownicy implements IDisplayedScreen {
+    private final String insertMode = "Tryb dodawania";
+    private final String updateMode = "Tryb aktualizacji";
+    private final String insertModeAcceptButtonText = "Dodaj";
+    private  final String updateModeAcceptButtonText = "Aktualizuj";
+
+    public Button formAcceptButton;
+    private FormMode formMode = FormMode.insert;
 
 
     public TableView pielegniarkiTableView;
@@ -46,6 +50,7 @@ public class Pracownicy implements IDisplayedScreen {
     public TextField degreeTextInput;
     public ComboBox oddzialyComboBox;
     public TableColumn usunDoctor;
+    public Label formModeLabel;
 
 
     @FXML
@@ -90,9 +95,8 @@ public class Pracownicy implements IDisplayedScreen {
 
                     @Override
                     public TableCell<Sz_pracownicy, Boolean> call(TableColumn<Sz_pracownicy, Boolean> p) {
-                        return new ButtonFactory(p);
+                        return new ButtonFactory("Usuń", ButtonAction.delete);
                     }
-
                 });
 
         // lekarzeTableView.setPlaceholder(new Label("Brak danych w tabeli"));
@@ -103,6 +107,30 @@ public class Pracownicy implements IDisplayedScreen {
 
         //radio button toggle
         typPracownika.selectedToggleProperty().addListener((observable, oldValue, newValue) -> lekarzDodatkoweDane.setVisible(newValue != typPracownikaPielegniarka));
+    }
+    public void clearFormFields(ActionEvent actionEvent) {
+        //global flag
+        formMode = FormMode.insert;
+
+        //insert mode stuff
+        formModeLabel.setText(insertMode);
+        formModeLabel.setTextFill(Paint.valueOf("#15ff00"));    //green
+
+        //set button text
+        formAcceptButton.setText(insertModeAcceptButtonText);
+
+        //radiobutton stuff
+        typPracownikaPielegniarka.setSelected(true);
+
+        //clear fields
+        firstNameTextInput.setText("");
+        lastNameTextInput.setText("");
+        salaryTextInput.setText("");
+        specializationTextInput.setText("");
+        degreeTextInput.setText("");
+
+        //clear errors in fields
+        clearValidationMarks();
     }
 
     public void refresh() {
@@ -117,6 +145,8 @@ public class Pracownicy implements IDisplayedScreen {
 
 
         getLekarze();
+        //clear form because data could change
+        clearFormFields(null);
     }
 
     @FXML
@@ -124,15 +154,14 @@ public class Pracownicy implements IDisplayedScreen {
         List<Sz_lekarze> lekarze = new ArrayList<>();
 
         lekarze = (new QueriesManager()).getDoctors();
+
         if (lekarze != null && lekarze.size() > 0)
+        {
             lekarzeTableView.getItems().setAll(lekarze);
 
-        System.out.println("Pobrano " + lekarze.size() + " lekarzy.");
-    }
+        }
+        lekarzeTableView.refresh();
 
-    private List<Sz_pracownicy> getEmployees() {
-        List<Sz_pracownicy> employees = new ArrayList<>();
-        return employees;
     }
 
     public void addStuff(MouseEvent mouseEvent) {
@@ -152,21 +181,117 @@ public class Pracownicy implements IDisplayedScreen {
         System.out.println("Changed text field text!");
         textArea.setText("Nowy tekst " + text);
     }
+    private void fillFormToUpdate(Sz_pracownicy workerToUpdate)
+    {
+        //global flag
+        formMode = FormMode.update;
+        //button text
+        formAcceptButton.setText(updateModeAcceptButtonText);
+        formModeLabel.setText(updateMode);
+        formModeLabel.setTextFill(Paint.valueOf("#FF8B1E"));    //orange
 
+        typPracownikaPielegniarka.setSelected(workerToUpdate.getStanowisko() == 2);
+
+        firstNameTextInput.setText(workerToUpdate.getImie());
+        lastNameTextInput.setText(workerToUpdate.getNazwisko());
+        salaryTextInput.setText(String.format("%d", workerToUpdate.getPensja()));
+
+        if(workerToUpdate.getStanowisko() == 1)
+        {
+            Sz_lekarze doctor = (Sz_lekarze)workerToUpdate;
+            specializationTextInput.setText(doctor.getSpecjalizacja());
+            degreeTextInput.setText(doctor.getStopiennaukowy());
+        }
+    }
+    Sz_pracownicy itemToUpdate = null;
+    private boolean validateForm()
+    {
+        boolean result = true;
+        if(formMode == FormMode.update && itemToUpdate != null && itemToUpdate.getStanowisko() == 1 ||
+                formMode == FormMode.insert && !typPracownikaPielegniarka.isSelected())
+        {
+            //check for doctor validation
+            result &= Validator.validateNumberField(salaryTextInput);
+            result &= Validator.validateStringField(firstNameTextInput);
+            result &= Validator.validateStringField(lastNameTextInput);
+            result &= Validator.validateStringField(specializationTextInput);
+            result &= Validator.validateStringField(degreeTextInput);
+            return  result;
+        }
+        else
+        {
+            //check for nurse validation
+            result &= Validator.validateNumberField(salaryTextInput);
+            result &= Validator.validateStringField(firstNameTextInput);
+            result &= Validator.validateStringField(lastNameTextInput);
+            return  result;
+        }
+    }
+
+    private void clearValidationMarks()
+    {
+        lastNameTextInput.setStyle("-fx-background-color: #ffffff");
+        salaryTextInput.setStyle("-fx-background-color: #ffffff");
+        specializationTextInput.setStyle("-fx-background-color: #ffffff");
+        degreeTextInput.setStyle("-fx-background-color: #ffffff");
+    }
+
+    public void acceptForm(ActionEvent actionEvent) {
+        if(!validateForm())
+        {
+            ExceptionHandler.displayException("Proszę uzupełnić pola wypełnione na czerwono!");
+        }
+        switch (formMode)
+        {
+            case insert:
+                ExceptionHandler.displayException("insert");
+                break;
+            case update:
+                ExceptionHandler.displayException("update");
+                break;
+        }
+    }
+
+
+    public enum FormMode
+    {
+        insert,
+        update
+    }
+    public enum ButtonAction
+    {
+        update,
+        delete
+    }
 
     private class ButtonFactory extends TableCell< Sz_pracownicy, Boolean> {
 
-        final Button cellButton = new Button("Usuń klienta");
+        Button cellButton = null;
 
 
-        public ButtonFactory(TableColumn<Sz_pracownicy, Boolean> p) {
+        public ButtonFactory(String buttonName, ButtonAction action) {
+            cellButton = new Button(buttonName);
             cellButton.setOnAction(new EventHandler<ActionEvent>(){
 
                 @Override
                 public void handle(ActionEvent t) {
                     int index = getTableRow().getIndex();
-                    Sz_pracownicy worker = (Sz_pracownicy) lekarzeTableView.getItems().get(index);
-                    ExceptionHandler.displayException("Usuwanie doktora " + worker.getImie());
+                    Sz_pracownicy worker = (Sz_lekarze) lekarzeTableView.getItems().get(index);
+                    QueriesManager query = new QueriesManager();
+
+                    switch(action)
+                    {
+                        case update:
+                            fillFormToUpdate(worker);
+                            break;
+                        case delete:
+                            if(query.deleteWorker(worker.getPracownikid(), worker.getStanowisko()))
+                            {
+                                refresh();
+                            }
+                            break;
+                    }
+
                 }
             });
         }

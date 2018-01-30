@@ -12,33 +12,5 @@ import java.sql.SQLException;
 import Main.Main;
 
 public class MainScene {
-    public TableView table;
-    public Button populateData;
-    public TableColumn C2;
-    public TableColumn C1;
 
-
-    @FXML
-    private void initialize()
-    {
-        table.getColumns().clear();
-        table.getColumns().addAll(C1, C2);
-        C1.setCellValueFactory(
-                new PropertyValueFactory<Teams,String>("Name")
-        );
-        C2.setCellValueFactory(
-                new PropertyValueFactory<Teams,Integer>("Number")
-        );
-    }
-    @FXML
-    public void buttonMouseClicked()
-    {
-        if( Main.teamsData != null)
-        {
-            table.setItems(Main.teamsData);
-
-            table.refresh();
-
-        }
-    }
 }

@@ -3,6 +3,8 @@ package SQL;
 import Relations.Sz_lekarze;
 import Relations.Sz_operacje;
 import Relations.Sz_pacjenci;
+import Relations.Sz_pracownicy;
+import Utils.Constants;
 import Utils.ExceptionHandler;
 
 import java.sql.*;
@@ -233,4 +235,67 @@ public class QueriesManager {
         return oddzialy;
     }
 
+    public boolean deleteWorker(int id, int stanowisko)
+    {
+        String query = "{call USUNPRACOWNIKA(?, ?)}";
+        CallableStatement statement = null;
+        try {
+            statement = Connector.getInstance().getConnection().prepareCall(query);
+            statement.setInt(1, id);
+            statement.setInt(2, stanowisko);
+            statement.execute();
+        }  catch (SQLException e) {
+            ExceptionHandler.displayException("Nie udało się usunac pracownika!");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+            return false;
+        }finally {
+            try
+            {
+                if (statement != null) {
+                    statement.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+
+        return true;
+
+    }
+
+    public boolean deleteRecord(String database, String idName, int id) {
+        Statement statement = null;
+        String query = "";
+        int result = 0;
+        try {
+            query  = String.format("delete from %s where %s = %d", database, idName, id);
+            statement = Connector.getInstance().getConnection().createStatement();
+
+            result = statement.executeUpdate(query);
+        } catch (SQLException e) {
+            ExceptionHandler.displayException("Nie można usunać danych z tabeli " + database.substring(3) + " . \nPowód : " + e.getMessage().substring(11));
+            return false;
+        }finally {
+            try
+            {
+                if (statement != null) {
+                    statement.close();
+                }
+                System.out.println("Zamknieto kursor przy usuwaniu danych");
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+
+        if(result < 1)
+        {
+            ExceptionHandler.displayException("Nie usunięto żadnego rekordu");
+            return false;
+        }
+        return true;
+    }
 }

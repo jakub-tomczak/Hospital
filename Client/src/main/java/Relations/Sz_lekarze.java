@@ -8,13 +8,11 @@ import javafx.beans.property.StringProperty;
 public class Sz_lekarze extends Sz_pracownicy {
   private StringProperty specjalizacja;
   private StringProperty stopiennaukowy;
-  private IntegerProperty pracownikid;
   public Sz_lekarze()
   {
     setStanowisko(1);
     specjalizacja = new SimpleStringProperty();
     stopiennaukowy = new SimpleStringProperty();
-    pracownikid = new SimpleIntegerProperty();
   }
   public Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
   {
@@ -25,15 +23,7 @@ public class Sz_lekarze extends Sz_pracownicy {
     this.setOddzialy_id(oddzialID);
     this.setSpecjalizacja(specjalizacja);
     this.setStopiennaukowy(stopiennaukowy);
-    this.pracownikid.setValue(ID);
-  }
-
-  public int getPracownikid() {
-    return super.getPracownikid();
-  }
-
-  public void setPracownikid(int pracownikid) {
-    super.setPracownikid(pracownikid) ;
+    super.setPracownikid(ID);
   }
 
   public String getSpecjalizacja() {

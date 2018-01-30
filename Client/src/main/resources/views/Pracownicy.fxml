@@ -35,6 +35,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -42,20 +43,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Imię" textFill="#979797" />
-                  <Label text="Nazwisko" textFill="#979797" GridPane.rowIndex="1" />
-                  <Label text="Pensja" textFill="#979797" GridPane.rowIndex="2" />
-                  <RadioButton mnemonicParsing="false" text="Lekarz" textFill="#979797" GridPane.rowIndex="4">
+                  <Label text="Imię" textFill="#979797" GridPane.rowIndex="1" />
+                  <Label text="Nazwisko" textFill="#979797" GridPane.rowIndex="2" />
+                  <Label text="Pensja" textFill="#979797" GridPane.rowIndex="3" />
+                  <RadioButton mnemonicParsing="false" text="Lekarz" textFill="#979797" GridPane.rowIndex="5">
                      <toggleGroup>
                         <ToggleGroup fx:id="typPracownika" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="typPracownikaPielegniarka" mnemonicParsing="false" text="Pielęgniarka" textFill="#979797" toggleGroup="$typPracownika" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="firstNameTextInput" GridPane.columnIndex="1" />
-                  <TextField fx:id="lastNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="salaryTextInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label text="Oddział" textFill="#979797" GridPane.rowIndex="3" />
-                  <ComboBox fx:id="oddzialyComboBox" prefWidth="150.0" promptText="wybierz oddział" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <RadioButton fx:id="typPracownikaPielegniarka" mnemonicParsing="false" text="Pielęgniarka" textFill="#979797" toggleGroup="$typPracownika" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="firstNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="lastNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="salaryTextInput" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Oddział" textFill="#979797" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="oddzialyComboBox" prefWidth="150.0" promptText="wybierz oddział" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                  <Label fx:id="formModeLabel" text="Tryb dodawania" textFill="#15ff00" />
+                  <Button fx:id="clearFormFields" alignment="CENTER" mnemonicParsing="false" onAction="#clearFormFields" text="Wyczyść pola" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -78,7 +81,7 @@
                   <Label text="Stopien naukowy" textFill="#979797" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#addStuff" text="Dodaj pracownika">
+                <Button fx:id="formAcceptButton" alignment="CENTER" mnemonicParsing="false" onAction="#acceptForm" text="Dodaj pracownika">
                <VBox.margin>
                   <Insets />
                </VBox.margin></Button>
