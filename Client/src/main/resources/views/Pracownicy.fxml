@@ -55,7 +55,7 @@
                   <TextField fx:id="lastNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="salaryTextInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Oddział" textFill="#979797" GridPane.rowIndex="3" />
-                  <ComboBox prefWidth="150.0" promptText="wybierz oddział" GridPane.columnSpan="2" GridPane.halignment="RIGHT" fx:id="oddzialyComboBox" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="oddzialyComboBox" prefWidth="150.0" promptText="wybierz oddział" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -112,6 +112,7 @@
                                   <TableColumn fx:id="lastNameDoctor" prefWidth="75.0" text="Nazwisko" />
                                   <TableColumn fx:id="typeDoctor" prefWidth="75.0" text="Stanowisko" />
                                   <TableColumn fx:id="placaDoctor" prefWidth="75.0" text="Oddział" />
+                                  <TableColumn fx:id="usunDoctor" prefWidth="75.0" />
                               </columns>
                           </TableView>
                      </children>

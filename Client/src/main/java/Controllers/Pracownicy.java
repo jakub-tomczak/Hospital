@@ -7,14 +7,23 @@ import SQL.QueriesManager;
 import Utils.ExceptionHandler;
 import Utils.IDisplayedScreen;
 import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -36,6 +45,7 @@ public class Pracownicy implements IDisplayedScreen {
     public TextField specializationTextInput;
     public TextField degreeTextInput;
     public ComboBox oddzialyComboBox;
+    public TableColumn usunDoctor;
 
 
     @FXML
@@ -64,6 +74,26 @@ public class Pracownicy implements IDisplayedScreen {
         lastNameDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("nazwisko"));
         placaDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, Double>("pensja"));
 
+        usunDoctor.setSortable(false);
+        usunDoctor.setCellValueFactory(
+                new Callback<TableColumn.CellDataFeatures<Sz_pracownicy, Boolean>,
+                        ObservableValue<Boolean>>() {
+
+                    @Override
+                    public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Sz_pracownicy, Boolean> p) {
+                        return new SimpleBooleanProperty(p.getValue() != null);
+                    }
+                });
+
+        usunDoctor.setCellFactory(
+                new Callback<TableColumn<Sz_pracownicy, Boolean>, TableCell<Sz_pracownicy, Boolean>>() {
+
+                    @Override
+                    public TableCell<Sz_pracownicy, Boolean> call(TableColumn<Sz_pracownicy, Boolean> p) {
+                        return new ButtonFactory(p);
+                    }
+
+                });
 
         // lekarzeTableView.setPlaceholder(new Label("Brak danych w tabeli"));
         FilterSupport.addFilter(firstNameDoctor);
@@ -123,5 +153,33 @@ public class Pracownicy implements IDisplayedScreen {
         textArea.setText("Nowy tekst " + text);
     }
 
+
+    private class ButtonFactory extends TableCell< Sz_pracownicy, Boolean> {
+
+        final Button cellButton = new Button("Usuń klienta");
+
+
+        public ButtonFactory(TableColumn<Sz_pracownicy, Boolean> p) {
+            cellButton.setOnAction(new EventHandler<ActionEvent>(){
+
+                @Override
+                public void handle(ActionEvent t) {
+                    int index = getTableRow().getIndex();
+                    Sz_pracownicy worker = (Sz_pracownicy) lekarzeTableView.getItems().get(index);
+                    ExceptionHandler.displayException("Usuwanie doktora " + worker.getImie());
+                }
+            });
+        }
+
+
+        //Display button if the row is not empty
+        @Override
+        protected void updateItem(Boolean t, boolean empty) {
+            super.updateItem(t, empty);
+            if(!empty){
+                setGraphic(cellButton);
+            }
+        }
+    }
 
 }
