@@ -26,45 +26,35 @@ public class DodajPacjentaModal {
         alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Błąd");
         alert.setHeaderText(null);
-      dodaj.disableProperty().bind(
-                           Bindings.isEmpty(kod.textProperty())
-                      .or(Bindings.isEmpty(nazwisko.textProperty()))
-                      .or(Bindings.isEmpty(imie.textProperty()))
-                      .or(Bindings.isEmpty(pesel.textProperty()))
-                      .or(Bindings.isEmpty(adres.textProperty()))
-                      .or(Bindings.isEmpty(miasto.textProperty()))
-      );
+        dodaj.disableProperty().bind(
+                Bindings.isEmpty(kod.textProperty())
+                        .or(Bindings.isEmpty(nazwisko.textProperty()))
+                        .or(Bindings.isEmpty(imie.textProperty()))
+                        .or(Bindings.isEmpty(pesel.textProperty()))
+                        .or(Bindings.isEmpty(adres.textProperty()))
+                        .or(Bindings.isEmpty(miasto.textProperty()))
+        );
     }
 
-    public boolean validateInput(){
+    public boolean validateInput() {
         //PESEL
-        boolean isNumeric = pesel.getText().chars().allMatch( Character::isDigit );
-        boolean is11Digits = pesel.getText().length()==11;
+        boolean isNumeric = pesel.getText().chars().allMatch(Character::isDigit);
+        boolean is11Digits = pesel.getText().length() == 11;
         //kod
         boolean format = kod.getText().matches("\\d{2}+[-]+\\d{3}");
-        if(isNumeric && is11Digits && format)
+        if (isNumeric && is11Digits && format)
             return true;
         return false;
     }
 
     @FXML
-    public void addPatient()
-    {
-        if(validateInput())
-        {
-            Sz_pacjenci patient = new Sz_pacjenci(imie.getText(),nazwisko.getText(),pesel.getText(),adres.getText(),miasto.getText(),kod.getText());
+    public void addPatient() {
+        if (validateInput()) {
+            Sz_pacjenci patient = new Sz_pacjenci(imie.getText(), nazwisko.getText(), pesel.getText(), adres.getText(), miasto.getText(), kod.getText());
             QueriesManager query = new QueriesManager();
-            try {
-                query.addPatient(patient);
-            }
-            catch(SQLException e)
-            {
-                alert.setContentText(ExceptionHandler.getMessage(e));
-                alert.showAndWait();
-            }
-        }
-        else
-        {
+            query.addPatient(patient);
+
+        } else {
             alert.setContentText("Błędny format danych");
             alert.showAndWait();
         }

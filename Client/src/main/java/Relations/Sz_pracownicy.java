@@ -1,8 +1,6 @@
 package Relations;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class Sz_pracownicy {
   private StringProperty imie;
@@ -12,6 +10,16 @@ public class Sz_pracownicy {
   private DoubleProperty pensja;
   private IntegerProperty oddzialy_id;
   private IntegerProperty pracownikid;
+
+  public Sz_pracownicy()
+  {
+    imie = new SimpleStringProperty();
+    nazwisko = new SimpleStringProperty();
+    stanowiskoString = new SimpleStringProperty();
+    pensja = new SimpleDoubleProperty();
+    oddzialy_id = new SimpleIntegerProperty();
+    pracownikid = new SimpleIntegerProperty();
+  }
 
   public int getStanowisko() {
     return stanowisko;
