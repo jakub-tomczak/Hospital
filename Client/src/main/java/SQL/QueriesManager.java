@@ -164,7 +164,10 @@ public class QueriesManager {
             }
         } catch (SQLException e) {
             ExceptionHandler.displayException("Nie można pobrać listy z pacjentami");
-        }finally {
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        } finally {
             try
             {
                 if (statement != null) {

@@ -133,6 +133,10 @@
                                                      text="Oddział"/>
                                         <TableColumn fx:id="placaDoctor" minWidth="100.0" prefWidth="100.0"
                                                      resizable="false" text="Pensja"/>
+                                        <TableColumn fx:id="specjalizacjaDoctor" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false" text="Specjalizacja"/>
+                                        <TableColumn fx:id="stopienDoctor" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false" text="Stopień naukowy"/>
                                         <TableColumn fx:id="usunDoctor" minWidth="60.0" prefWidth="60.0"
                                                      resizable="false"/>
                                         <TableColumn fx:id="aktualizujDoctor" minWidth="100.0" prefWidth="100.0"

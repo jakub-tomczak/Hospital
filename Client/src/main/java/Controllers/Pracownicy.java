@@ -44,6 +44,8 @@ public class Pracownicy implements IDisplayedScreen {
     public TableColumn oddzialNurse;
     public TableColumn usunNurse;
     public TableColumn aktualizujNurse;
+    public TableColumn specjalizacjaDoctor;
+    public TableColumn stopienDoctor;
     Sz_pracownicy itemToUpdate = null;
     private FormMode formMode = FormMode.insert;
     List<Sz_oddzialy> oddzialy = new ArrayList<>();
@@ -90,6 +92,8 @@ public class Pracownicy implements IDisplayedScreen {
         firstNameDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("imie"));
         lastNameDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("nazwisko"));
         placaDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, Double>("pensja"));
+        specjalizacjaDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("specjalizacja"));
+        stopienDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("stopiennaukowy"));
         oddzialDoctor.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Sz_pracownicy, String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Sz_pracownicy, String> p) {
                 return new ReadOnlyStringWrapper(getOddzialIdFromComboBox(p.getValue()));
