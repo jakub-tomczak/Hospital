@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EdytujBadanieModal">
+    <children>
+        <TableView fx:id="lekarzeTableView" layoutX="218.0" layoutY="22.0" prefHeight="350.0" prefWidth="476.0">
+            <placeholder>
+                <VBox alignment="TOP_RIGHT" layoutX="307.0" layoutY="58.0">
+                    <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="/images/crying.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Brak danych" />
+                </VBox>
+            </placeholder>
+            <columns>
+                <TableColumn fx:id="firstNameDoctor" minWidth="100.0" prefWidth="100.0" resizable="false" text="Imię" />
+                <TableColumn fx:id="lastNameDoctor" minWidth="100.0" prefWidth="140.0" resizable="false" text="Nazwisko" />
+                <TableColumn fx:id="ward" minWidth="140.0" prefWidth="140.0" text="Oddział" />
+                <TableColumn fx:id="specialty" prefWidth="95.0" text="Specjalizacja" />
+            </columns>
+        </TableView>
+
+        <TextField fx:id="nazwa" layoutX="29.0" layoutY="34.0" />
+        <Label layoutX="29.0" layoutY="14.0" text="Nazwa" />
+        <Label layoutX="14.0" layoutY="80.0" text="Dzień" />
+        <Label layoutX="25.0" layoutY="167.0" text="Godzina" />
+        <Label layoutX="364.0" layoutY="6.0" text="Wykonawca" />
+        <Button fx:id="dodaj" layoutX="35.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#updateExamination" prefHeight="69.0" prefWidth="136.0" text="Edytuj" />
+
+        <ComboBox fx:id="day" layoutX="4.0" layoutY="104.0" prefHeight="25.0" prefWidth="64.0" />
+        <ComboBox fx:id="month" layoutX="78.0" layoutY="104.0" prefHeight="25.0" prefWidth="64.0" />
+        <ComboBox fx:id="year" layoutX="144.0" layoutY="104.0" prefHeight="25.0" prefWidth="73.0" />
+        <ComboBox fx:id="hour" layoutX="12.0" layoutY="186.0" prefHeight="25.0" prefWidth="64.0" />
+        <ComboBox fx:id="minute" layoutX="87.0" layoutY="185.0" prefHeight="25.0" prefWidth="57.0" />
+        <Label layoutX="80.0" layoutY="80.0" text="Miesiąc" />
+        <Label layoutX="144.0" layoutY="80.0" text="Rok" />
+        <Label layoutX="79.0" layoutY="192.0" text=":" />
+    </children>
+</AnchorPane>

@@ -58,8 +58,10 @@ public class ExceptionHandler {
 
             return "W bazie istnieje już rekord o podanym unikalnym polu!";
         }
-        else
+        else {
+            showMessage("Błąd");
             return e.getMessage();
+        }
 
     }
 

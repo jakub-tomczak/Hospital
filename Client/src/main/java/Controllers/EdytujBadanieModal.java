@@ -4,12 +4,9 @@ import Relations.*;
 import SQL.QueriesManager;
 import Utils.Constants;
 import Utils.ExceptionHandler;
-import Utils.IDisplayedScreen;
 import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.value.ObservableObjectValue;
-import javafx.beans.value.ObservableStringValue;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -17,12 +14,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import java.util.stream.IntStream;
 
-public class DodajBadanieModal{
+public class EdytujBadanieModal {
     public ComboBox day;
     public ComboBox month;
     public ComboBox year;
@@ -31,6 +26,7 @@ public class DodajBadanieModal{
     public Button dodaj;
     public TextField nazwa;
     private Sz_pacjenci pacjent;
+    private int badanieID;
     @FXML
     private TableColumn<Sz_pracownicy, String> firstNameDoctor;
     @FXML
@@ -38,23 +34,24 @@ public class DodajBadanieModal{
     @FXML
     private TableColumn ward;
     @FXML
-    private TableColumn<Sz_lekarze,String> specialty;
+    private TableColumn<Sz_lekarze, String> specialty;
     private List<Sz_oddzialy> wards;
     @FXML
     private TableView<Sz_pracownicy> lekarzeTableView;
-    public void setPacjent(Sz_pacjenci pacjent)
-    {
-        this.pacjent=pacjent;
+
+    public void setPacjent(Sz_pacjenci pacjent) {
+        this.pacjent = pacjent;
     }
+    public void setBadanie(int badanie) {this.badanieID= badanie;}
+
     @FXML
-    public void initialize()
-    {
-      fillDateComboBoxes();
-      day.getSelectionModel().select(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)-1);
-      month.getSelectionModel().select(Calendar.getInstance().get(Calendar.MONTH));
-      hour.getSelectionModel().select(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
-      minute.getSelectionModel().select(Calendar.getInstance().get(Calendar.MINUTE));
-      year.getSelectionModel().select(Calendar.getInstance().get(Calendar.YEAR)-1900);
+    public void initialize() {
+        fillDateComboBoxes();
+        day.getSelectionModel().select(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
+        month.getSelectionModel().select(Calendar.getInstance().get(Calendar.MONTH));
+        hour.getSelectionModel().select(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
+        minute.getSelectionModel().select(Calendar.getInstance().get(Calendar.MINUTE));
+        year.getSelectionModel().select(Calendar.getInstance().get(Calendar.YEAR) - 1900);
         firstNameDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("imie"));
         lastNameDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("nazwisko"));
         specialty.setCellValueFactory(new PropertyValueFactory<Sz_lekarze, String>("specjalizacja"));
@@ -70,29 +67,24 @@ public class DodajBadanieModal{
         dodaj.disableProperty().bind(
                 Bindings.isEmpty(nazwa.textProperty())
                         .or((lekarzeTableView.getSelectionModel().selectedItemProperty().isNull())
-        ));
+                        ));
+        badanieID=0;
     }
 
-    public void fillDateComboBoxes()
-    {
-        for(int i=1;i<32;i++)
-        {
+    public void fillDateComboBoxes() {
+        for (int i = 1; i < 32; i++) {
             day.getItems().add(i);
         }
-        for(int i=1;i<13;i++)
-        {
+        for (int i = 1; i < 13; i++) {
             month.getItems().add(i);
         }
-        for(int i=0;i<24;i++)
-        {
+        for (int i = 0; i < 24; i++) {
             hour.getItems().add(i);
         }
-        for(int i=0;i<60;i++)
-        {
+        for (int i = 0; i < 60; i++) {
             minute.getItems().add(i);
         }
-        for(int i=1900;i<2050;i++)
-        {
+        for (int i = 1900; i < 2050; i++) {
             year.getItems().add(i);
         }
     }
@@ -105,7 +97,7 @@ public class DodajBadanieModal{
         lekarze = (new QueriesManager()).getPracownicy(Constants.DOCTOR);
 
         wards = (new QueriesManager()).getOddzialy();
-        if(lekarze!=null) {
+        if (lekarze != null) {
             for (Sz_pracownicy lekarz : lekarze) {
                 String oddzial = getOddzialIdFromComboBox(lekarz);
                 lekarzeTableView.getItems().clear();
@@ -126,16 +118,16 @@ public class DodajBadanieModal{
     }
 
     @FXML
-    public  void addExamination()
+    public  void updateExamination()
     {
         Sz_pracownicy lekarz = lekarzeTableView.getSelectionModel().getSelectedItem();
         if(lekarz!=null)
         {
             String date = formattedDate();
-            Sz_badania badanie = new Sz_badania(nazwa.getText(),formattedDate(),lekarz.getOddzialy_id(),pacjent.getId(),lekarz.getPracownikid(),0);
-            new QueriesManager().addExamination(badanie);
+            Sz_badania badanie = new Sz_badania(nazwa.getText(),formattedDate(),lekarz.getOddzialy_id(),pacjent.getId(),lekarz.getPracownikid(),badanieID);
+            new QueriesManager().updateExamination(badanie);
         }
-        ExceptionHandler.showMessage("Badanie dodane pomyślnie");
+        ExceptionHandler.showMessage("Badanie zedytowane pomyślnie");
     }
     public String formattedDate()
     {
@@ -148,3 +140,4 @@ public class DodajBadanieModal{
         return  date;
     }
 }
+
