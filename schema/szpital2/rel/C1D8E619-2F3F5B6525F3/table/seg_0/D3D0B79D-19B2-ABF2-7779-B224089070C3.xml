@@ -106,7 +106,7 @@
 <colUsage columnID="A646EB1A-69E5-573F-3FBF-0016AE123F6D"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="4974AAB5-DBF9-02DF-6336-187C6DA09881" name="Leczenia_Pacjenci_FK">
+<ind_PK_UK id="4974AAB5-DBF9-02DF-6336-187C6DA09881" name="SZ_Leczenia_SZ_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>0DE697B8-E28F-671E-8E4F-32FD09D22AF9</generatorID>
@@ -116,6 +116,13 @@
 <indexColumnUsage>
 <colUsage columnID="3A163759-38AE-E72A-9B53-7D66B96AC47D"/>
 </indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="075D2668-2272-2B35-B530-B7AD238268CA" name="Leczenia_Choroby_FK">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-29 15:17:16 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
 </ind_PK_UK>
 </indexes>
 </Table>
