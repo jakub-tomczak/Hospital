@@ -47,10 +47,7 @@ public class Main extends Application {
         Connector.getInstance().openConnection();
 
         //refresh all available screens
-        for(IDisplayedScreen displayedScreen: screensList)
-        {
-            displayedScreen.refresh();
-        }
+        refreshAll();
     }
 
     private void onApplicationClosing() {
@@ -69,6 +66,12 @@ public class Main extends Application {
 
         return null;
 
+    }
+    public void refreshAll(){
+        for(IDisplayedScreen displayedScreen: screensList)
+        {
+            displayedScreen.refresh();
+        }
     }
 
     public static void main(String[] args) {

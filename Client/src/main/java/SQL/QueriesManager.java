@@ -7,7 +7,6 @@ import Utils.ExceptionHandler;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
 
 public class QueriesManager {
     /*
@@ -32,6 +31,9 @@ public class QueriesManager {
             }
         } catch (SQLException e) {
             ExceptionHandler.displayException("Nie można pobrać listy z lekarzami");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
         }finally {
             try
             {
@@ -284,17 +286,17 @@ public class QueriesManager {
 
     }
 
-    public boolean deleteRecord(String database, String idName, int id) {
+    public boolean deleteRecord(String tableName, String idName, int id) {
         Statement statement = null;
         String query = "";
         int result = 0;
         try {
-            query  = String.format("delete from %s where %s = %d", database, idName, id);
+            query  = String.format("delete from %s where %s = %d", tableName, idName, id);
             statement = Connector.getInstance().getConnection().createStatement();
 
             result = statement.executeUpdate(query);
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie można usunać danych z tabeli " + database.substring(3) + " . \nPowód : " + e.getMessage().substring(11));
+            ExceptionHandler.displayException("Nie można usunać danych z tabeli " + tableName.substring(3) + " . \nPowód : " + e.getMessage().substring(11));
             return false;
         }finally {
             try
@@ -549,5 +551,73 @@ public class QueriesManager {
                 ExceptionHandler.displayException("Nie udało się zamknąć");
             }
         }
+    }
+    public boolean updateOddzial(Sz_oddzialy oddzial) {
+        Statement stmt = null;
+        String query = String.format("update sz_oddzialy set nazwa = '%s', KIEROWNIKKLINIKI  = %d, MAKSYMALNALICZBAPACJENTOW = %d where id = %d",
+                oddzial.getNazwa(), oddzial.getKierownikkliniki(), oddzial.getMaksymalnaliczbapacjentow(), oddzial.getId());
+        try {
+            stmt = Connector.getInstance().getConnection().createStatement();
+
+            int result = stmt.executeUpdate(query);
+
+        } catch (SQLException e) {
+            ExceptionHandler.displayException("Nie można zaktualizować oddzialu");
+            return false;
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+            return false;
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return true;
+    }
+
+    public boolean addOddzial(Sz_oddzialy oddzialToAdd) {
+
+        Statement stmt = null;
+        boolean valToReturn = true;
+        int kierownik = oddzialToAdd.getKierownikkliniki();
+        String query = String.format("insert into sz_oddzialy(nazwa, KIEROWNIKKLINIKI, MAKSYMALNALICZBAPACJENTOW) values" +
+        " ('%s', %d, %d )",
+                oddzialToAdd.getNazwa(), kierownik == 0 ? null : kierownik, oddzialToAdd.getMaksymalnaliczbapacjentow());
+        try {
+            stmt = Connector.getInstance().getConnection().createStatement();
+
+            int result = stmt.executeUpdate(query);
+            if(result < 1)
+            {
+                valToReturn = false;
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.displayException("Nie można dodać oddziału");
+            valToReturn = false;
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+            valToReturn = false;
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+
+        }
+
+        return valToReturn;
     }
 }
