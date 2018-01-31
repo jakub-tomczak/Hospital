@@ -229,6 +229,74 @@ public class QueriesManager {
         }
         return lekarze;
     }
+    public List<Sz_pracownicy> getPracownicy(int stanowisko) {
+        String query = "";
+        if(stanowisko == Constants.DOCTOR)
+        {
+            query = "select p.imie, p.nazwisko, p.pensja, p.oddzialy_id as oddzial, l.specjalizacja, l.stopiennaukowy, l.pracownikid as id " +
+                    "from sz_pracownicy p join sz_lekarze l on p.PRACOWNIKID = l.PRACOWNIKID " +
+                    "where p.stanowisko = ?";
+
+        }else
+        {
+            query = "select imie, nazwisko, pensja, oddzialy_id, PRACOWNIKID from SZ_PRACOWNICY" +
+                    " where stanowisko = ?";
+
+        }
+
+        List<Sz_pracownicy> pracownicy = new ArrayList<>();
+
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+        try {
+            statement = Connector.getInstance().getConnection().prepareStatement(query);
+            statement.setInt(1, stanowisko);
+
+            rs = statement.executeQuery();
+
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                if(stanowisko == Constants.DOCTOR)
+                {
+                    Sz_lekarze lekarz = new Sz_lekarze(
+                            rs.getString(1), rs.getString(2), rs.getDouble(3),
+                            rs.getInt(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+
+                    pracownicy.add(lekarz);
+                }else
+                {
+                    Sz_pielegniarki pielegniarka = new Sz_pielegniarki(
+                            rs.getString(1), rs.getString(2), rs.getDouble(3),
+                            rs.getInt(4), rs.getInt(5));
+
+                    pracownicy.add(pielegniarka);
+                }
+
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.displaySQLException(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+
+        }
+        return pracownicy;
+
+    }
 
     public List<Sz_oddzialy> getOddzialy() {
         String query = "select * from SZ_ODDZIALY";
@@ -268,38 +336,6 @@ public class QueriesManager {
                 ExceptionHandler.displayException("Nie udało się zamknąć");
             }
 
-        }
-        return oddzialy;
-    }
-
-    public List<String> getOddzialy_2() {
-        List<String> oddzialy = new ArrayList<>();
-
-        Statement statement = null;
-        ResultSet rs = null;
-
-        try {
-            statement = Connector.getInstance().getConnection().createStatement();
-            rs = statement.executeQuery("select nazwa from sz_oddzialy");
-
-            while (rs.next()) {
-                oddzialy.add(rs.getString(1));
-            }
-        } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie można pobrać listy z oddziałami");
-        }finally {
-            try
-            {
-                if (statement != null) {
-                    statement.close();
-                }
-                if (rs != null) {
-                    rs.close();
-                }
-            }catch(SQLException e)
-            {
-                ExceptionHandler.displayException("Nie udało się zamknąć");
-            }
         }
         return oddzialy;
     }

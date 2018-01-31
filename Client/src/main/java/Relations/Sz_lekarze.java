@@ -1,5 +1,6 @@
 package Relations;
 
+import Utils.Constants;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -10,7 +11,7 @@ public class Sz_lekarze extends Sz_pracownicy {
   private StringProperty stopiennaukowy;
   public Sz_lekarze()
   {
-    setStanowisko(1);
+    setStanowisko(Constants.DOCTOR);
     specjalizacja = new SimpleStringProperty();
     stopiennaukowy = new SimpleStringProperty();
   }

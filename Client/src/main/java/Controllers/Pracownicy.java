@@ -42,6 +42,9 @@ public class Pracownicy implements IDisplayedScreen {
     private final String updateModeAcceptButtonText = "Aktualizuj";
     public RadioButton typPracownikaLekarz;
     public TableColumn oddzialDoctor;
+    public TableColumn oddzialNurse;
+    public TableColumn usunNurse;
+    public TableColumn aktualizujNurse;
     Sz_pracownicy itemToUpdate = null;
     private FormMode formMode = FormMode.insert;
     List<Sz_oddzialy> oddzialy = new ArrayList<>();
@@ -83,11 +86,11 @@ public class Pracownicy implements IDisplayedScreen {
         //dodaje siebie do listy ekranów odświeżalnych
         Main.screensList.add(this);
 
-        //lekarze
+        //----------------------------------------------------------------------------------------------
+        //inicjalizacja lekarzy
         firstNameDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("imie"));
         lastNameDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("nazwisko"));
         placaDoctor.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, Double>("pensja"));
-        //oddzialDoctor.setCellValueFactory(param -> new ReadOnlyStringWrapper("asd"));
         oddzialDoctor.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Sz_pracownicy, String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Sz_pracownicy, String> p) {
                 return new ReadOnlyStringWrapper(getOddzialIdFromComboBox(p.getValue()));
@@ -111,7 +114,7 @@ public class Pracownicy implements IDisplayedScreen {
 
                     @Override
                     public TableCell<Sz_pracownicy, Boolean> call(TableColumn<Sz_pracownicy, Boolean> p) {
-                        return new ButtonFactory("Usuń", ButtonAction.delete);
+                        return new ButtonFactory("Usuń", ButtonAction.delete, true);
                     }
                 });
 
@@ -132,15 +135,74 @@ public class Pracownicy implements IDisplayedScreen {
 
                     @Override
                     public TableCell<Sz_pracownicy, Boolean> call(TableColumn<Sz_pracownicy, Boolean> p) {
-                        return new ButtonFactory("Modyfikuj", ButtonAction.update);
+                        return new ButtonFactory("Modyfikuj", ButtonAction.update, true);
                     }
                 });
 
 
-        // lekarzeTableView.setPlaceholder(new Label("Brak danych w tabeli"));
         FilterSupport.addFilter(firstNameDoctor);
         FilterSupport.addFilter(lastNameDoctor);
         FilterSupport.addFilter(oddzialDoctor);
+
+
+
+        //----------------------------------------------------------------------------------------------
+        //inicjalizacja pielegniarek
+        firstNameNurse.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("imie"));
+        lastNameNurse.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, String>("nazwisko"));
+        placaNurse.setCellValueFactory(new PropertyValueFactory<Sz_pracownicy, Double>("pensja"));
+        oddzialNurse.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Sz_pracownicy, String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Sz_pracownicy, String> p) {
+                return new ReadOnlyStringWrapper(getOddzialIdFromComboBox(p.getValue()));
+            }
+        });
+
+        //przycisk do usuwania lekarza
+        usunNurse.setSortable(false);
+        usunNurse.setCellValueFactory(
+                new Callback<TableColumn.CellDataFeatures<Sz_pracownicy, Boolean>,
+                        ObservableValue<Boolean>>() {
+
+                    @Override
+                    public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Sz_pracownicy, Boolean> p) {
+                        return new SimpleBooleanProperty(p.getValue() != null);
+                    }
+                });
+
+        usunNurse.setCellFactory(
+                new Callback<TableColumn<Sz_pracownicy, Boolean>, TableCell<Sz_pracownicy, Boolean>>() {
+
+                    @Override
+                    public TableCell<Sz_pracownicy, Boolean> call(TableColumn<Sz_pracownicy, Boolean> p) {
+                        return new ButtonFactory("Usuń", ButtonAction.delete, false);
+                    }
+                });
+
+        //przycisk do aktualizacji lekarza
+        aktualizujNurse.setSortable(false);
+        aktualizujNurse.setCellValueFactory(
+                new Callback<TableColumn.CellDataFeatures<Sz_pracownicy, Boolean>,
+                        ObservableValue<Boolean>>() {
+
+                    @Override
+                    public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Sz_pracownicy, Boolean> p) {
+                        return new SimpleBooleanProperty(p.getValue() != null);
+                    }
+                });
+
+        aktualizujNurse.setCellFactory(
+                new Callback<TableColumn<Sz_pracownicy, Boolean>, TableCell<Sz_pracownicy, Boolean>>() {
+
+                    @Override
+                    public TableCell<Sz_pracownicy, Boolean> call(TableColumn<Sz_pracownicy, Boolean> p) {
+                        return new ButtonFactory("Modyfikuj", ButtonAction.update, false);
+                    }
+                });
+
+
+        FilterSupport.addFilter(firstNameNurse);
+        FilterSupport.addFilter(lastNameNurse);
+        FilterSupport.addFilter(oddzialNurse);
 
 
         //radio button toggle
@@ -183,6 +245,8 @@ public class Pracownicy implements IDisplayedScreen {
 
         getLekarze();
 
+        getPielegniarki();
+
         //clear form because data could change
         clearFormFields(null);
     }
@@ -199,17 +263,27 @@ public class Pracownicy implements IDisplayedScreen {
         }
     }
 
-    @FXML
     private void getLekarze() {
-        List<Sz_lekarze> lekarze = new ArrayList<>();
+        List<Sz_pracownicy> lekarze = new ArrayList<>();
 
-        lekarze = (new QueriesManager()).getDoctors();
+        lekarze = (new QueriesManager()).getPracownicy(Constants.DOCTOR);
 
         if (lekarze != null) {
             lekarzeTableView.getItems().setAll(lekarze);
 
         }
         lekarzeTableView.refresh();
+    }
+    private void getPielegniarki() {
+        List<Sz_pracownicy> pielegniarki = new ArrayList<>();
+
+        pielegniarki = (new QueriesManager()).getPracownicy(Constants.NURSE);
+
+        if (pielegniarki != null) {
+            pielegniarkiTableView.getItems().setAll(pielegniarki);
+
+        }
+        pielegniarkiTableView.refresh();
     }
 
     private Sz_pracownicy getWorkerFromForm() {
@@ -396,14 +470,26 @@ public class Pracownicy implements IDisplayedScreen {
         Button cellButton = null;
 
 
-        public ButtonFactory(String buttonName, ButtonAction action) {
+        public ButtonFactory(String buttonName, ButtonAction action, boolean isDoctor) {
             cellButton = new Button(buttonName);
             cellButton.setOnAction(new EventHandler<ActionEvent>() {
 
                 @Override
                 public void handle(ActionEvent t) {
                     int index = getTableRow().getIndex();
-                    Sz_pracownicy worker = (Sz_lekarze) lekarzeTableView.getItems().get(index);
+                    Sz_pracownicy worker = null;
+
+                    if(isDoctor)
+                    {
+                        worker = (Sz_lekarze) lekarzeTableView.getItems().get(index);
+                    }else
+                    {
+                        worker = (Sz_pielegniarki) pielegniarkiTableView.getItems().get(index);
+                    }
+                    if(worker == null)
+                    {
+                        return;
+                    }
                     QueriesManager query = new QueriesManager();
 
                     switch (action) {
