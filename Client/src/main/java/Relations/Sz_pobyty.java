@@ -47,4 +47,12 @@ public class Sz_pobyty {
   public void setOddzialy_id(int oddzialy_id) {
     this.oddzialy_id = oddzialy_id;
   }
+
+  public int getID() {
+    return ID;
+  }
+
+  public void setID(int ID) {
+    this.ID = ID;
+  }
 }

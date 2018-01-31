@@ -1,34 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PokazPobytyModal">
-    <children>
-        <TableView fx:id="pobytyTableView" layoutX="209.0" layoutY="25.0" prefHeight="350.0" prefWidth="545.0">
-            <placeholder>
-                <VBox alignment="TOP_RIGHT" layoutX="307.0" layoutY="58.0" prefHeight="324.0" prefWidth="407.0">
-                    <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="/images/crying.png" />
-                        </image>
-                    </ImageView>
-                    <Label text="Brak danych" />
-                </VBox>
-            </placeholder>
-            <columns>
-                <TableColumn fx:id="dateIN" minWidth="160.0" prefWidth="40.0" resizable="false" text="Data wpisania" />
-                <TableColumn fx:id="dateOUT" minWidth="160.0" prefWidth="100.0" resizable="false" text="Data wypisania" />
-                <TableColumn fx:id="ward" minWidth="130.0" prefWidth="140.0" resizable="false" text="Oddział" />
-            </columns>
-        </TableView>
-        <Button layoutX="24.0" layoutY="63.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="109.0" text="Edytuj" />
-        <Button layoutX="24.0" layoutY="208.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="109.0" text="Usuń" />
-    </children>
-</AnchorPane>
+<Pane prefHeight="400.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PokazPobytyModal">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="200.0">
+          <children>
+              <TableView fx:id="pobytyTableView" layoutX="20.0" layoutY="25.0" prefHeight="350.0" prefWidth="545.0">
+                  <placeholder>
+                      <VBox alignment="TOP_CENTER" layoutX="307.0" layoutY="58.0" prefHeight="324.0" prefWidth="407.0">
+                          <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="/images/crying.png" />
+                              </image>
+                          </ImageView>
+                          <Label text="Brak danych" />
+                      </VBox>
+                  </placeholder>
+                  <columns>
+                      <TableColumn fx:id="dateIN" minWidth="160.0" prefWidth="40.0" resizable="false" text="Data przyjęcia" />
+                      <TableColumn fx:id="dateOUT" minWidth="160.0" prefWidth="100.0" resizable="false" text="Data wypisania" />
+                      <TableColumn fx:id="ward" minWidth="130.0" prefWidth="140.0" resizable="false" text="Oddział" />
+                  </columns>
+              </TableView>
+          </children>
+      </AnchorPane>
+      <Label layoutX="596.0" layoutY="20.0" text="Data wpisania" />
+      <Label layoutX="596.0" layoutY="153.0" text="Data wypisania" />
+      <Label layoutX="612.0" layoutY="271.0" text="Oddział" />
+        <Button fx:id="updateButton" layoutX="756.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#updatePobyty" prefHeight="63.0" prefWidth="109.0" text="Aktualizuj" />
+        <Button fx:id="deleteButton" layoutX="859.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#deletePobyty" prefHeight="63.0" prefWidth="109.0" text="Usuń" />
+        <ComboBox fx:id="day" layoutX="565.0" layoutY="72.0" prefHeight="25.0" prefWidth="64.0" />
+        <ComboBox fx:id="month" layoutX="629.0" layoutY="72.0" prefHeight="25.0" prefWidth="64.0" />
+        <ComboBox fx:id="year" layoutX="693.0" layoutY="72.0" prefHeight="25.0" prefWidth="73.0" />
+        <ComboBox fx:id="hour" layoutX="565.0" layoutY="121.0" prefHeight="25.0" prefWidth="64.0" />
+        <ComboBox fx:id="minute" layoutX="632.0" layoutY="121.0" prefHeight="25.0" prefWidth="57.0" />
+        <Label layoutX="641.0" layoutY="48.0" text="Miesiąc" />
+        <Label layoutX="705.0" layoutY="48.0" text="Rok" />
+        <Label layoutX="640.0" layoutY="160.0" text=":" />
+      <Label layoutX="569.0" layoutY="48.0" text="Dzień" />
+      <Label layoutX="570.0" layoutY="97.0" text="Godzina" />
+
+       <ComboBox fx:id="day2" layoutX="565.0" layoutY="180.0" prefHeight="25.0" prefWidth="64.0" />
+       <ComboBox fx:id="month2" layoutX="629.0" layoutY="180.0" prefHeight="25.0" prefWidth="64.0" />
+       <ComboBox fx:id="year2" layoutX="693.0" layoutY="180.0" prefHeight="25.0" prefWidth="73.0" />
+       <ComboBox fx:id="hour2" layoutX="565.0" layoutY="230.0" prefHeight="25.0" prefWidth="64.0" />
+       <ComboBox fx:id="minute2" layoutX="632.0" layoutY="230.0" prefHeight="25.0" prefWidth="57.0" />
+       <Label layoutX="641.0" layoutY="48.0" text="Miesiąc" />
+       <Label layoutX="705.0" layoutY="48.0" text="Rok" />
+       <Label layoutX="640.0" layoutY="160.0" text=":" />
+       <Label layoutX="569.0" layoutY="48.0" text="Dzień" />
+       <Label layoutX="570.0" layoutY="97.0" text="Godzina" />
+      <ComboBox fx:id="wardBox" layoutX="568.0" layoutY="297.0" prefWidth="150.0" promptText="wybierz oddział" />
+   </children>
+</Pane>

@@ -39,7 +39,9 @@ public class ExceptionHandler {
 
         }catch(Exception e)
         {
+            System.out.println(e.getStackTrace());
             System.out.println("Nastąpił błąd podczas wyświetlania okna");
+            System.out.println(e.getMessage());
         }
     }
     public static void displaySQLException(SQLException sqlException)
