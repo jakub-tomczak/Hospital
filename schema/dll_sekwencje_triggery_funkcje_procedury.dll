@@ -148,3 +148,96 @@ BEGIN
   values
   (oddzialy_id_seq.nextval, kierownik_in, nazwa_in, makspacjentow_in);
 END DODAJODDZIAL;
+
+--edycja lekarzy i pielegniarek
+
+create or replace procedure aktualizujLekarza
+    (imie_in in varchar2,
+    nazwisko_in in varchar2,
+    stanowisko_in in number,
+    pensja_in in number,
+    specjalizacja_in in varchar2,
+    stopiennaukowy_in in varchar2,
+    oddzialy_id_in in number,
+    pracownik_id_in in number)
+is
+begin 
+    --update pracownika
+        update sz_pracownicy
+        set 
+        imie = imie_in,
+        nazwisko = nazwisko_in,
+        stanowisko = stanowisko_in,
+        pensja = pensja_in,
+        oddzialy_id = oddzialy_id_in
+        where
+        pracownikid = pracownik_id_in;
+    --update lekarza
+        update sz_lekarze
+        set
+        specjalizacja = specjalizacja_in,
+        stopiennaukowy = stopiennaukowy_in
+        where pracownikid = pracownik_id_in;
+end aktualizujLekarza;
+
+create or replace procedure aktualizujPielegniarke
+    (imie_in in varchar2,
+    nazwisko_in in varchar2,
+    stanowisko_in in number,
+    pensja_in in number,
+    oddzialy_id_in in number,
+    pracownik_id_in in number)
+is
+begin 
+    --update pracownika
+        update sz_pracownicy
+        set 
+        imie = imie_in,
+        nazwisko = nazwisko_in,
+        stanowisko = stanowisko_in,
+        pensja = pensja_in,
+        oddzialy_id = oddzialy_id_in
+        where
+        pracownikid = pracownik_id_in;
+end aktualizujPielegniarke;
+
+create or replace procedure dodajPielegniarke
+    (imie in varchar2,
+    nazwisko in varchar2,
+    stanowisko in number,
+    pensja in number,
+    oddzialy_id in number)
+is
+begin 
+    --dodaj pracownika
+        insert into sz_pracownicy
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,pracownikid)
+        values
+        (imie, nazwisko, stanowisko, pensja, oddzialy_id,
+            pracownicy_id_seq.nextval);
+    --dodaj pielegniarke
+    insert into sz_pielegniarki
+        (pracownikid)
+        values
+        (pracownicy_id_seq.currval);
+end dodajPielegniarke;
+
+create or replace procedure usunPracownika
+    (id in number, 
+    stanowisko in number)
+is
+begin 
+    if(stanowisko = 1)
+    then
+        --usun lekarza
+        delete from sz_lekarze where pracownikid = id;
+    elsif stanowisko = 2 then
+        --usun pielegniarke
+        delete from sz_pielegniarki where pracownikid = id;
+    else
+          raise_application_error(-20101, 'Pracownik do usuniecia ma niepoprawne stanowisko!');
+    end if;
+
+    --usun pracownika
+    delete from sz_pracownicy where pracownikid = id;
+end usunPracownika;

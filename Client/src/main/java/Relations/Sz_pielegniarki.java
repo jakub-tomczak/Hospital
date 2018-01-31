@@ -1,10 +1,21 @@
 package Relations;
 
+import Utils.Constants;
+
 public class Sz_pielegniarki extends Sz_pracownicy {
-  private int pracownikid;
 
   public Sz_pielegniarki()
   {
-    setStanowisko(2);
+    setStanowisko(Constants.NURSE);
+  }
+
+  public Sz_pielegniarki(String imie, String nazwisko, double pensja,  int oddzialID, int ID)
+  {
+    this();
+    this.setImie(imie);
+    this.setNazwisko(nazwisko);
+    this.setPensja(pensja);
+    this.setOddzialy_id(oddzialID);
+    this.setPracownikid(ID);
   }
 }

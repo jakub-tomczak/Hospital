@@ -18,149 +18,179 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="776.0" styleClass="gridpane" stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Pracownicy">
+<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity"
+          prefHeight="553.0" prefWidth="776.0" styleClass="gridpane" stylesheets="/styles/subviews_style.css"
+          xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="Controllers.Pracownicy">
     <columnConstraints>
-        <ColumnConstraints fx:id="pierwsza" hgrow="ALWAYS" minWidth="100.0" percentWidth="70" />
-        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" percentWidth="30" />
+        <ColumnConstraints fx:id="pierwsza" hgrow="ALWAYS" minWidth="100.0" percentWidth="70"/>
+        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" percentWidth="30"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints minHeight="200" prefHeight="500" vgrow="ALWAYS" />
+        <RowConstraints minHeight="200" prefHeight="500" vgrow="ALWAYS"/>
     </rowConstraints>
     <children>
-        <VBox alignment="CENTER" depthTest="DISABLE" prefHeight="200.0" prefWidth="100.0" styleClass="vbox" GridPane.columnIndex="1">
+        <VBox alignment="CENTER" depthTest="DISABLE" prefHeight="200.0" prefWidth="100.0" styleClass="vbox"
+              GridPane.columnIndex="1">
             <children>
-            <GridPane prefHeight="237.0" prefWidth="233.0" styleClass="formGridPane">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Imię" textFill="#979797" GridPane.rowIndex="1" />
-                  <Label text="Nazwisko" textFill="#979797" GridPane.rowIndex="2" />
-                  <Label text="Pensja" textFill="#979797" GridPane.rowIndex="3" />
-                  <RadioButton mnemonicParsing="false" text="Lekarz" textFill="#979797" GridPane.rowIndex="5">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="typPracownika" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="typPracownikaPielegniarka" mnemonicParsing="false" text="Pielęgniarka" textFill="#979797" toggleGroup="$typPracownika" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField fx:id="firstNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="lastNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="salaryTextInput" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label text="Oddział" textFill="#979797" GridPane.rowIndex="4" />
-                  <ComboBox fx:id="oddzialyComboBox" prefWidth="150.0" promptText="wybierz oddział" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-                  <Label fx:id="formModeLabel" text="Tryb dodawania" textFill="#15ff00" />
-                  <Button fx:id="clearFormFields" alignment="CENTER" mnemonicParsing="false" onAction="#clearFormFields" text="Wyczyść pola" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </GridPane>
-            <GridPane fx:id="lekarzDodatkoweDane" styleClass="formGridPane" visible="false">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Specjalizacja" textFill="#979797" />
-                  <TextField fx:id="specializationTextInput" promptText="Wpisz specjalizację lekarza" GridPane.columnIndex="1" />
-                  <TextField fx:id="degreeTextInput" promptText="Wpisz stopień naukowy lekarza" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Stopien naukowy" textFill="#979797" GridPane.rowIndex="1" />
-               </children>
-            </GridPane>
-                <Button fx:id="formAcceptButton" alignment="CENTER" mnemonicParsing="false" onAction="#acceptForm" text="Dodaj pracownika">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin></Button>
-            </children>
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-            <GridPane.margin>
-                <Insets />
-            </GridPane.margin>
-        </VBox>
-      <TabPane id="tabPracownicy" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="0">
-        <tabs>
-          <Tab text="Lekarze">
-            <content>
-              <GridPane>
-                     <children>
-                          <TableView fx:id="lekarzeTableView" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-                              <placeholder>
-                                  <VBox alignment="CENTER">
-                                      <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
-                                          <image>
-                                              <Image url="/images/crying.png" />
-                                          </image>
-                                      </ImageView>
-                                      <Label text="Brak danych" />
-                                  </VBox>
-                              </placeholder>
-                              <columns>
-                                  <TableColumn fx:id="firstNameDoctor" prefWidth="75.0" text="Imię" />
-                                  <TableColumn fx:id="lastNameDoctor" prefWidth="75.0" text="Nazwisko" />
-                                  <TableColumn fx:id="typeDoctor" prefWidth="75.0" text="Stanowisko" />
-                                  <TableColumn fx:id="placaDoctor" prefWidth="75.0" text="Oddział" />
-                                  <TableColumn fx:id="usunDoctor" prefWidth="75.0" />
-                              </columns>
-                          </TableView>
-                     </children>
-                     <columnConstraints>
-                        <ColumnConstraints />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints />
-                     </rowConstraints>
-                  </GridPane>
-            </content>
-          </Tab>
-          <Tab text="Pielęgniarki">
-            <content>
-                <GridPane>
-                    <children>
-                        <TableView fx:id="pielegniarkiTableView" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-                            <placeholder>
-                                <VBox alignment="CENTER">
-                                    <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="/images/crying.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Label text="Brak danych" />
-                                </VBox>
-                            </placeholder>
-                            <columns>
-                                <TableColumn fx:id="firstNameNurse" prefWidth="75.0" text="Imię" />
-                                <TableColumn fx:id="lastNameNurse" prefWidth="75.0" text="Nazwisko" />
-                                <TableColumn fx:id="typeNurse" prefWidth="75.0" text="Stanowisko" />
-                                <TableColumn fx:id="placaNurse" prefWidth="75.0" text="Oddział" />
-                            </columns>
-                        </TableView>
-                    </children>
+                <GridPane prefHeight="237.0" prefWidth="233.0" styleClass="formGridPane">
                     <columnConstraints>
-                        <ColumnConstraints />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
+                    <children>
+                        <Label text="Imię" textFill="#979797" GridPane.rowIndex="1"/>
+                        <Label text="Nazwisko" textFill="#979797" GridPane.rowIndex="2"/>
+                        <Label text="Pensja" textFill="#979797" GridPane.rowIndex="3"/>
+                        <RadioButton fx:id="typPracownikaLekarz" mnemonicParsing="false" text="Lekarz"
+                                     textFill="#979797" GridPane.rowIndex="5">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="typPracownika"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="typPracownikaPielegniarka" mnemonicParsing="false" text="Pielęgniarka"
+                                     textFill="#979797" toggleGroup="$typPracownika" GridPane.columnIndex="1"
+                                     GridPane.rowIndex="5"/>
+                        <TextField fx:id="firstNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="lastNameTextInput" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <TextField fx:id="salaryTextInput" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label text="Oddział" textFill="#979797" GridPane.rowIndex="4"/>
+                        <ComboBox fx:id="oddzialyComboBox" prefWidth="150.0" promptText="wybierz oddział"
+                                  GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4"/>
+                        <Label fx:id="formModeLabel" text="Tryb dodawania" textFill="#15ff00"/>
+                        <Button fx:id="clearFormFields" alignment="CENTER" mnemonicParsing="false"
+                                onAction="#clearFormFields" text="Wyczyść pola" GridPane.columnIndex="1"
+                                GridPane.halignment="CENTER"/>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
                 </GridPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
+                <GridPane fx:id="lekarzDodatkoweDane" styleClass="formGridPane" visible="false">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Specjalizacja" textFill="#979797"/>
+                        <TextField fx:id="specializationTextInput" promptText="specjalizacja" GridPane.columnIndex="1"/>
+                        <TextField fx:id="degreeTextInput" promptText="stopień naukowy" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1"/>
+                        <Label text="Stopien naukowy" textFill="#979797" GridPane.rowIndex="1"/>
+                    </children>
+                </GridPane>
+                <Button fx:id="formAcceptButton" alignment="CENTER" mnemonicParsing="false" onAction="#acceptForm"
+                        text="Dodaj pracownika">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </Button>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+        </VBox>
+        <TabPane id="tabPracownicy" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"
+                 GridPane.columnIndex="0">
+            <tabs>
+                <Tab text="Lekarze">
+                    <content>
+                        <GridPane>
+                            <children>
+                                <TableView fx:id="lekarzeTableView" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                    <placeholder>
+                                        <VBox alignment="CENTER">
+                                            <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="/images/crying.png"/>
+                                                </image>
+                                            </ImageView>
+                                            <Label text="Brak danych"/>
+                                        </VBox>
+                                    </placeholder>
+                                    <columns>
+                                        <TableColumn fx:id="firstNameDoctor" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false" text="Imię"/>
+                                        <TableColumn fx:id="lastNameDoctor" minWidth="140.0" prefWidth="140.0"
+                                                     resizable="false" text="Nazwisko"/>
+                                        <TableColumn fx:id="oddzialDoctor" minWidth="140.0" prefWidth="140.0"
+                                                     text="Oddział"/>
+                                        <TableColumn fx:id="placaDoctor" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false" text="Pensja"/>
+                                        <TableColumn fx:id="usunDoctor" minWidth="60.0" prefWidth="60.0"
+                                                     resizable="false"/>
+                                        <TableColumn fx:id="aktualizujDoctor" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false"/>
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints/>
+                            </rowConstraints>
+                        </GridPane>
+                    </content>
+                </Tab>
+                <Tab text="Pielęgniarki">
+                    <content>
+                        <GridPane>
+                            <children>
+                                <TableView fx:id="pielegniarkiTableView" GridPane.hgrow="ALWAYS"
+                                           GridPane.vgrow="ALWAYS">
+                                    <placeholder>
+                                        <VBox alignment="CENTER">
+                                            <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="/images/crying.png"/>
+                                                </image>
+                                            </ImageView>
+                                            <Label text="Brak danych"/>
+                                        </VBox>
+                                    </placeholder>
+                                    <columns>
+                                        <TableColumn fx:id="firstNameNurse" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false" text="Imię"/>
+                                        <TableColumn fx:id="lastNameNurse" minWidth="140.0" prefWidth="140.0"
+                                                     resizable="false" text="Nazwisko"/>
+                                        <TableColumn fx:id="oddzialNurse" minWidth="140.0" prefWidth="140.0"
+                                                     text="Oddział"/>
+                                        <TableColumn fx:id="placaNurse" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false" text="Pensja"/>
+                                        <TableColumn fx:id="usunNurse" minWidth="60.0" prefWidth="60.0"
+                                                     resizable="false"/>
+                                        <TableColumn fx:id="aktualizujNurse" minWidth="100.0" prefWidth="100.0"
+                                                     resizable="false"/>
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints/>
+                            </rowConstraints>
+                        </GridPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
     </children>
 </GridPane>

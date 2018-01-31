@@ -95,6 +95,19 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Zatrudniony" id="7DCD528E-0B01-DECF-1CDD-21419FFE4D9F">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-29 15:43:21 UTC</createdTime>
+<ownerDesignName>szpital2</ownerDesignName>
+<engineerTo>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="EFDD2F0A-540B-6BD7-0C44-51E3DC46AD6B" name="Pracownik PK">

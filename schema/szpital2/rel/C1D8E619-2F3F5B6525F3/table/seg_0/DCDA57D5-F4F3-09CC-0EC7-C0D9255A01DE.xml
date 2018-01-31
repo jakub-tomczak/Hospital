@@ -62,7 +62,6 @@
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>8E5798F6-0371-6140-0E91-2042EE229B60</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -70,7 +69,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="D8D53CA5-5478-159B-82A3-4B590B90EC8C" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
+<colAssociation fkAssociation="768C1A8A-6ECF-4AAF-1A61-253EF8E5905E" referredColumn="08C36C6B-678A-9614-236F-92DCAAB9A006"/>
 </associations>
 </Column>
 <Column name="PracownikID" id="6D683C37-85CA-D630-66EC-2E84F13387B4">
@@ -82,6 +81,18 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zatrudniony" id="5F0FD10F-5776-8A4A-FC1D-F09CC3ADA931">
+<createdBy>Jakub</createdBy>
+<createdTime>2018-01-29 15:44:01 UTC</createdTime>
+<generatorID>7DCD528E-0B01-DECF-1CDD-21419FFE4D9F</generatorID>
+<ownerDesignName>szpital2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
@@ -98,9 +109,9 @@
 <colUsage columnID="6D683C37-85CA-D630-66EC-2E84F13387B4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="48B23F13-7C74-0AEC-3830-7B47080D6740" name="Pracownicy_Oddzialy_FK">
+<ind_PK_UK id="EE147443-2F8B-DD59-7B37-C228F2B7AC8A" name="SZ_Pracownicy_SZ_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
-<createdTime>2018-01-19 01:07:42 UTC</createdTime>
+<createdTime>2018-01-31 00:55:07 UTC</createdTime>
 <generatorID>2E0AFBB3-9EE6-7B68-33A8-3F8D000572A3</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <indexState>Foreign Key</indexState>

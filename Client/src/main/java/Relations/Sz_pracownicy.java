@@ -20,7 +20,6 @@ public class Sz_pracownicy {
     oddzialy_id = new SimpleIntegerProperty();
     pracownikid = new SimpleIntegerProperty();
   }
-
   public int getStanowisko() {
     return stanowisko;
   }

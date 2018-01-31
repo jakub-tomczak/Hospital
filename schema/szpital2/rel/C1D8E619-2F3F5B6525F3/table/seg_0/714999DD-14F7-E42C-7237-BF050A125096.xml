@@ -48,7 +48,6 @@
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>C7EE1A4D-C5AD-2537-1381-5DE434307181</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -64,7 +63,6 @@
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>0E9AFC40-C01F-7450-461B-03F7830746BA</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -89,7 +87,7 @@
 <colUsage columnID="FFA3A429-0C10-797C-76AC-F56A29D0DB35"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B4F33FE7-FD44-2E20-216A-E3FD6C881B5F" name="Operacje_Pacjenci_FK">
+<ind_PK_UK id="B4F33FE7-FD44-2E20-216A-E3FD6C881B5F" name="SZ_Operacje_SZ_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>4E009323-4828-B18D-61CA-A528CC600D3A</generatorID>
@@ -100,7 +98,7 @@
 <colUsage columnID="E8723A44-714C-8AFD-F91D-614BABFA0ED9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B817A899-2409-C766-CF89-B63B2C6EF180" name="Operacje_Oddzialy_FK">
+<ind_PK_UK id="B817A899-2409-C766-CF89-B63B2C6EF180" name="SZ_Operacje_SZ_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>2311C88F-08B0-6D3A-32A1-C881B4D8964E</generatorID>

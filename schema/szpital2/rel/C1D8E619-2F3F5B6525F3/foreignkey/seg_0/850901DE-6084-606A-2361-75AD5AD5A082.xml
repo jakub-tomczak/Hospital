@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="850901DE-6084-606A-2361-75AD5AD5A082" containerWithKeyObject="714999DD-14F7-E42C-7237-BF050A125096" localFKIndex="B4F33FE7-FD44-2E20-216A-E3FD6C881B5F" name="Operacje_Pacjenci_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="850901DE-6084-606A-2361-75AD5AD5A082" containerWithKeyObject="714999DD-14F7-E42C-7237-BF050A125096" localFKIndex="B4F33FE7-FD44-2E20-216A-E3FD6C881B5F" name="SZ_Operacje_SZ_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>4E009323-4828-B18D-61CA-A528CC600D3A</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
 <referredTableLongName>SZ_Pacjenci</referredTableLongName>
-<deleteRule>SET NULL</deleteRule>
+<deleteRule>NO ACTION</deleteRule>
 <referredTableID>E82FCB70-CA35-66F7-114F-7990BF2320FD</referredTableID>
 <keyObject>E6865416-560E-E3DE-0FD8-8A73CCA8A28D</keyObject>
 <referredKeyID>E6865416-560E-E3DE-0FD8-8A73CCA8A28D</referredKeyID>
-<mandatory>false</mandatory>
+<mandatory>true</mandatory>
 <refColNames>PacjentID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

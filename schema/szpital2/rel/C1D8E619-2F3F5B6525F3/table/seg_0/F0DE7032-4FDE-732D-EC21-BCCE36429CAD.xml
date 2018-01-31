@@ -86,7 +86,7 @@
 <colUsage columnID="CD492B12-6F69-3772-430C-73B2EA426DA7"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6B36E9C9-91FB-3916-7D25-EAB3C7B2D0AB" name="Pobyty_Oddzialy_FK">
+<ind_PK_UK id="6B36E9C9-91FB-3916-7D25-EAB3C7B2D0AB" name="SZ_Pobyty_SZ_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>C8FF98BF-F134-F84F-073C-35D62AF8EC04</generatorID>
@@ -97,7 +97,7 @@
 <colUsage columnID="FD49FE12-2933-8440-0FE7-42199EEB7634"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="13416CE0-16E3-F9A2-1DDD-9580599C27AF" name="Pobyty_Pacjenci_FK">
+<ind_PK_UK id="13416CE0-16E3-F9A2-1DDD-9580599C27AF" name="SZ_Pobyty_SZ_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>E5CBA9A3-8D3C-DE83-9CE1-8BFC8912B51B</generatorID>

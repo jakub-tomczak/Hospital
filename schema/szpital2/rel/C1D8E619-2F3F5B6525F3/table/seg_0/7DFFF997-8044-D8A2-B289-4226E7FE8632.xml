@@ -47,7 +47,6 @@
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>5410ADED-2EC2-FFB5-420C-08AEA20125E1</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -78,7 +77,6 @@
 <createdTime>2018-01-19 00:04:11 UTC</createdTime>
 <generatorID>63963279-68FB-7435-10D5-131684593F5E</generatorID>
 <ownerDesignName>szpital2</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -103,7 +101,7 @@
 <colUsage columnID="A0D6D616-A968-782E-EC57-BCF023511821"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="22BD33C7-BBFF-1573-1645-D7E5D3CB1602" name="Badania_Oddzialy_FK">
+<ind_PK_UK id="22BD33C7-BBFF-1573-1645-D7E5D3CB1602" name="SZ_Badania_SZ_Oddzialy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F6900BE9-FA13-FB9A-AD7F-7D906802244D</generatorID>
@@ -114,7 +112,7 @@
 <colUsage columnID="1A3FABC9-60D0-6E89-17CE-BA09C1370DD6"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="5557E5B6-49A1-108B-0E61-E8308EE60D09" name="Badania_Pacjenci_FK">
+<ind_PK_UK id="5557E5B6-49A1-108B-0E61-E8308EE60D09" name="SZ_Badania_SZ_Pacjenci_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2017-12-25 14:25:05 UTC</createdTime>
 <generatorID>F76EA6F4-AA65-4411-16B2-79AB6EE05194</generatorID>
@@ -125,7 +123,7 @@
 <colUsage columnID="05972533-E49A-107E-10E4-CC1908C8E4EB"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C7ED1135-A3BD-98C1-BE52-4043727C8532" name="Badania_Pracownicy_FK">
+<ind_PK_UK id="C7ED1135-A3BD-98C1-BE52-4043727C8532" name="SZ_Badania_SZ_Pracownicy_FK">
 <createdBy>Jakub</createdBy>
 <createdTime>2018-01-19 00:04:11 UTC</createdTime>
 <generatorID>4B29AB58-F5AC-2FA7-8C25-F0FABEBE50C7</generatorID>

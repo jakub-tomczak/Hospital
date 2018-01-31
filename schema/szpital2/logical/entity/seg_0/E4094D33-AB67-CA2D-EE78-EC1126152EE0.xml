@@ -87,8 +87,9 @@
 <createdBy>student</createdBy>
 <createdTime>2017-12-07 07:56:39 UTC</createdTime>
 <ownerDesignName>szpital2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="true"/>
+<item key="C1D8E619-683A-53E4-46E8-2F3F5B6525F3" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
