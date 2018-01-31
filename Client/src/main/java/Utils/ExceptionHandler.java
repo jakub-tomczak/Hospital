@@ -4,12 +4,14 @@ import Controllers.OknoBlad;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
 public class ExceptionHandler {
+    public Alert alert;
     public static void displayException(Exception e)
     {
         displayException(e.getMessage());
@@ -47,8 +49,15 @@ public class ExceptionHandler {
     }
     public static String getMessage(Exception e)
     {
-        if(e.getMessage().contains("naruszono"))
+        if(e.getMessage().contains("naruszono")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Błąd");
+            alert.setContentText("Więzy integralnościowe");
+            alert.showAndWait();
+
+
             return "W bazie istnieje już rekord o podanym unikalnym polu!";
+        }
         else
             return e.getMessage();
 

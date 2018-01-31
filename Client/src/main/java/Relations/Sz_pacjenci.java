@@ -15,7 +15,7 @@ public class Sz_pacjenci {
   private static AtomicLong idCounter = new AtomicLong();
 
 
-  public  Sz_pacjenci(String imie,String nazwisko,String pesel,String adres,String miasto,String kod)
+  public  Sz_pacjenci(String imie,String nazwisko,String pesel,String adres,String miasto,String kod,int id)
   {
     this.imie = imie;
     this.nazwisko = nazwisko;
@@ -23,7 +23,8 @@ public class Sz_pacjenci {
     this.adres = adres;
     this.miasto = miasto;
     this.kod = kod;
-    this.id = (int)idCounter.getAndIncrement();
+    this.id = id;
+
   }
 
 

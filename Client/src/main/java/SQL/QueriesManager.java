@@ -129,7 +129,7 @@ public class QueriesManager {
                     "(id,imie,nazwisko,pesel,adres,miasto,kod) values " +
                     "(?,?,?,?,?,?,?)";
             stmt = Connector.getInstance().getConnection().prepareStatement(insertPatient);
-            stmt.setInt(1, p.getId());
+            stmt.setInt(1, 0);
             stmt.setString(2, p.getImie());
             stmt.setString(3, p.getNazwisko());
             stmt.setString(4, p.getPesel());
@@ -138,7 +138,65 @@ public class QueriesManager {
             stmt.setString(7, p.getKod());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie udało się dodać pacjenta");
+            ExceptionHandler.getMessage(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void updatePatient(Sz_pacjenci p){
+        PreparedStatement stmt = null;
+        try {
+            String updatePatient = "update SZ_PACJENCI SET imie = ?, " +
+                    "nazwisko = ?, pesel = ?, adres = ?, miasto = ?, kod = ? " +
+                    "WHERE ID = ?  ";
+            stmt = Connector.getInstance().getConnection().prepareStatement(updatePatient);
+            stmt.setString(1, p.getImie());
+            stmt.setString(2, p.getNazwisko());
+            stmt.setString(3, p.getPesel());
+            stmt.setString(4, p.getAdres());
+            stmt.setString(5, p.getMiasto());
+            stmt.setString(6, p.getKod());
+            stmt.setInt(7,p.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void deletePatient(Sz_pacjenci p){
+        PreparedStatement stmt = null;
+        try {
+            String updatePatient = "delete from SZ_PACJENCI where id=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(updatePatient);
+            stmt.setInt(1,p.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
         }catch(Exception e)
         {
             ExceptionHandler.displayException(e);
@@ -298,4 +356,42 @@ public class QueriesManager {
         }
         return true;
     }
+
+    public List<Sz_pacjenci> getPacjenci() {
+        List<Sz_pacjenci> pacjenci = new ArrayList<>();
+        Statement statement = null;
+        ResultSet rs = null;
+
+        try {
+            statement = Connector.getInstance().getConnection().createStatement();
+            rs = statement.executeQuery("select * from sz_pacjenci");
+
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                Sz_pacjenci pacjent = new Sz_pacjenci(
+                        rs.getString(2), rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6), rs.getString(7),rs.getInt(1));
+
+                pacjenci.add(pacjent);
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.displayException("Nie można pobrać listy z pacjentami");
+        }finally {
+            try
+            {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return pacjenci;
+    }
+
+
 }
