@@ -524,14 +524,115 @@ public class QueriesManager {
         PreparedStatement stmt = null;
         try {
             String insertExamination = "insert into SZ_BADANIA " +
-                    "(id,nazwa,datagodzinabadania,sz_oddzialy_id,sz_pacjenci_id) values " +
-                    "(?,?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'),?,?)";
+                    "(id,nazwa,datagodzinabadania,sz_oddzialy_id,sz_pacjenci_id,sz_pracownicy_pracownikid) values " +
+                    "(?,?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'),?,?,?)";
             stmt = Connector.getInstance().getConnection().prepareStatement(insertExamination);
             stmt.setInt(1, 0);
             stmt.setString(2, badanie.getNazwa());
             stmt.setString(3, badanie.getDatagodzinabadania());
             stmt.setInt(4, badanie.getOddzialy_id());
             stmt.setInt(5, badanie.getPacjenci_id());
+            stmt.setInt(6,badanie.getPracownik_id());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public List<Sz_badania> getPatientExamination(Sz_pacjenci p)
+    {
+        List<Sz_badania> badania = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String showExamination = "select * from SZ_BADANIA " +
+                    "where sz_pacjenci_id=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(showExamination);
+            stmt.setInt(1, p.getId());
+            rs =stmt.executeQuery();
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                Sz_badania badanie = new Sz_badania(
+                        rs.getString(2), rs.getString(3), rs.getInt(4),
+                        rs.getInt(5),rs.getInt(6),rs.getInt(1));
+
+                badania.add(badanie);
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return badania;
+    }
+
+    public void deleteExamination(Sz_badania b){
+        PreparedStatement stmt = null;
+        try {
+            String deleteExamination = "delete from SZ_BADANIA where id=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(deleteExamination);
+            stmt.setInt(1,b.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void updateExamination(Sz_badania badanie) {
+        PreparedStatement stmt = null;
+        try {
+            String updatePatient = "update SZ_BADANIA SET nazwa = ?, " +
+                    "datagodzinabadania = TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss')" +
+                    ", sz_oddzialy_id =?,sz_pacjenci_id=?, " +
+                    "sz_pracownicy_pracownikid = ? WHERE ID = ?  ";
+            stmt = Connector.getInstance().getConnection().prepareStatement(updatePatient);
+            stmt.setString(1, badanie.getNazwa());
+            stmt.setString(2, badanie.getDatagodzinabadania());
+            stmt.setInt(3, badanie.getOddzialy_id());
+            stmt.setInt(4, badanie.getPacjenci_id());
+            stmt.setInt(5, badanie.getPracownik_id());
+            stmt.setInt(6, badanie.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PokazBadaniaModal">
+    <children>
+        <TableView fx:id="badaniaTableView" layoutX="150.0" layoutY="22.0" prefHeight="350.0" prefWidth="545.0">
+            <placeholder>
+                <VBox alignment="TOP_RIGHT" layoutX="307.0" layoutY="58.0" prefHeight="324.0" prefWidth="579.0">
+                    <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="/images/crying.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Brak danych" />
+                </VBox>
+            </placeholder>
+            <columns>
+                <TableColumn fx:id="id" minWidth="40.0" prefWidth="40.0" resizable="false" text="ID" />
+                <TableColumn fx:id="name" minWidth="100.0" prefWidth="100.0" resizable="false" text="Nazwa" />
+                <TableColumn fx:id="data" minWidth="100.0" prefWidth="140.0" resizable="false" text="Data" />
+                <TableColumn fx:id="ward" minWidth="140.0" prefWidth="140.0" text="Oddział" />
+                <TableColumn fx:id="doctor" prefWidth="150.0" text="Lekarz" />
+            </columns>
+        </TableView>
+      <Button layoutX="24.0" layoutY="63.0" mnemonicParsing="false" onMouseClicked="#showEdit" prefHeight="63.0" prefWidth="109.0" text="Edytuj" />
+      <Button layoutX="24.0" layoutY="208.0" mnemonicParsing="false" onMouseClicked="#deleteExamination" prefHeight="63.0" prefWidth="109.0" text="Usuń" />
+    </children>
+</AnchorPane>

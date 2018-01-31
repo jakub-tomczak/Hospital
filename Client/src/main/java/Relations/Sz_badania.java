@@ -1,26 +1,29 @@
 package Relations;
 
 public class Sz_badania {
-  private String id;
+  private int id;
   private String nazwa;
   private String datagodzinabadania;
   private int oddzialy_id;
   private int pacjenci_id;
+  private int pracownik_id;
 
-  public Sz_badania(String nazwa, String datagodzinabadania, int oddzialy_id, int pacjenci_id)
+  public Sz_badania(String nazwa, String datagodzinabadania, int oddzialy_id, int pacjenci_id,int pracownik_id,int id)
   {
     this.nazwa=nazwa;
     this.datagodzinabadania = datagodzinabadania;
     this.oddzialy_id=oddzialy_id;
     this.pacjenci_id =pacjenci_id;
+    this.pracownik_id = pracownik_id;
+    this.id=id;
   }
 
 
-  public String getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(int id) {
     this.id = id;
   }
 
@@ -54,5 +57,13 @@ public class Sz_badania {
 
   public void setPacjenci_id(int pacjenci_id) {
     this.pacjenci_id = pacjenci_id;
+  }
+
+  public int getPracownik_id() {
+    return pracownik_id;
+  }
+
+  public void setPracownik_id(int pracownik_id) {
+    this.pracownik_id = pracownik_id;
   }
 }

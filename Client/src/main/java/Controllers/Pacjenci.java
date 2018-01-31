@@ -163,6 +163,41 @@ public class Pacjenci implements  IDisplayedScreen   {
     }
 
     @FXML
+    public void showExaminations(MouseEvent mouseEvent) throws IOException {
+        Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
+        if(patient!=null)
+        {
+            Stage stage = new Stage();
+            Parent root = null;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/badaniaPacjenta_modal.fxml"));
+            root = (Parent) loader.load();
+            PokazBadaniaModal controller = loader.getController();
+            controller.setPacjent(patient);
+            controller.getLekarze();
+            controller.getExaminations();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Badania");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(
+                    ((Node)mouseEvent.getSource()).getScene().getWindow() );
+            stage.show();
+            stage.setOnHiding(new EventHandler<WindowEvent>() {
+
+                @Override
+                public void handle(WindowEvent event) {
+                    Platform.runLater(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            getPacjenci();
+
+                        }
+                    });
+                }
+            });
+        }
+    }
+    @FXML
     public  void getPacjenci()
     {
         QueriesManager queriesManager = new QueriesManager();
