@@ -205,7 +205,7 @@ public class Pracownicy implements IDisplayedScreen {
 
         lekarze = (new QueriesManager()).getDoctors();
 
-        if (lekarze != null && lekarze.size() > 0) {
+        if (lekarze != null) {
             lekarzeTableView.getItems().setAll(lekarze);
 
         }
