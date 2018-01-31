@@ -1,40 +1,50 @@
 package Relations;
 
 public class Sz_pobyty {
-  private String pacjenci_id;
-  private java.sql.Date dataprzyjecia;
-  private java.sql.Date datawypisania;
-  private String oddzialy_id;
+  private int pacjenci_id;
+  private String dataprzyjecia;
+  private String datawypisania;
+  private int oddzialy_id;
+  private  int ID;
 
-  public String getPacjenci_id() {
-    return pacjenci_id;
-  }
 
-  public void setPacjenci_id(String pacjenci_id) {
+  public  Sz_pobyty(int ID,int pacjenci_id,int oddzialy_id,String dataprzyjecia,String  datawypisania ) {
+    this.ID = ID;
     this.pacjenci_id = pacjenci_id;
-  }
-
-  public java.sql.Date getDataprzyjecia() {
-    return dataprzyjecia;
-  }
-
-  public void setDataprzyjecia(java.sql.Date dataprzyjecia) {
+    this.oddzialy_id = oddzialy_id;
     this.dataprzyjecia = dataprzyjecia;
-  }
-
-  public java.sql.Date getDatawypisania() {
-    return datawypisania;
-  }
-
-  public void setDatawypisania(java.sql.Date datawypisania) {
     this.datawypisania = datawypisania;
   }
 
-  public String getOddzialy_id() {
+  public int getPacjenci_id() {
+    return pacjenci_id;
+  }
+
+  public void setPacjenci_id(int pacjenci_id) {
+    this.pacjenci_id = pacjenci_id;
+  }
+
+  public String getDataprzyjecia() {
+    return dataprzyjecia;
+  }
+
+  public void setDataprzyjecia(String dataprzyjecia) {
+    this.dataprzyjecia = dataprzyjecia;
+  }
+
+  public String getDatawypisania() {
+    return datawypisania;
+  }
+
+  public void setDatawypisania(String datawypisania) {
+    this.datawypisania = datawypisania;
+  }
+
+  public int getOddzialy_id() {
     return oddzialy_id;
   }
 
-  public void setOddzialy_id(String oddzialy_id) {
+  public void setOddzialy_id(int oddzialy_id) {
     this.oddzialy_id = oddzialy_id;
   }
 }

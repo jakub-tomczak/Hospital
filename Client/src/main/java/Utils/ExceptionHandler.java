@@ -47,22 +47,22 @@ public class ExceptionHandler {
       //teraz wyswietl tak samo jak kazdy inny exception ale pozniej mozna dodac lapanie kodów sql zeby wiedziec co jest nie tak
         displayException(sqlException);
     }
-    public static String getMessage(Exception e)
+    public static void getMessage(Exception e)
     {
-        if(e.getMessage().contains("naruszono")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Błąd");
-            alert.setContentText("Więzy integralnościowe");
-            alert.showAndWait();
-
-
-            return "W bazie istnieje już rekord o podanym unikalnym polu!";
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Błąd");
+        alert.setHeaderText(null);
+        if(e.getMessage().contains("ORA-00001")) {
+            alert.setContentText("Istnieje już pacjent o podanym PESELU!");
         }
-        else {
+        else if (e.getMessage().contains("ORA-02292")){
+            alert.setContentText("Podany rekord jest używany w innej tabeli!");
+        }
+        else
+        {
             showMessage("Błąd");
-            return e.getMessage();
         }
-
+        alert.showAndWait();
     }
 
     public static void showMessage(String s)
