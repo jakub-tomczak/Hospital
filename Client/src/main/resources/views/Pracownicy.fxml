@@ -46,7 +46,7 @@
                   <Label text="Imię" textFill="#979797" GridPane.rowIndex="1" />
                   <Label text="Nazwisko" textFill="#979797" GridPane.rowIndex="2" />
                   <Label text="Pensja" textFill="#979797" GridPane.rowIndex="3" />
-                  <RadioButton mnemonicParsing="false" text="Lekarz" textFill="#979797" GridPane.rowIndex="5">
+                  <RadioButton fx:id="typPracownikaLekarz" mnemonicParsing="false" text="Lekarz" textFill="#979797" GridPane.rowIndex="5">
                      <toggleGroup>
                         <ToggleGroup fx:id="typPracownika" />
                      </toggleGroup>
@@ -76,8 +76,8 @@
               </rowConstraints>
                <children>
                   <Label text="Specjalizacja" textFill="#979797" />
-                  <TextField fx:id="specializationTextInput" promptText="Wpisz specjalizację lekarza" GridPane.columnIndex="1" />
-                  <TextField fx:id="degreeTextInput" promptText="Wpisz stopień naukowy lekarza" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="specializationTextInput" promptText="specjalizacja" GridPane.columnIndex="1" />
+                  <TextField fx:id="degreeTextInput" promptText="stopień naukowy" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Stopien naukowy" textFill="#979797" GridPane.rowIndex="1" />
                </children>
             </GridPane>
@@ -111,11 +111,12 @@
                                   </VBox>
                               </placeholder>
                               <columns>
-                                  <TableColumn fx:id="firstNameDoctor" prefWidth="75.0" text="Imię" />
-                                  <TableColumn fx:id="lastNameDoctor" prefWidth="75.0" text="Nazwisko" />
-                                  <TableColumn fx:id="typeDoctor" prefWidth="75.0" text="Stanowisko" />
-                                  <TableColumn fx:id="placaDoctor" prefWidth="75.0" text="Oddział" />
-                                  <TableColumn fx:id="usunDoctor" prefWidth="75.0" />
+                                  <TableColumn fx:id="firstNameDoctor" minWidth="100.0" prefWidth="100.0" resizable="false" text="Imię" />
+                                  <TableColumn fx:id="lastNameDoctor" minWidth="140.0" prefWidth="140.0" resizable="false" text="Nazwisko" />
+                              <TableColumn fx:id="oddzialDoctor" minWidth="140.0" prefWidth="140.0" text="Oddział" />
+                                  <TableColumn fx:id="placaDoctor" minWidth="100.0" prefWidth="100.0" resizable="false" text="Pensja" />
+                                  <TableColumn fx:id="usunDoctor" minWidth="60.0" prefWidth="60.0" resizable="false" />
+                                  <TableColumn fx:id="aktualizujDoctor" minWidth="100.0" prefWidth="100.0" resizable="false" />
                               </columns>
                           </TableView>
                      </children>

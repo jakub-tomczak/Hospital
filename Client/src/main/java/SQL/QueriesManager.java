@@ -1,9 +1,6 @@
 package SQL;
 
-import Relations.Sz_lekarze;
-import Relations.Sz_operacje;
-import Relations.Sz_pacjenci;
-import Relations.Sz_pracownicy;
+import Relations.*;
 import Utils.Constants;
 import Utils.ExceptionHandler;
 
@@ -60,7 +57,7 @@ public class QueriesManager {
         executor = Executors.newFixedThreadPool(maxPoolSize);
     }
 
-    public void addDoctor(Sz_lekarze lekarz, Command onQuryFinished) {
+    public void addDoctor(Sz_lekarze lekarz) {
         String query = "{call dodajLekarza(?, ?, ?, ?, ?, ?, ?)}";
         CallableStatement statement = null;
 
@@ -68,7 +65,7 @@ public class QueriesManager {
             statement = Connector.getInstance().getConnection().prepareCall(query);
             statement.setString(1, lekarz.getImie());
             statement.setString(2, lekarz.getNazwisko());
-            statement.setInt(3, 1); //stanowisko, 1 = lekarz, 2 = pielegniarka
+            statement.setInt(3, Constants.DOCTOR);
             statement.setDouble(4, lekarz.getPensja());
             statement.setString(5, lekarz.getSpecjalizacja());
             statement.setString(6, lekarz.getStopiennaukowy());
@@ -91,6 +88,36 @@ public class QueriesManager {
             }
         }
 
+    }
+    public void addNurse(Sz_pielegniarki pielegniarka)
+    {
+        String query = "{call dodajPielegniarke(?, ?, ?, ?, ?)}";
+        CallableStatement statement = null;
+
+        try {
+            statement = Connector.getInstance().getConnection().prepareCall(query);
+            statement.setString(1, pielegniarka.getImie());
+            statement.setString(2, pielegniarka.getNazwisko());
+            statement.setInt(3, Constants.NURSE);
+            statement.setDouble(4, pielegniarka.getPensja());
+            statement.setInt(5, pielegniarka.getOddzialy_id());
+            statement.execute();
+        }  catch (SQLException e) {
+            ExceptionHandler.displayException("Nie udało się dodać pielegniarki");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (statement != null) {
+                    statement.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
     }
 
     public void addOperation(Sz_operacje operacja, int lekarzID){
@@ -203,7 +230,49 @@ public class QueriesManager {
         return lekarze;
     }
 
-    public List<String> getOddzialy() {
+    public List<Sz_oddzialy> getOddzialy() {
+        String query = "select * from SZ_ODDZIALY";
+
+        List<Sz_oddzialy> oddzialy = new ArrayList<>();
+
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = Connector.getInstance().getConnection().createStatement();
+
+            rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                Sz_oddzialy oddzial = new Sz_oddzialy(
+                        rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
+
+                oddzialy.add(oddzial);
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.displaySQLException(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+
+        }
+        return oddzialy;
+    }
+
+    public List<String> getOddzialy_2() {
         List<String> oddzialy = new ArrayList<>();
 
         Statement statement = null;
@@ -297,5 +366,70 @@ public class QueriesManager {
             return false;
         }
         return true;
+    }
+    public void updateDoctor(Sz_lekarze lekarz) {
+        //aktualizujLekarza
+        String query = "{call aktualizujLekarza(?, ?, ?, ?, ?, ?, ?, ?)}";
+        CallableStatement statement = null;
+
+        try {
+            statement = Connector.getInstance().getConnection().prepareCall(query);
+            statement.setString(1, lekarz.getImie());
+            statement.setString(2, lekarz.getNazwisko());
+            statement.setInt(3, Constants.DOCTOR);
+            statement.setDouble(4, lekarz.getPensja());
+            statement.setString(5, lekarz.getSpecjalizacja());
+            statement.setString(6, lekarz.getStopiennaukowy());
+            statement.setInt(7, lekarz.getOddzialy_id());
+            statement.setInt(8, lekarz.getPracownikid());
+            statement.execute();
+        }  catch (SQLException e) {
+            ExceptionHandler.displayException("Nie udało się zaktualizować lekarza");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (statement != null) {
+                    statement.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void updateNurse(Sz_pielegniarki pielegniarki) {
+        //aktualizujLekarza
+        String query = "{call aktualizujPielegniarke(?, ?, ?, ?, ?, ?)}";
+        CallableStatement statement = null;
+
+        try {
+            statement = Connector.getInstance().getConnection().prepareCall(query);
+            statement.setString(1, pielegniarki.getImie());
+            statement.setString(2, pielegniarki.getNazwisko());
+            statement.setInt(3, Constants.DOCTOR);
+            statement.setDouble(4, pielegniarki.getPensja());
+            statement.setInt(5, pielegniarki.getOddzialy_id());
+            statement.setInt(6, pielegniarki.getPracownikid());
+            statement.execute();
+        }  catch (SQLException e) {
+            ExceptionHandler.displayException("Nie udało się zaktualizować pielęgniarki");
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (statement != null) {
+                    statement.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
     }
 }

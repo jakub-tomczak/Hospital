@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validator {
-    private static final String stringPattern = "^[a-zA-Z]+$";
+    private static final String stringPattern = "^[a-zńćźżłśąóęA-ZŃĆŹŻŁŚĄÓĘ]+$";
     private static final String timePattern = "^[0-9:0-9]+$";
 
     public static boolean validateString(String text) {
