@@ -68,7 +68,7 @@ public class EdytujPacjentaModal{
         if (validateInput()) {
             Sz_pacjenci patient = new Sz_pacjenci(imie.getText(), nazwisko.getText(), pesel.getText(), adres.getText(), miasto.getText(), kod.getText(),patientID);
             QueriesManager query = new QueriesManager();
-            query.updatePatient(patient);
+//            query.updatePatient(patient);
             alert.setContentText("Pomyślnie zaktualizowano pacjenta");
 
         } else {

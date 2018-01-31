@@ -9,6 +9,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
 <GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Pacjenci">
     <columnConstraints>
         <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="100.0" percentWidth="20" />
@@ -35,12 +38,22 @@
         </VBox>
         <VBox prefHeight="200.0" prefWidth="100.0" styleClass="vbox" GridPane.columnIndex="2">
          <children>
-            <Button mnemonicParsing="false" text="Dodaj badanie" />
+            <Button mnemonicParsing="false" onMouseClicked="#showAddExamination" text="Dodaj badanie" />
             <Button mnemonicParsing="false" text="Dodaj na oddział" />
             <Button mnemonicParsing="false" text="Dodaj operację " />
             <Button mnemonicParsing="false" text="Dodaj leczenie" />
          </children></VBox>
         <TableView fx:id="pacjenci" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <placeholder>
+                <VBox alignment="TOP_RIGHT" layoutX="307.0" layoutY="58.0">
+                    <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="/images/crying.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Brak danych" />
+                </VBox>
+            </placeholder>
             <columns>
                 <TableColumn fx:id="pesel" editable="false" prefWidth="150.0" text="Pesel" />
                 <TableColumn fx:id="imie" editable="false" prefWidth="130.0" text="Imię" />

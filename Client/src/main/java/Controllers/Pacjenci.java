@@ -91,6 +91,41 @@ public class Pacjenci implements  IDisplayedScreen   {
         });
     }
 
+    @FXML
+    public void showAddExamination(MouseEvent mouseEvent) throws IOException {
+    Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
+        if(patient!=null)
+    {
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/dodajBadanie_modal.fxml"));
+        root = (Parent) loader.load();
+        DodajBadanieModal controller = loader.getController();
+        controller.setPacjent(patient);
+        controller.getLekarze();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Dodaj badanie");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)mouseEvent.getSource()).getScene().getWindow() );
+        stage.show();
+        stage.setOnHiding(new EventHandler<WindowEvent>() {
+
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.runLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        getPacjenci();
+
+                    }
+                });
+            }
+        });
+    }
+}
+
 
     @FXML
     public void showUpdatePatient(MouseEvent mouseEvent) throws IOException {

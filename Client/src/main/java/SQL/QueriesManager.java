@@ -516,4 +516,35 @@ public class QueriesManager {
         }
     }
 
+    public void addExamination(Sz_badania badanie)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String insertExamination = "insert into SZ_BADANIA " +
+                    "(id,nazwa,datagodzinabadania,sz_oddzialy_id,sz_pacjenci_id) values " +
+                    "(?,?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'),?,?)";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertExamination);
+            stmt.setInt(1, 0);
+            stmt.setString(2, badanie.getNazwa());
+            stmt.setString(3, badanie.getDatagodzinabadania());
+            stmt.setInt(4, badanie.getOddzialy_id());
+            stmt.setInt(5, badanie.getPacjenci_id());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        }catch(Exception e)
+        {
+            ExceptionHandler.displayException(e);
+        }finally {
+            try
+            {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }catch(SQLException e)
+            {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
 }

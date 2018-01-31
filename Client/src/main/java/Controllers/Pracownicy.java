@@ -11,7 +11,6 @@ import Utils.ExceptionHandler;
 import Utils.IDisplayedScreen;
 import Utils.Validator;
 import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
-import com.sun.javafx.collections.MappingChange;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleBooleanProperty;

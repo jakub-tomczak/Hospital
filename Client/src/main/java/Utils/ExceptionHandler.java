@@ -63,4 +63,13 @@ public class ExceptionHandler {
 
     }
 
+    public static void showMessage(String s)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Komunikat");
+        alert.setContentText(s);
+        alert.setHeaderText(null);
+        alert.showAndWait();
+    }
+
 }
