@@ -46,7 +46,7 @@
               <VBox maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" styleClass="vbox">
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#showAddExamination" text="Dodaj badanie" />
-                  <Button mnemonicParsing="false" text="Dodaj operację " />
+                  <Button mnemonicParsing="false" onMouseClicked="#addOperation" text="Dodaj operację " />
                   <Button mnemonicParsing="false" text="Dodaj leczenie" />
                   <Button fx:id="showExamination" mnemonicParsing="false" onMouseClicked="#showExaminations" text="Pokaż badania" />
                </children>
