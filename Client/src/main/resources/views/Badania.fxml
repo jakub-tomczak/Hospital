@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Label?>
 <GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Badania">
   <columnConstraints>
     <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="100.0" percentWidth="20" />
@@ -33,6 +34,9 @@
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" styleClass="vbox" GridPane.columnIndex="2" />
       <TableView fx:id="badaniaT" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+          <placeholder>
+              <Label text="Brak badań" />
+          </placeholder>
         <columns>
             <TableColumn fx:id="id" minWidth="40.0" prefWidth="40.0" resizable="false" text="ID" />
             <TableColumn fx:id="name" minWidth="100.0" prefWidth="100.0" resizable="false" text="Nazwa" />

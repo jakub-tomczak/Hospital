@@ -64,13 +64,13 @@
                  <content>
                      <TableView fx:id="pacjenciNaOddziale" prefHeight="471.0" prefWidth="300.0">
                          <placeholder>
-                             <VBox alignment="TOP_RIGHT" layoutX="307.0" layoutY="58.0" maxWidth="300.0" prefHeight="447.0" prefWidth="300.0">
+                             <VBox alignment="CENTER">
                                  <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
                                      <image>
-                                         <Image url="/images/crying.png" />
+                                         <Image url="/images/crying.png"/>
                                      </image>
                                  </ImageView>
-                                 <Label text="Brak danych" />
+                                 <Label text="Brak pacjentów na oddziałach"/>
                              </VBox>
                          </placeholder>
                          <columns>
@@ -87,13 +87,13 @@
                  <content>
                      <TableView fx:id="pacjenci" prefHeight="200.0" prefWidth="300.0">
                          <placeholder>
-                             <VBox alignment="TOP_RIGHT" layoutX="307.0" layoutY="58.0" maxWidth="300.0" prefHeight="447.0" prefWidth="300.0">
+                             <VBox alignment="CENTER">
                                  <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
                                      <image>
-                                         <Image url="/images/crying.png" />
+                                         <Image url="/images/crying.png"/>
                                      </image>
                                  </ImageView>
-                                 <Label text="Brak danych" />
+                                 <Label text="Brak pacjentów w szpitalu"/>
                              </VBox>
                          </placeholder>
                          <columns>
