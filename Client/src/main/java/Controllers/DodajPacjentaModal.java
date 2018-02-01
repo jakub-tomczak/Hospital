@@ -53,7 +53,6 @@ public class DodajPacjentaModal {
             Sz_pacjenci patient = new Sz_pacjenci(imie.getText(), nazwisko.getText(), pesel.getText(), adres.getText(), miasto.getText(), kod.getText(),0);
             QueriesManager query = new QueriesManager();
             query.addPatient(patient);
-            alert.setContentText("Pomyślnie dodano pacjenta");
 
         } else {
             alert.setContentText("Błędny format danych");

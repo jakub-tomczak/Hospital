@@ -143,11 +143,12 @@ public class PokazBadaniaModal {
     public void  deleteExamination()
     {
         Sz_badania badanie = (Sz_badania) badaniaTableView.getSelectionModel().getSelectedItem();
-
-        badanie.setId((int)((Sz_badania) badaniaTableView.getSelectionModel().getSelectedItem()).getId());
-        QueriesManager queriesManager = new QueriesManager();
-        queriesManager.deleteExamination(badanie);
-        getExaminations();
+        if(badanie!=null) {
+            badanie.setId((int) ((Sz_badania) badaniaTableView.getSelectionModel().getSelectedItem()).getId());
+            QueriesManager queriesManager = new QueriesManager();
+            queriesManager.deleteExamination(badanie);
+            getExaminations();
+        }
     }
 
 
