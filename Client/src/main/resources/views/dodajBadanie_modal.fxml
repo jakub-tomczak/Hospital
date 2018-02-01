@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DodajBadanieModal">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121"  stylesheets="/styles/subviews_style.css"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DodajBadanieModal">
     <children>
                         <TableView fx:id="lekarzeTableView" layoutX="218.0" layoutY="22.0" prefHeight="350.0" prefWidth="476.0">
                             <placeholder>

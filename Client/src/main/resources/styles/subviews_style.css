@@ -60,6 +60,14 @@
 }
 
 .bigbutton {
+    -fx-min-width: 200px;
+    -fx-min-height: 200px;
+}
+.mediumbutton {
     -fx-min-width: 150px;
-    -fx-min-height: 150px;
+    -fx-min-height: 100px;
+}
+.smallbutton{
+    -fx-min-width: 120px;
+    -fx-min-height: 70px;
 }

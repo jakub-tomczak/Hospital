@@ -18,6 +18,8 @@ public class ExceptionHandler {
     }
     public static void displayException(String message)
     {
+        showMessage(message, Alert.AlertType.WARNING);
+        /*
         try
         {
             FXMLLoader loader = new FXMLLoader(ExceptionHandler.class.getClass().getResource("/views/OknoBlad.fxml"));
@@ -43,6 +45,7 @@ public class ExceptionHandler {
             System.out.println("Nastąpił błąd podczas wyświetlania okna");
             System.out.println(e.getMessage());
         }
+        */
     }
     public static void displaySQLException(SQLException sqlException)
     {
@@ -58,7 +61,7 @@ public class ExceptionHandler {
             alert.setContentText("Istnieje już pacjent o podanym PESELU!");
         }
         else if (e.getMessage().contains("ORA-02292")){
-            alert.setContentText("Podany rekord jest używany w innej tabeli!");
+            alert.setContentText("Podany rekord jest wciąż używany w innej tabeli!");
         }
         else
         {
@@ -69,8 +72,16 @@ public class ExceptionHandler {
 
     public static void showMessage(String s)
     {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Komunikat");
+        showMessage(s, Alert.AlertType.INFORMATION);
+    }
+    public static void showMessage(String s, Alert.AlertType alertType)
+    {
+        showMessage(s, "Komunikat", alertType);
+    }
+    public static void showMessage(String s, String title, Alert.AlertType alertType)
+    {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
         alert.setContentText(s);
         alert.setHeaderText(null);
         alert.showAndWait();

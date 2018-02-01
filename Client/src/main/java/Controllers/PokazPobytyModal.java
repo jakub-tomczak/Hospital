@@ -1,5 +1,6 @@
 package Controllers;
 
+import Main.Main;
 import Relations.*;
 import SQL.QueriesManager;
 import Utils.ExceptionHandler;
@@ -189,6 +190,7 @@ public class PokazPobytyModal {
                 Sz_pobyty pobyt = new Sz_pobyty(pobytID,patient.getId(),getOddzialIdFromComboBox(),formattedDate(),formattedDate2());
                 QueriesManager queriesManager = new QueriesManager();
                     queriesManager.updatePobyt(pobyt);
+                Main.getInstance().refreshAll();
 
             }
             else
@@ -202,6 +204,7 @@ public class PokazPobytyModal {
             Sz_pobyty pobyt = new Sz_pobyty(pobytID,patient.getId(),getOddzialIdFromComboBox(),formattedDate(),null);
             QueriesManager queriesManager = new QueriesManager();
             queriesManager.updatePobyt(pobyt);
+            Main.getInstance().refreshAll();
         }
         getPobyty();
     }
@@ -211,6 +214,8 @@ public class PokazPobytyModal {
         Sz_pobyty pobyt = new Sz_pobyty(pobytID,patient.getId(),getOddzialIdFromComboBox(),formattedDate(),null);
         QueriesManager queriesManager = new QueriesManager();
         queriesManager.deletePobyt(pobyt);
+        Main.getInstance().refreshAll();
+
         getPobyty();
     }
 

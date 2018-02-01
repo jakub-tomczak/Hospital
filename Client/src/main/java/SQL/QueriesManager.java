@@ -275,7 +275,7 @@ public class QueriesManager {
             statement.setInt(2, stanowisko);
             statement.execute();
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie udało się usunac pracownika!");
+           ExceptionHandler.getMessage(e);
         } catch (Exception e) {
             ExceptionHandler.displayException(e);
             return false;
@@ -303,7 +303,7 @@ public class QueriesManager {
 
             result = statement.executeUpdate(query);
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie można usunać danych z tabeli " + database.substring(3) + " . \nPowód : " + e.getMessage().substring(11));
+            ExceptionHandler.getMessage(e);
             return false;
         } finally {
             try {
@@ -755,7 +755,7 @@ public class QueriesManager {
         //dateformatter
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-        String query = String.format("update sz_operacje set ODDZIALY_ID = %d,  DATAGODZINAROZPOCZECIA = TO_DATE('%s'), RODZAJOPERACJI = '%s' ",
+        String query = String.format("update sz_operacje set ODDZIALY_ID = %d,  DATAGODZINAROZPOCZECIA = TO_DATE('%s', 'YYYY-MM-DD HH24:MI'), RODZAJOPERACJI = '%s' ",
                 operationBeingUpdated.getOddzialy_id(), operationBeingUpdated.getDatagodzinarozpoczecia().format(formatter), operationBeingUpdated.getRodzajoperacji());
         try {
             stmt = Connector.getInstance().getConnection().createStatement();
@@ -788,7 +788,7 @@ public class QueriesManager {
         CallableStatement statement = null;
         int operacja_id = -1;
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
             statement = Connector.getInstance().getConnection().prepareCall(query);
             statement.registerOutParameter(1, Types.INTEGER);

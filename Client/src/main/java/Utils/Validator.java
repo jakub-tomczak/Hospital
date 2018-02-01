@@ -49,7 +49,10 @@ public class Validator {
             double value = Integer.parseInt(text);
             if(value < minVal || value > maxVal)
             {
-                ExceptionHandler.displayException(message);
+                if(!message.isEmpty())
+                {
+                    ExceptionHandler.displayException(message);
+                }
                 return false;
             }
             return true;
@@ -136,6 +139,10 @@ public class Validator {
         }
         field.setStyle("-fx-background-color: #ffffff");
         return true;
+    }
+    public static boolean validateIntegerField(TextField field, int minVal, int maxVal)
+    {
+        return validateIntegerField(field, minVal, maxVal, "");
     }
 
     public static boolean validateStringField(TextField field)

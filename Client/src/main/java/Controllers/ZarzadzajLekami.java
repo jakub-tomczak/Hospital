@@ -109,8 +109,8 @@ public class ZarzadzajLekami implements IDisplayedScreen{
         List<Sz_leki> leki = queriesManager.getLeki();
         if(leki != null)
         {
-            lekiTableView.getItems().clear();
             lekiTableView.getItems().setAll(leki);
+            lekiTableView.refresh();
         }
 
     }
@@ -136,6 +136,7 @@ public class ZarzadzajLekami implements IDisplayedScreen{
 
                 break;
         }
+
         Main.getInstance().refreshAll();
     }
 
@@ -209,9 +210,10 @@ public class ZarzadzajLekami implements IDisplayedScreen{
                         case delete:
                             QueriesManager queriesManager = new QueriesManager();
                             queriesManager.deleteLeki(lek);
+
+                            Main.getInstance().refreshAll();
                             break;
                     }
-                  refresh();
                 }
             });
         }

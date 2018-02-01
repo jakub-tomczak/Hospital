@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PokazBadaniaModal">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121"  stylesheets="/styles/subviews_style.css"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PokazBadaniaModal">
     <children>
         <TableView fx:id="badaniaTableView" layoutX="150.0" layoutY="22.0" prefHeight="350.0" prefWidth="545.0">
             <placeholder>
