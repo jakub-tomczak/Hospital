@@ -1,17 +1,20 @@
 package Relations;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Sz_operacje {
-  private String operacjaid;
+  private int operacjaid;
   private String rodzajoperacji;
-  private String datagodzinarozpoczecia;
+  private LocalDateTime datagodzinarozpoczecia;
   private int pacjenci_id;
   private int oddzialy_id;
 
-  public String getOperacjaid() {
+  public int getOperacjaid() {
     return operacjaid;
   }
 
-  public void setOperacjaid(String operacjaid) {
+  public void setOperacjaid(int operacjaid) {
     this.operacjaid = operacjaid;
   }
 
@@ -23,11 +26,11 @@ public class Sz_operacje {
     this.rodzajoperacji = rodzajoperacji;
   }
 
-  public String getDatagodzinarozpoczecia() {
+  public LocalDateTime getDatagodzinarozpoczecia() {
     return datagodzinarozpoczecia;
   }
 
-  public void setDatagodzinarozpoczecia(String datagodzinarozpoczecia) {
+  public void setDatagodzinarozpoczecia(LocalDateTime datagodzinarozpoczecia) {
     this.datagodzinarozpoczecia = datagodzinarozpoczecia;
   }
 

@@ -11,6 +11,17 @@ public class Sz_pracownicy {
   private IntegerProperty oddzialy_id;
   private IntegerProperty pracownikid;
 
+  @Override
+  public int hashCode() {
+    System.out.println(pracownikid.get());
+    return pracownikid.get();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    return this.pracownikid.get() == ((Sz_pracownicy)obj).pracownikid.get();
+  }
+
   public Sz_pracownicy()
   {
     imie = new SimpleStringProperty();

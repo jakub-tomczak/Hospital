@@ -1,47 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane stylesheets="/styles/subviews_style.css"
-          alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Operacje">
+<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Operacje">
     <columnConstraints>
-        <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="100.0" percentWidth="20" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="60" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" percentWidth="20" />
+        <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="800.0" percentWidth="80.0" />
+        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints minHeight="200" prefHeight="500" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <VBox depthTest="DISABLE" prefHeight="200.0" prefWidth="100.0" styleClass="vbox">
-            <children>
-                <Button mnemonicParsing="false" onMouseClicked="#addOperation" text="Dodaj operację" />
-                <Button mnemonicParsing="false" onMouseClicked="#showModal1" text="showModal" />
-            </children>
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-            <GridPane.margin>
-                <Insets />
-            </GridPane.margin>
-        </VBox>
-        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="vbox" GridPane.columnIndex="2">
-            <children>
-                <Button mnemonicParsing="false" text="Button" />
-                <Button mnemonicParsing="false" text="Button" />
-            </children></VBox>
-        <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+        <TableView fx:id="operationsTableView">
+            <placeholder>
+                <Label text="Brak operacji" />
+            </placeholder>
             <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="nameOperationColumn" minWidth="158.0" prefWidth="158.0" text="Nazwa operacji" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="120.0" text="Imię pacjenta" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="129.0" text="Nazwisko pacjenta" />
+                <TableColumn fx:id="peselColumn" prefWidth="113.0" text="PESEL pacjenta" />
+                <TableColumn fx:id="oddzialColumn" prefWidth="107.0" text="Oddział" />
+                <TableColumn fx:id="dateColumn" prefWidth="91.0" text="Data" />
+                <TableColumn fx:id="deleteOperation" prefWidth="91.0" />
+                <TableColumn fx:id="modifyOperation" prefWidth="91.0" />
+                <TableColumn fx:id="showDoctors" prefWidth="91" />
             </columns>
         </TableView>
+        <ScrollPane fx:id="scrollPane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+            <content>
+                <VBox fx:id="vBoxAvailableDoctors">
+                    <children>
+                        <Label prefHeight="43.0" prefWidth="198.0" text="Dostępni lekarze">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </VBox>
+            </content>
+        </ScrollPane>
     </children>
 </GridPane>

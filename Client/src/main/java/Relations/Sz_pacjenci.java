@@ -13,10 +13,14 @@ public class Sz_pacjenci {
   private String miasto;
   private String kod;
   private static AtomicLong idCounter = new AtomicLong();
+  public Sz_pacjenci()
+  {
 
+  }
 
   public  Sz_pacjenci(String imie,String nazwisko,String pesel,String adres,String miasto,String kod,int id)
   {
+    this();
     this.imie = imie;
     this.nazwisko = nazwisko;
     this.pesel = pesel;
