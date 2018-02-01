@@ -1,40 +1,68 @@
 package Relations;
 
 public class Sz_stosowaneleki {
-  private String id;
-  private java.sql.Date datawaznosci;
-  private String nrserii;
-  private String leki_leki_id;
+  private int id;
+  private String numerSerii;
+  private int lekID;
+  private int leczenieID;
+  private String dawkal;
+  private String data;
 
-  public String getId() {
+
+  public Sz_stosowaneleki(int id, String numerSerii, int lekID, int leczenieID, String dawkal,String data) {
+    this.id = id;
+    this.numerSerii = numerSerii;
+    this.lekID = lekID;
+    this.leczenieID = leczenieID;
+    this.dawkal = dawkal;
+    this.data=data;
+  }
+
+  public int getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(int id) {
     this.id = id;
   }
 
-  public java.sql.Date getDatawaznosci() {
-    return datawaznosci;
+  public String getNumerSerii() {
+    return numerSerii;
   }
 
-  public void setDatawaznosci(java.sql.Date datawaznosci) {
-    this.datawaznosci = datawaznosci;
+  public void setNumerSerii(String numerSerii) {
+    this.numerSerii = numerSerii;
   }
 
-  public String getNrserii() {
-    return nrserii;
+  public int getLekID() {
+    return lekID;
   }
 
-  public void setNrserii(String nrserii) {
-    this.nrserii = nrserii;
+  public void setLekID(int lekID) {
+    this.lekID = lekID;
   }
 
-  public String getLeki_leki_id() {
-    return leki_leki_id;
+  public int getLeczenieID() {
+    return leczenieID;
   }
 
-  public void setLeki_leki_id(String leki_leki_id) {
-    this.leki_leki_id = leki_leki_id;
+  public void setLeczenieID(int leczenieID) {
+    this.leczenieID = leczenieID;
+  }
+
+  public String getDawkal() {
+    return dawkal;
+  }
+
+  public void setDawkal(String dawkal) {
+    this.dawkal = dawkal;
+  }
+
+  public String getData() {
+    return data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
   }
 }

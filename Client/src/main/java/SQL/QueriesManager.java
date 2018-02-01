@@ -1371,6 +1371,191 @@ public class QueriesManager {
         }
     }
 
+    public List<Sz_leczenia> getLeczenia(Sz_pacjenci pacjent)
+    {
+        List<Sz_leczenia> leczenia = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String getLeczenia = "select * from sz_leczenia where sz_pacjenci_id=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(getLeczenia);
+            stmt.setInt(1,pacjent.getId());
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                Sz_leczenia leczenie = new Sz_leczenia(
+                        rs.getInt(2), rs.getInt(3),
+                        rs.getString(1),rs.getString(4));
+                leczenia.add(leczenie);
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return leczenia;
+
+    }
+
+    public void insertLeczenia(Sz_leczenia leczenia)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String insertLeczenia = "insert into sz_leczenia (leczenieid,sz_pacjenci_id,datarozpoczecia,rozpoznanie) values " +
+                    "(?,?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'),?)";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertLeczenia);
+            stmt.setInt(1,0);
+            stmt.setInt(2,leczenia.getPacjenci_id());
+            stmt.setString(3,leczenia.getDatarozpoznania());
+            stmt.setString(4,leczenia.getRozpoznanie());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie dodano rozpoznanie");
+                    stmt.close();
+                }
+
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void deleteLeczenia(Sz_leczenia leczenia)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String deleteLeczenia = "delete from sz_leczenia where leczenieid=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(deleteLeczenia);
+            stmt.setInt(1,leczenia.getLeczenieid());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie usunięto rozpoznanie");
+                    stmt.close();
+                }
+
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void addStosowanyLek(Sz_stosowaneleki lek)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String insertLeki = "insert into SZ_STOSOWANELEKI " +
+                    "(id,nrserii,stosowaneleki_leki_id,idleczenie,dawka,datapodania) values " +
+                    "(?,?,?,?,?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'))";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertLeki);
+            stmt.setInt(1, lek.getId());
+            stmt.setString(2, lek.getNumerSerii());
+            stmt.setInt(3, lek.getLekID());
+            stmt.setInt(4, lek.getLeczenieID());
+            stmt.setString(5, lek.getDawkal());
+            stmt.setString(6,lek.getData());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie dodano lek.");
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void deleteStosowanyLek(Sz_stosowaneleki lek)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String insertLeki = "delete from SZ_STOSOWANELEKI " +
+                    "where id=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertLeki);
+            stmt.setInt(1, lek.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie usunięto lek.");
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public List<Sz_stosowaneleki> getStosowaneLeki(Sz_leczenia leczenie)
+    {
+        List<Sz_stosowaneleki> stosowaneLeki = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String getLeczenia = "select * from sz_stosowaneleki where idleczenie=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(getLeczenia);
+            stmt.setInt(1,leczenie.getLeczenieid());
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                Sz_stosowaneleki l = new Sz_stosowaneleki(
+                        rs.getInt(1), rs.getString(2),
+                        rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6));
+                stosowaneLeki.add(l);
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z lekami");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return stosowaneLeki;
+    }
+
 
 
 }

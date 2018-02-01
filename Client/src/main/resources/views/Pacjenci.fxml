@@ -49,6 +49,7 @@
                   <Button mnemonicParsing="false" onMouseClicked="#addOperation" text="Dodaj operację " />
                   <Button mnemonicParsing="false" text="Dodaj leczenie" />
                   <Button fx:id="showExamination" mnemonicParsing="false" onMouseClicked="#showExaminations" text="Pokaż badania" />
+                  <Button fx:id="leczenia" minHeight="100.0" mnemonicParsing="false" onMouseClicked="#showLeczenia" pickOnBounds="false" prefHeight="102.0" prefWidth="96.0" text="Rozpoznania i leczenia" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                </children>
             </VBox>
             <Button fx:id="dodajNaOddzial" layoutX="14.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#addToWard" prefHeight="25.0" prefWidth="136.0" text="Dodaj na oddział" />

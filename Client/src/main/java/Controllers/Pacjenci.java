@@ -461,4 +461,46 @@ public class Pacjenci implements  IDisplayedScreen   {
         }
 
     }
+
+    public void showLeczenia(MouseEvent mouseEvent) throws IOException {
+        Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
+        if(patient==null) {
+            PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
+            if (pacjentNaOddziale == null) {
+                return;
+            } else {
+                QueriesManager queriesManager = new QueriesManager();
+                patient = queriesManager.getPacjent(pacjentNaOddziale.getId());
+            }
+        }
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/leczenia.fxml"));
+        root = (Parent) loader.load();
+        PokazLeczeniaModal controller = loader.getController();
+        controller.setPacjent(patient);
+        controller.getLeczenia();
+        controller.getLeki();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Rozpoznania i leczenia");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) mouseEvent.getSource()).getScene().getWindow());
+        stage.show();
+        stage.setOnHiding(new EventHandler<WindowEvent>() {
+
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.runLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        getPacjenci();
+
+                    }
+                });
+            }
+        });
+
+    }
 }

@@ -1,58 +1,48 @@
 package Relations;
 
 public class Sz_leczenia {
-  private java.sql.Date datarozpoczecia;
-  private java.sql.Date datazakonczenia;
-  private String dawka;
-  private String pacjenci_id;
-  private String choroby_id;
-  private String leczenieid;
+  private int pacjenci_id;
+  private int leczenieid;
+  private String datarozpoznania;
+  private String rozpoznanie;
 
-  public java.sql.Date getDatarozpoczecia() {
-    return datarozpoczecia;
-  }
-
-  public void setDatarozpoczecia(java.sql.Date datarozpoczecia) {
-    this.datarozpoczecia = datarozpoczecia;
-  }
-
-  public java.sql.Date getDatazakonczenia() {
-    return datazakonczenia;
-  }
-
-  public void setDatazakonczenia(java.sql.Date datazakonczenia) {
-    this.datazakonczenia = datazakonczenia;
-  }
-
-  public String getDawka() {
-    return dawka;
-  }
-
-  public void setDawka(String dawka) {
-    this.dawka = dawka;
-  }
-
-  public String getPacjenci_id() {
-    return pacjenci_id;
-  }
-
-  public void setPacjenci_id(String pacjenci_id) {
+  public Sz_leczenia(int pacjenci_id, int leczenieid, String datarozpoznania, String rozpoznanie) {
     this.pacjenci_id = pacjenci_id;
+    this.leczenieid = leczenieid;
+    this.datarozpoznania = datarozpoznania;
+    this.rozpoznanie = rozpoznanie;
   }
 
-  public String getChoroby_id() {
-    return choroby_id;
+  public String getRozpoznanie() {
+    return rozpoznanie;
   }
 
-  public void setChoroby_id(String choroby_id) {
-    this.choroby_id = choroby_id;
+  public void setRozpoznanie(String rozpoznanie) {
+    this.rozpoznanie = rozpoznanie;
   }
 
-  public String getLeczenieid() {
+  public String getDatarozpoznania() {
+    return datarozpoznania;
+  }
+
+  public void setDatarozpoznania(String datarozpoznania) {
+    this.datarozpoznania = datarozpoznania;
+  }
+
+  public int getLeczenieid() {
     return leczenieid;
   }
 
-  public void setLeczenieid(String leczenieid) {
+  public void setLeczenieid(int leczenieid) {
     this.leczenieid = leczenieid;
   }
+
+  public int getPacjenci_id() {
+    return pacjenci_id;
+  }
+
+  public void setPacjenci_id(int pacjenci_id) {
+    this.pacjenci_id = pacjenci_id;
+  }
 }
+
