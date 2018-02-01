@@ -84,6 +84,7 @@ public class DodajOperacjeModal implements IDisplayedScreen {
     public void setFormToUpdate(List<Sz_pracownicy> doctorsInOperation, Sz_pacjenci patient, Sz_operacje operation)
     {
         formMode = Pracownicy.FormMode.update;
+        operationBeingUpdated = operation;
         performActionButton.setText(updateModeAcceptButtonText);
         doctorsInOperationBeforeUpdate = doctorsInOperation;
         if(!setDoctors(doctorsInOperation))

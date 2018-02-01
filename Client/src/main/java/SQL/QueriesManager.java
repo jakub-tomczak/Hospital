@@ -706,7 +706,7 @@ public class QueriesManager {
         //dateformatter
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-        String query = String.format("update sz_operacje set ODDZIALY_ID = %d,  DATAGODZINAROZPOCZECIA = TO_DATE('%s'), RODZAJOPERACJI = '%s' ",
+        String query = String.format("update sz_operacje set ODDZIALY_ID = %d,  DATAGODZINAROZPOCZECIA = TO_DATE('%s', 'YYYY-MM-DD HH24:MI'), RODZAJOPERACJI = '%s' ",
                 operationBeingUpdated.getOddzialy_id(), operationBeingUpdated.getDatagodzinarozpoczecia().format(formatter), operationBeingUpdated.getRodzajoperacji());
         try {
             stmt = Connector.getInstance().getConnection().createStatement();
@@ -739,7 +739,7 @@ public class QueriesManager {
         CallableStatement statement = null;
         int operacja_id = -1;
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
             statement = Connector.getInstance().getConnection().prepareCall(query);
             statement.registerOutParameter(1, Types.INTEGER);
