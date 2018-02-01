@@ -28,4 +28,22 @@ public class Zarzadzaj {
                 ((Node)actionEvent.getSource()).getScene().getWindow() );
         stage.show();
     }
+
+    public void manageLeki(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(
+                    DodajPacjentaModal.class.getResource("/views/Leki.fxml"));
+        } catch (IOException e) {
+            ExceptionHandler.displayException(e);
+        }
+        stage.setScene(new Scene(root, 1024, 600));
+        stage.setTitle("Zarządzaj lekami");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
+    }
 }
+
