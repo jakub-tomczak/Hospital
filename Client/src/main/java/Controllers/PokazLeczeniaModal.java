@@ -4,6 +4,8 @@ import Relations.*;
 import SQL.QueriesManager;
 import Utils.ExceptionHandler;
 import Utils.IDisplayedScreen;
+import Utils.Validator;
+import com.github.kaiwinter.jfx.tablecolumn.filter.FilterSupport;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ChangeListener;
@@ -77,6 +79,12 @@ public class PokazLeczeniaModal implements IDisplayedScreen {
                 pomLeczenie=newSelection;
             }
         });
+
+        FilterSupport.addFilter(dataRozpoznania);
+        FilterSupport.addFilter(nrSerii);
+        FilterSupport.addFilter(dataPodania);
+        FilterSupport.addFilter(nazwaLeku);
+        FilterSupport.addFilter(dawka);
         refresh();
        // deleteButton.setDisable(true);
     }
@@ -104,12 +112,16 @@ public class PokazLeczeniaModal implements IDisplayedScreen {
     }
     public void getLeczenia()
     {
-        List<Sz_leczenia> leczenia = new QueriesManager().getLeczenia(pacjent);
-        if(leczenia.size()>0)
+        if(pacjent != null)
         {
-            this.leczenia.getItems().clear();
-            this.leczenia.getItems().addAll(leczenia);
+            List<Sz_leczenia> leczenia = new QueriesManager().getLeczenia(pacjent);
+            if(leczenia.size()>0)
+            {
+                this.leczenia.getItems().clear();
+                this.leczenia.getItems().addAll(leczenia);
+            }
         }
+
 
     }
 
@@ -143,6 +155,16 @@ public class PokazLeczeniaModal implements IDisplayedScreen {
 
     public void addLek()
     {
+        if(!Validator.validateIntegerField(dawkaT, 1, 100, "Dawka leku powinna być w zakresie 3, 100 jednostek"))
+        {
+            return;
+        }
+        if(!Validator.validateIntegerField(dawkaT, 1, 10000000, "Numer serii jest liczbą xxxxxxx"))
+        {
+            return;
+        }
+
+
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         int leczenieID =   leczenia.getSelectionModel().getSelectedItem().getLeczenieid();
@@ -201,6 +223,8 @@ public class PokazLeczeniaModal implements IDisplayedScreen {
     @Override
     public void refresh() {
         getLeczenia();
+        leczenia.refresh();
+        leki.refresh();
     }
 
 //    public void updateLeczenie() {

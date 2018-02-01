@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class Pacjenci implements  IDisplayedScreen   {
+public class Pacjenci implements IDisplayedScreen {
     public Button addPatient;
     public TableColumn<Sz_pacjenci, String> miasto;
     public TableColumn<Sz_pacjenci, String> kod;
@@ -47,11 +47,11 @@ public class Pacjenci implements  IDisplayedScreen   {
     public ComboBox oddzialyBox;
     public Button dodajNaOddzial;
     public Button historyButton;
-    public TableColumn<PacjentNaOddziale,String> oddzialO;
-    public TableColumn<PacjentNaOddziale,String> peselO;
-    public TableColumn<PacjentNaOddziale,String>  imieO;
-    public TableColumn<PacjentNaOddziale,String>  nazwiskoO;
-    public TableColumn<PacjentNaOddziale,String> dataPrzyjeciaO;
+    public TableColumn<PacjentNaOddziale, String> oddzialO;
+    public TableColumn<PacjentNaOddziale, String> peselO;
+    public TableColumn<PacjentNaOddziale, String> imieO;
+    public TableColumn<PacjentNaOddziale, String> nazwiskoO;
+    public TableColumn<PacjentNaOddziale, String> dataPrzyjeciaO;
     public TableView pacjenciNaOddziale;
     public TabPane tabPatients;
     public Button wypisz;
@@ -61,8 +61,7 @@ public class Pacjenci implements  IDisplayedScreen   {
     private int pobytID;
 
     @FXML
-    public void initialize()
-    {
+    public void initialize() {
         Main.screensList.add(this);
         pesel.setCellValueFactory(new PropertyValueFactory<Sz_pacjenci, String>("pesel"));
         imie.setCellValueFactory(new PropertyValueFactory<Sz_pacjenci, String>("imie"));
@@ -73,18 +72,18 @@ public class Pacjenci implements  IDisplayedScreen   {
         peselO.setCellValueFactory(new PropertyValueFactory<PacjentNaOddziale, String>("pesel"));
         imieO.setCellValueFactory(new PropertyValueFactory<PacjentNaOddziale, String>("imie"));
         nazwiskoO.setCellValueFactory(new PropertyValueFactory<PacjentNaOddziale, String>("nazwisko"));
-        dataPrzyjeciaO.setCellValueFactory(new PropertyValueFactory<PacjentNaOddziale,String>("dataWpisania"));
+        dataPrzyjeciaO.setCellValueFactory(new PropertyValueFactory<PacjentNaOddziale, String>("dataWpisania"));
         oddzialO.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<PacjentNaOddziale, String>, ObservableValue<String>>() {
-        public ObservableValue<String> call(TableColumn.CellDataFeatures<PacjentNaOddziale, String> p) {
-            return new ReadOnlyStringWrapper(getOddzialIdFromComboBox(p.getValue()));
-        }
-    });
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<PacjentNaOddziale, String> p) {
+                return new ReadOnlyStringWrapper(getOddzialIdFromComboBox(p.getValue()));
+            }
+        });
 
-       //
+        //
         dodajNaOddzial.disableProperty().bind(
                 Bindings.not(pacjenci.getSelectionModel().selectedItemProperty().isNotNull())
                         .or(oddzialyBox.getSelectionModel().selectedItemProperty().isNull())
-                        );
+        );
         wypisz.disableProperty().bind(
                 Bindings.not(pacjenciNaOddziale.getSelectionModel().selectedItemProperty().isNotNull())
         );
@@ -93,9 +92,8 @@ public class Pacjenci implements  IDisplayedScreen   {
             // parameters are of type student. Now you can use the
             // instance methods from Student.
             @Override
-            public void changed(ObservableValue<? extends Object> observable,Object oldValue, Object newValue){
-                if(tabPatients.getSelectionModel().getSelectedIndex()==1)
-                {
+            public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
+                if (tabPatients.getSelectionModel().getSelectedIndex() == 1) {
                     pacjenciNaOddziale.getSelectionModel().clearSelection();
                 }
                 //you can add any other value from Student class via getter(getAdr,getMail,...)
@@ -115,9 +113,9 @@ public class Pacjenci implements  IDisplayedScreen   {
         FilterSupport.addFilter(dataPrzyjeciaO);
         FilterSupport.addFilter(oddzialO);
     }
+
     @FXML
-    private void showModal(MouseEvent mouseEvent)
-    {
+    private void showModal(MouseEvent mouseEvent) {
         Stage stage = new Stage();
         Parent root = null;
         try {
@@ -130,7 +128,7 @@ public class Pacjenci implements  IDisplayedScreen   {
         stage.setTitle("Dodaj pacjenta");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
-                ((Node)mouseEvent.getSource()).getScene().getWindow() );
+                ((Node) mouseEvent.getSource()).getScene().getWindow());
         stage.show();
         stage.setOnHiding(new EventHandler<WindowEvent>() {
 
@@ -150,7 +148,7 @@ public class Pacjenci implements  IDisplayedScreen   {
     @FXML
     public void showAddExamination(MouseEvent mouseEvent) throws IOException {
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
-        if(patient==null) {
+        if (patient == null) {
             PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
             if (pacjentNaOddziale == null) {
                 return;
@@ -170,7 +168,7 @@ public class Pacjenci implements  IDisplayedScreen   {
         stage.setTitle("Dodaj badanie");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(
-                ((Node)mouseEvent.getSource()).getScene().getWindow() );
+                ((Node) mouseEvent.getSource()).getScene().getWindow());
         stage.show();
         stage.setOnHiding(new EventHandler<WindowEvent>() {
 
@@ -187,13 +185,13 @@ public class Pacjenci implements  IDisplayedScreen   {
             }
         });
 
-}
+    }
 
 
     @FXML
     public void showUpdatePatient(MouseEvent mouseEvent) throws IOException {
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
-        if(patient==null) {
+        if (patient == null) {
             PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
             if (pacjentNaOddziale == null) {
                 return;
@@ -202,40 +200,40 @@ public class Pacjenci implements  IDisplayedScreen   {
                 patient = queriesManager.getPacjent(pacjentNaOddziale.getId());
             }
         }
-            Stage stage = new Stage();
-            Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/edytujPacjenta_modal.fxml"));
-            root = (Parent) loader.load();
-            EdytujPacjentaModal controller = loader.getController();
-            controller.setPatient(patient);
-            controller.showData();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Edytuj pacjenta");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(
-                    ((Node)mouseEvent.getSource()).getScene().getWindow() );
-            stage.show();
-            stage.setOnHiding(new EventHandler<WindowEvent>() {
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/edytujPacjenta_modal.fxml"));
+        root = (Parent) loader.load();
+        EdytujPacjentaModal controller = loader.getController();
+        controller.setPatient(patient);
+        controller.showData();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Edytuj pacjenta");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) mouseEvent.getSource()).getScene().getWindow());
+        stage.show();
+        stage.setOnHiding(new EventHandler<WindowEvent>() {
 
-                @Override
-                public void handle(WindowEvent event) {
-                    Platform.runLater(new Runnable() {
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.runLater(new Runnable() {
 
-                        @Override
-                        public void run() {
-                            getPacjenci();
+                    @Override
+                    public void run() {
+                        getPacjenci();
 
-                        }
-                    });
-                }
-            });
+                    }
+                });
+            }
+        });
 
     }
 
     @FXML
     public void showExaminations(MouseEvent mouseEvent) throws IOException {
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
-        if(patient==null) {
+        if (patient == null) {
             PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
             if (pacjentNaOddziale == null) {
                 return;
@@ -244,41 +242,41 @@ public class Pacjenci implements  IDisplayedScreen   {
                 patient = queriesManager.getPacjent(pacjentNaOddziale.getId());
             }
         }
-            Stage stage = new Stage();
-            Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/badaniaPacjenta_modal.fxml"));
-            root = (Parent) loader.load();
-            PokazBadaniaModal controller = loader.getController();
-            controller.setPacjent(patient);
-            controller.getLekarze();
-            controller.getExaminations();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Badania");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(
-                    ((Node)mouseEvent.getSource()).getScene().getWindow() );
-            stage.show();
-            stage.setOnHiding(new EventHandler<WindowEvent>() {
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/badaniaPacjenta_modal.fxml"));
+        root = (Parent) loader.load();
+        PokazBadaniaModal controller = loader.getController();
+        controller.setPacjent(patient);
+        controller.getLekarze();
+        controller.getExaminations();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Badania");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) mouseEvent.getSource()).getScene().getWindow());
+        stage.show();
+        stage.setOnHiding(new EventHandler<WindowEvent>() {
 
-                @Override
-                public void handle(WindowEvent event) {
-                    Platform.runLater(new Runnable() {
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.runLater(new Runnable() {
 
-                        @Override
-                        public void run() {
-                            getPacjenci();
+                    @Override
+                    public void run() {
+                        getPacjenci();
 
-                        }
-                    });
-                }
-            });
+                    }
+                });
+            }
+        });
 
     }
 
     @FXML
     public void showPobyty(MouseEvent mouseEvent) throws IOException {
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
-        if(patient==null) {
+        if (patient == null) {
             PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
             if (pacjentNaOddziale == null) {
                 return;
@@ -287,34 +285,34 @@ public class Pacjenci implements  IDisplayedScreen   {
                 patient = queriesManager.getPacjent(pacjentNaOddziale.getId());
             }
         }
-                Stage stage = new Stage();
-                Parent root = null;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/pobytyPacjenta_modal.fxml"));
-                root = (Parent) loader.load();
-                PokazPobytyModal controller = loader.getController();
-                controller.setPatient(patient);
-                controller.getPobyty();
-                controller.getOddzialy();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Pobyty");
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.initOwner(
-                        ((Node) mouseEvent.getSource()).getScene().getWindow());
-                stage.show();
-                stage.setOnHiding(new EventHandler<WindowEvent>() {
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/pobytyPacjenta_modal.fxml"));
+        root = (Parent) loader.load();
+        PokazPobytyModal controller = loader.getController();
+        controller.setPatient(patient);
+        controller.getPobyty();
+        controller.getOddzialy();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Pobyty");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) mouseEvent.getSource()).getScene().getWindow());
+        stage.show();
+        stage.setOnHiding(new EventHandler<WindowEvent>() {
+
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.runLater(new Runnable() {
 
                     @Override
-                    public void handle(WindowEvent event) {
-                        Platform.runLater(new Runnable() {
+                    public void run() {
+                        getPacjenci();
 
-                            @Override
-                            public void run() {
-                                getPacjenci();
-
-                            }
-                        });
                     }
                 });
+            }
+        });
 
 
     }
@@ -327,41 +325,37 @@ public class Pacjenci implements  IDisplayedScreen   {
         }
         return "";
     }
+
     @FXML
-    public  void getPacjenci()
-    {
+    public void getPacjenci() {
         QueriesManager queriesManager = new QueriesManager();
 
         List<Sz_pacjenci> patients = queriesManager.getPacjenci();
-        if(patients != null)
-        {
+        if (patients != null) {
             pacjenci.getItems().clear();
             pacjenci.getItems().addAll(patients);
         }
     }
 
     @FXML
-    public  void getPacjenciNaOddziale()
-    {
+    public void getPacjenciNaOddziale() {
         QueriesManager queriesManager = new QueriesManager();
 
         List<PacjentNaOddziale> patients = queriesManager.getPacjenciNaOddziale();
-        if(patients != null)
-        {
+        if (patients != null) {
             pacjenciNaOddziale.getItems().clear();
             pacjenciNaOddziale.getItems().addAll(patients);
         }
     }
 
     @FXML
-    public void deletePatient()
-    {
+    public void deletePatient() {
         QueriesManager queriesManager = new QueriesManager();
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
-        if(patient!=null) {
+        if (patient != null) {
             queriesManager.deletePatient(patient);
         }
-      getPacjenci();
+        getPacjenci();
     }
 
     private void getOddzialy() {
@@ -377,19 +371,15 @@ public class Pacjenci implements  IDisplayedScreen   {
     }
 
     @FXML
-    public void addToWard()
-    {
+    public void addToWard() {
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Sz_pobyty pobyt = new Sz_pobyty(0,patient.getId(),getOddzialIdFromComboBox(),sdf.format(cal.getTime()),null);
+        Sz_pobyty pobyt = new Sz_pobyty(0, patient.getId(), getOddzialIdFromComboBox(), sdf.format(cal.getTime()), null);
         QueriesManager queriesManager = new QueriesManager();
-        if(queriesManager.ifOnWard(patient)==true)
-        {
+        if (queriesManager.ifOnWard(patient) == true) {
             ExceptionHandler.showMessage("Pacjent już się znajduje na oddziale!");
-        }
-        else
-        {
+        } else {
             queriesManager.addPobyt(pobyt);
         }
         getPacjenciNaOddziale();
@@ -397,8 +387,7 @@ public class Pacjenci implements  IDisplayedScreen   {
     }
 
     @FXML
-    public void wypisz()
-    {
+    public void wypisz() {
         QueriesManager queriesManager = new QueriesManager();
         PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
         Calendar cal = Calendar.getInstance();
@@ -440,31 +429,38 @@ public class Pacjenci implements  IDisplayedScreen   {
 
     public void addOperation(MouseEvent mouseEvent) {
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
-        if (patient != null) {
-            Stage stage = new Stage();
-            Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/dodajOperacje_modal.fxml"));
-            try {
-                root = (Parent) loader.load();
-            } catch (IOException e) {
-                ExceptionHandler.displayException("Nie znaleziono widoku do dodawania operacji!");
+        if (patient == null) {
+            PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
+            if (pacjentNaOddziale == null) {
                 return;
+            } else {
+                QueriesManager queriesManager = new QueriesManager();
+                patient = queriesManager.getPacjent(pacjentNaOddziale.getId());
             }
-            DodajOperacjeModal controller = loader.getController();
-            controller.setFormToInsert(patient);
-            stage.setScene(new Scene(root));
-            stage.setTitle("Dodaj badanie");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(
-                    ((Node) mouseEvent.getSource()).getScene().getWindow());
-            stage.show();
         }
-
+        Stage stage = new Stage();
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/dodajOperacje_modal.fxml"));
+        try {
+            root = (Parent) loader.load();
+        } catch (IOException e) {
+            ExceptionHandler.displayException("Nie znaleziono widoku do dodawania operacji!");
+            return;
+        }
+        DodajOperacjeModal controller = loader.getController();
+        controller.setFormToInsert(patient);
+        stage.setScene(new Scene(root));
+        stage.setTitle("Dodaj badanie");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) mouseEvent.getSource()).getScene().getWindow());
+        stage.show();
     }
+
 
     public void showLeczenia(MouseEvent mouseEvent) throws IOException {
         Sz_pacjenci patient = pacjenci.getSelectionModel().getSelectedItem();
-        if(patient==null) {
+        if (patient == null) {
             PacjentNaOddziale pacjentNaOddziale = (PacjentNaOddziale) pacjenciNaOddziale.getSelectionModel().getSelectedItem();
             if (pacjentNaOddziale == null) {
                 return;
@@ -481,7 +477,7 @@ public class Pacjenci implements  IDisplayedScreen   {
         controller.setPacjent(patient);
         controller.getLeczenia();
         controller.getLeki();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root, 1000, 600));
         stage.setTitle("Rozpoznania i leczenia");
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(

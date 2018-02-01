@@ -1035,6 +1035,8 @@ public class QueriesManager {
                 stmt.setInt(2, pobyt.getOddzialy_id());
                 stmt.setInt(3,pobyt.getID());
                 stmt.executeUpdate();
+                ExceptionHandler.showMessage("Pomyślnie zedytowano pobyt.");
+
             }
 
         } catch (SQLException e) {
@@ -1044,7 +1046,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie zedytowano pobyt.");
                     stmt.close();
                 }
             } catch (SQLException e) {
@@ -1060,6 +1061,8 @@ public class QueriesManager {
             stmt = Connector.getInstance().getConnection().prepareStatement(deletePobyt);
             stmt.setInt(1, pobyt.getID());
             stmt.executeUpdate();
+            ExceptionHandler.displayException("Pomyślnie usunięto pobyt");
+
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
@@ -1068,7 +1071,6 @@ public class QueriesManager {
             try {
                 if (stmt != null) {
                     stmt.close();
-                    ExceptionHandler.displayException("Pomyślnie usunięto pobyt");
 
                 }
             } catch (SQLException e) {
@@ -1131,6 +1133,8 @@ public class QueriesManager {
             stmt.setString(1, pacjentNaOddziale.getDataWpisania());
             stmt.setInt(2, pacjentNaOddziale.getPobytID());
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie zedytowano pobyt.");
+
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
@@ -1138,7 +1142,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie zedytowano pobyt.");
                     stmt.close();
                 }
             } catch (SQLException e) {
@@ -1303,6 +1306,8 @@ public class QueriesManager {
                 stmt.setString(2, lek.getNazwaHandlowa());
             stmt.setString(3, lek.getId());
                 stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie zedytowano lek.");
+
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
@@ -1310,7 +1315,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie zedytowano lek.");
                     stmt.close();
                 }
             } catch (SQLException e) {
@@ -1331,6 +1335,8 @@ public class QueriesManager {
             stmt.setString(3, lek.getNazwaHandlowa());
             stmt.setString(1, null);
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie dodano lek.");
+
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
@@ -1338,7 +1344,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie dodano lek.");
                     stmt.close();
                 }
             } catch (SQLException e) {
@@ -1355,6 +1360,8 @@ public class QueriesManager {
             stmt = Connector.getInstance().getConnection().prepareStatement(insertLeki);
             stmt.setString(1, lek.getId());
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie usunięto lek.");
+
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
@@ -1362,7 +1369,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie usunięto lek.");
                     stmt.close();
                 }
             } catch (SQLException e) {
@@ -1421,6 +1427,8 @@ public class QueriesManager {
             stmt.setString(3,leczenia.getDatarozpoznania());
             stmt.setString(4,leczenia.getRozpoznanie());
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie dodano rozpoznanie");
+
         } catch (SQLException e) {
             ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
         } catch (Exception e) {
@@ -1428,7 +1436,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie dodano rozpoznanie");
                     stmt.close();
                 }
 
@@ -1447,6 +1454,8 @@ public class QueriesManager {
             stmt.setString(1,leczenia.getRozpoznanie());
             stmt.setInt(2,leczenia.getPacjenci_id());
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie zedytowano rozpoznanie");
+
         } catch (SQLException e) {
             ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
         } catch (Exception e) {
@@ -1454,7 +1463,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie zedytowano rozpoznanie");
                     stmt.close();
                 }
 
@@ -1472,14 +1480,15 @@ public class QueriesManager {
             stmt = Connector.getInstance().getConnection().prepareStatement(deleteLeczenia);
             stmt.setInt(1,leczenia.getLeczenieid());
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie usunięto rozpoznanie");
+
         } catch (SQLException e) {
-            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+            ExceptionHandler.getMessage(e);
         } catch (Exception e) {
             ExceptionHandler.displayException(e);
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie usunięto rozpoznanie");
                     stmt.close();
                 }
 
@@ -1504,6 +1513,8 @@ public class QueriesManager {
             stmt.setString(5, lek.getDawkal());
             stmt.setString(6,lek.getData());
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie dodano lek.");
+
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
@@ -1511,7 +1522,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie dodano lek.");
                     stmt.close();
                 }
             } catch (SQLException e) {
@@ -1529,6 +1539,8 @@ public class QueriesManager {
             stmt = Connector.getInstance().getConnection().prepareStatement(insertLeki);
             stmt.setInt(1, lek.getId());
             stmt.executeUpdate();
+            ExceptionHandler.showMessage("Pomyślnie usunięto lek.");
+
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
@@ -1536,7 +1548,6 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
-                    ExceptionHandler.showMessage("Pomyślnie usunięto lek.");
                     stmt.close();
                 }
             } catch (SQLException e) {

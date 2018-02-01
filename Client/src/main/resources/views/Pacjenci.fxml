@@ -16,7 +16,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Pacjenci">
+<GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane"
+          stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Pacjenci">
     <columnConstraints>
         <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="100.0" percentWidth="20.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="58.0" />
@@ -30,7 +31,7 @@
         <VBox alignment="TOP_CENTER" depthTest="DISABLE" maxHeight="80.0" prefHeight="500.0" prefWidth="91.0" styleClass="vbox">
             <children>
                 <Button fx:id="addPatient" mnemonicParsing="false" onMouseClicked="#showModal" styleClass="mediumbutton" text="Dodaj pacjenta" />
-                <Button mnemonicParsing="false" onMouseClicked="#getPacjenci" styleClass="mediumbutton" text="Odśwież" />
+                <!--<Button mnemonicParsing="false" onMouseClicked="#getPacjenci" styleClass="mediumbutton" text="Odśwież" /> -->
                 <Button mnemonicParsing="false" onMouseClicked="#showUpdatePatient" styleClass="mediumbutton" text="Edytuj dane" />
                 <Button mnemonicParsing="false" onMouseClicked="#deletePatient" styleClass="mediumbutton" text="Usuń pacjenta" />
             </children>
@@ -47,8 +48,9 @@
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#showAddExamination" styleClass="smallbutton" text="Dodaj badanie" />
                   <Button mnemonicParsing="false" onMouseClicked="#addOperation" styleClass="smallbutton" text="Dodaj operację " />
-                  <Button mnemonicParsing="false" styleClass="smallbutton" text="Dodaj leczenie" />
+                  <!-- <Button mnemonicParsing="false" styleClass="smallbutton" text="Dodaj leczenie" /> -->
                   <Button fx:id="showExamination" mnemonicParsing="false" onMouseClicked="#showExaminations" styleClass="smallbutton" text="Pokaż badania" />
+                  <Button fx:id="leczenia" mnemonicParsing="false" onMouseClicked="#showLeczenia" pickOnBounds="false" styleClass="smallbutton" text="Rozpoznania i leczenia" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                </children>
             </VBox>
             <Button fx:id="dodajNaOddzial" layoutX="14.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#addToWard" prefHeight="25.0" prefWidth="136.0" text="Dodaj na oddział" />
@@ -109,6 +111,5 @@
              </Tab>
          </tabs>
       </TabPane>
-      <Button fx:id="leczenia" minHeight="100.0" mnemonicParsing="false" onMouseClicked="#showLeczenia" pickOnBounds="false" prefHeight="102.0" prefWidth="96.0" text="Rozpoznania i leczenia" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="3" />
     </children>
 </GridPane>

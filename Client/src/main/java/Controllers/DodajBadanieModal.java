@@ -1,5 +1,6 @@
 package Controllers;
 
+import Main.Main;
 import Relations.*;
 import SQL.QueriesManager;
 import Utils.Constants;
@@ -106,9 +107,9 @@ public class DodajBadanieModal{
 
         wards = (new QueriesManager()).getOddzialy();
         if(lekarze!=null) {
+            lekarzeTableView.getItems().clear();
             for (Sz_pracownicy lekarz : lekarze) {
                 String oddzial = getOddzialIdFromComboBox(lekarz);
-                lekarzeTableView.getItems().clear();
                 lekarzeTableView.getItems().add(lekarz);
             }
         }
@@ -134,6 +135,7 @@ public class DodajBadanieModal{
             String date = formattedDate();
             Sz_badania badanie = new Sz_badania(nazwa.getText(),formattedDate(),lekarz.getOddzialy_id(),pacjent.getId(),lekarz.getPracownikid(),0);
             new QueriesManager().addExamination(badanie);
+            Main.getInstance().refreshAll();
         }
         ExceptionHandler.showMessage("Badanie dodane pomyślnie");
     }
