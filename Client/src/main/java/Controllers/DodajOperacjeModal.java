@@ -384,7 +384,6 @@ public class DodajOperacjeModal implements IDisplayedScreen {
         }
 
 
-        System.out.println("Inserting state = " + globalSuccess);
         if(!queriesManager.commitOrRollback(globalSuccess)) //commit on success, rollback on failure
         {
             //failure when setting commit/rollback
@@ -396,7 +395,7 @@ public class DodajOperacjeModal implements IDisplayedScreen {
 
         if(globalSuccess)
         {
-            ExceptionHandler.displayException("Udało się zaktualizować operację!");
+            ExceptionHandler.showMessage("Udało się zaktualizować operację!");
             Main.getInstance().refreshAll();
             closeWindow();
         }
@@ -455,7 +454,6 @@ public class DodajOperacjeModal implements IDisplayedScreen {
         //wypełnianie relacji operacje
         globalSuccess &= queriesManager.updateOperation(operationBeingUpdated);
 
-        System.out.println("Updating state = " + globalSuccess);
         if(!queriesManager.commitOrRollback(globalSuccess)) //commit on success, rollback on failure
         {
             //failure when setting commit/rollback
@@ -467,7 +465,7 @@ public class DodajOperacjeModal implements IDisplayedScreen {
 
         if(globalSuccess)
         {
-            ExceptionHandler.displayException("Udało się zaktualizować operację!");
+            ExceptionHandler.showMessage("Udało się zaktualizować operację!");
             Main.getInstance().refreshAll();
             closeWindow();
         }

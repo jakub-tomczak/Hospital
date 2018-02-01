@@ -13,7 +13,6 @@ public class Sz_pracownicy {
 
   @Override
   public int hashCode() {
-    System.out.println(pracownikid.get());
     return pracownikid.get();
   }
 
