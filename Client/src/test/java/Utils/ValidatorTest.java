@@ -2,6 +2,8 @@ package Utils;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class ValidatorTest {
@@ -28,6 +30,19 @@ public class ValidatorTest {
         assertFalse(Validator.validateString("asdasd!@#asdas"));
         assertFalse(Validator.validateString("123asdasd123asdas123"));
         assertFalse(Validator.validateString("1111asdasdsdas"));
+    }
+
+    @Test
+    public void someTest()
+    {
+        List<String> someString = null;
+        if(someString == null || someString.size() == 0)
+        {
+            System.out.println("Failed");
+        }
+        else{
+            System.out.println("it's ok");
+        }
     }
 
     @Test

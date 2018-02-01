@@ -54,6 +54,15 @@ begin
 end;
 /
 
+--sprawdzanie poprawnosci daty operacji dla danego lekarza  - to do
+create or replace trigger pracownik_pokrywajace_sie_operacje
+before insert or delete on sz_wykonywaneoperacje
+for each row
+begin
+--    
+end;
+
+
 
 
 -------------------------------------------------------------------------

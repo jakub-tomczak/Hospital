@@ -210,9 +210,10 @@ public class ZarzadzajLekami implements IDisplayedScreen{
                         case delete:
                             QueriesManager queriesManager = new QueriesManager();
                             queriesManager.deleteLeki(lek);
+
+                            Main.getInstance().refreshAll();
                             break;
                     }
-                  refresh();
                 }
             });
         }
