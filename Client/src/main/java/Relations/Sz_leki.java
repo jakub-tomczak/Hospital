@@ -2,8 +2,15 @@ package Relations;
 
 public class Sz_leki {
   private String id;
-  private String nazwa;
-  private String leki_id;
+  private String nazwaMiedzynarodowa;
+  private String nazwaHandlowa;
+
+  public Sz_leki(String id,String nazwaMiedzynarodowa,String nazwaHandlowa)
+  {
+    this.id=id;
+    this.nazwaMiedzynarodowa=nazwaMiedzynarodowa;
+    this.nazwaHandlowa = nazwaHandlowa;
+  }
 
   public String getId() {
     return id;
@@ -13,19 +20,20 @@ public class Sz_leki {
     this.id = id;
   }
 
-  public String getNazwa() {
-    return nazwa;
+
+  public String getNazwaMiedzynarodowa() {
+    return nazwaMiedzynarodowa;
   }
 
-  public void setNazwa(String nazwa) {
-    this.nazwa = nazwa;
+  public void setNazwaMiedzynarodowa(String nazwaMiedzynarodowa) {
+    this.nazwaMiedzynarodowa = nazwaMiedzynarodowa;
   }
 
-  public String getLeki_id() {
-    return leki_id;
+  public String getNazwaHandlowa() {
+    return nazwaHandlowa;
   }
 
-  public void setLeki_id(String leki_id) {
-    this.leki_id = leki_id;
+  public void setNazwaHandlowa(String nazwaHandlowa) {
+    this.nazwaHandlowa = nazwaHandlowa;
   }
 }

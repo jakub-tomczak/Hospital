@@ -3,14 +3,13 @@ package SQL;
 import Relations.*;
 import Utils.Constants;
 import Utils.ExceptionHandler;
-import oracle.sql.TIMESTAMP;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 
 public class QueriesManager {
     public boolean setAutoCommitMode(boolean turnOn) {
@@ -62,9 +61,6 @@ public class QueriesManager {
             }
         } catch (SQLException e) {
             ExceptionHandler.displayException("Nie można pobrać listy z lekarzami");
-        }catch(Exception e)
-        {
-            ExceptionHandler.displayException(e);
         }finally {
             try
             {
@@ -82,6 +78,32 @@ public class QueriesManager {
         }
 
      */
+
+    public void addOperation(Sz_operacje operacja, int lekarzID) {
+        String query = "{call dodajOperacje(?, ?, ?, ?, ?)}";
+        CallableStatement statement = null;
+        try {
+            statement = Connector.getInstance().getConnection().prepareCall(query);
+            statement.setString(1, operacja.getRodzajoperacji());
+            statement.setString(2, operacja.getDatagodzinarozpoczecia().toString());
+            statement.setInt(3, operacja.getPacjenci_id());
+            statement.setInt(4, operacja.getOddzialy_id());
+            statement.setInt(5, lekarzID);
+            statement.execute();
+        } catch (SQLException e) {
+            ExceptionHandler.displayException("Nie udało się dodać operacji");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
 
 
     public void addPatient(Sz_pacjenci p) {
@@ -106,6 +128,7 @@ public class QueriesManager {
         } finally {
             try {
                 if (stmt != null) {
+                    ExceptionHandler.showMessage("Dodano pacjenta");
                     stmt.close();
                 }
             } catch (SQLException e) {
@@ -190,7 +213,7 @@ public class QueriesManager {
         } catch (SQLException e) {
             ExceptionHandler.getMessage(e);
         } catch (Exception e) {
-            ExceptionHandler.displayException(e);
+            //  ExceptionHandler.displayException(e);
         } finally {
             try {
                 if (stmt != null) {
@@ -270,17 +293,17 @@ public class QueriesManager {
 
     }
 
-    public boolean deleteRecord(String tableName, String idName, int id) {
+    public boolean deleteRecord(String database, String idName, int id) {
         Statement statement = null;
         String query = "";
         int result = 0;
         try {
-            query = String.format("delete from %s where %s = %d", tableName, idName, id);
+            query = String.format("delete from %s where %s = %d", database, idName, id);
             statement = Connector.getInstance().getConnection().createStatement();
 
             result = statement.executeUpdate(query);
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie można usunać danych z tabeli " + tableName.substring(3) + " . \nPowód : " + e.getMessage().substring(11));
+            ExceptionHandler.displayException("Nie można usunać danych z tabeli " + database.substring(3) + " . \nPowód : " + e.getMessage().substring(11));
             return false;
         } finally {
             try {
@@ -601,21 +624,21 @@ public class QueriesManager {
         }
     }
 
-    public boolean updateOddzial(Sz_oddzialy oddzial) {
-        Statement stmt = null;
-        String query = String.format("update sz_oddzialy set nazwa = '%s', KIEROWNIKKLINIKI  = %d, MAKSYMALNALICZBAPACJENTOW = %d where id = %d",
-                oddzial.getNazwa(), oddzial.getKierownikkliniki(), oddzial.getMaksymalnaliczbapacjentow(), oddzial.getId());
+    public void addPobyt(Sz_pobyty pobyt) {
+        PreparedStatement stmt = null;
         try {
-            stmt = Connector.getInstance().getConnection().createStatement();
-
-            int result = stmt.executeUpdate(query);
-
+            String insertPobyt = "insert into SZ_POBYTY " +
+                    "(sz_pacjenci_id,dataprzyjecia,sz_oddzialy_id) values " +
+                    "(?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'),?)";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertPobyt);
+            stmt.setInt(1, pobyt.getPacjenci_id());
+            stmt.setString(2, pobyt.getDataprzyjecia());
+            stmt.setInt(3, pobyt.getOddzialy_id());
+            stmt.execute();
         } catch (SQLException e) {
-            ExceptionHandler.displayException("Nie można zaktualizować oddzialu");
-            return false;
+            ExceptionHandler.getMessage(e);
         } catch (Exception e) {
             ExceptionHandler.displayException(e);
-            return false;
         } finally {
             try {
                 if (stmt != null) {
@@ -625,7 +648,6 @@ public class QueriesManager {
                 ExceptionHandler.displayException("Nie udało się zamknąć");
             }
         }
-        return true;
     }
 
     public boolean addOddzial(Sz_oddzialy oddzialToAdd) {
@@ -661,6 +683,33 @@ public class QueriesManager {
         }
 
         return valToReturn;
+    }
+
+    public boolean updateOddzial(Sz_oddzialy oddzial) {
+        Statement stmt = null;
+        String query = String.format("update sz_oddzialy set nazwa = '%s', KIEROWNIKKLINIKI  = %d, MAKSYMALNALICZBAPACJENTOW = %d where id = %d",
+                oddzial.getNazwa(), oddzial.getKierownikkliniki(), oddzial.getMaksymalnaliczbapacjentow(), oddzial.getId());
+        try {
+            stmt = Connector.getInstance().getConnection().createStatement();
+
+            int result = stmt.executeUpdate(query);
+
+        } catch (SQLException e) {
+            ExceptionHandler.displayException("Nie można zaktualizować oddzialu");
+            return false;
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+            return false;
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return true;
     }
 
 
@@ -887,31 +936,6 @@ public class QueriesManager {
         return doctors;
     }
 
-    public void addPobyt(Sz_pobyty pobyt) {
-        PreparedStatement stmt = null;
-        try {
-            String insertPobyt = "insert into SZ_POBYTY " +
-                    "(sz_pacjenci_id,dataprzyjecia,sz_oddzialy_id) values " +
-                    "(?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'),?)";
-            stmt = Connector.getInstance().getConnection().prepareStatement(insertPobyt);
-            stmt.setInt(1, pobyt.getPacjenci_id());
-            stmt.setString(2, pobyt.getDataprzyjecia());
-            stmt.setInt(3, pobyt.getOddzialy_id());
-            stmt.execute();
-        } catch (SQLException e) {
-            ExceptionHandler.getMessage(e);
-        } catch (Exception e) {
-            ExceptionHandler.displayException(e);
-        } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-            } catch (SQLException e) {
-                ExceptionHandler.displayException("Nie udało się zamknąć");
-            }
-        }
-    }
 
 
     public boolean ifOnWard(Sz_pacjenci pacjent) {
@@ -1154,6 +1178,200 @@ public class QueriesManager {
         return pacjent;
     }
 
+    public Sz_badania getBadanie(int id) {
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Sz_badania badanie = new Sz_badania(null, null, 0, 0, 0, 0);
+        try {
+            String getBadanie = "select * from sz_badania where id=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(getBadanie);
+            stmt.setInt(1,id);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                badanie = new Sz_badania(
+                        rs.getString(2), rs.getString(3), rs.getInt(4),
+                        rs.getInt(5), rs.getInt(6), rs.getInt(1));
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return badanie;
+    }
+
+    public List<Badanie> getAllExaminations() {
+        List<Badanie> badania = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String showExamination = "SELECT sz_badania.id,SZ_BADANIA.NAZWA,pesel,datagodzinabadania,sz_oddzialy.nazwa,sz_PRACOWNICY.IMIE,sz_PRACOWNICY.NAZWISKO,sz_pacjenci.ID\n" +
+                    "FROM SZ_BADANIA\n" +
+                    "INNER JOIN sz_PACJENCI\n" +
+                    "ON sz_pacjenci.ID = SZ_BADANIA.SZ_PACJENCI_ID\n" +
+                    "INNER JOIN sz_PRACOWNICY\n" +
+                    "ON sz_pracownicy.pracownikID = SZ_BADANIA.SZ_PRACOWNICY_PRACOWNIKID\n" +
+                    "INNER JOIN sz_oddzialy\n" +
+                    "ON sz_oddzialy.id = SZ_BADANIA.SZ_ODDZIALY_ID";
+            stmt = Connector.getInstance().getConnection().prepareStatement(showExamination);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                Badanie badanie = new Badanie(
+                        rs.getString(1), rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6)+' '+rs.getString(7),
+                        rs.getString(8));
+
+
+                badania.add(badanie);
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return badania;
+    }
+
+    public List<Sz_leki> getLeki() {
+        List<Sz_leki> leki = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String getLeki = "select * from sz_leki";
+            stmt = Connector.getInstance().getConnection().prepareStatement(getLeki);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                // Sz_lekarze(String imie, String nazwisko, double pensja,  int oddzialID, String specjalizacja, String stopiennaukowy, int ID)
+                Sz_leki lek = new Sz_leki(
+                        rs.getString(1), rs.getString(2),
+                        rs.getString(3));
+                leki.add(lek);
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+        return leki;
+    }
+
+    public void updateLeki(Sz_leki lek)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String updateLeki = "update SZ_LEKI SET nazwamiedzynarodowa = ?," +
+                       "nazwahandlowa=? where leki_id= ?";
+                stmt = Connector.getInstance().getConnection().prepareStatement(updateLeki);
+                stmt.setString(1, lek.getNazwaMiedzynarodowa());
+                stmt.setString(2, lek.getNazwaHandlowa());
+            stmt.setString(3, lek.getId());
+                stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie zedytowano lek.");
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
+    public void insertLeki(Sz_leki lek)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String insertLeki = "insert into SZ_LEKI " +
+                    "(leki_id,nazwamiedzynarodowa,nazwahandlowa) values " +
+                    "(?,?,?)";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertLeki);
+            stmt.setString(2, lek.getNazwaMiedzynarodowa());
+            stmt.setString(3, lek.getNazwaHandlowa());
+            stmt.setString(1, null);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie dodano lek.");
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+    public void deleteLeki(Sz_leki lek)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String insertLeki = "DELETE from SZ_LEKI " +
+                    "where leki_id=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertLeki);
+            stmt.setString(1, lek.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.getMessage(e);
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie usunięto lek.");
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
 
 
 }
+

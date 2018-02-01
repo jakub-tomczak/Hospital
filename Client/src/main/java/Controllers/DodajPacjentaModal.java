@@ -56,7 +56,7 @@ public class DodajPacjentaModal {
 
         } else {
             alert.setContentText("Błędny format danych");
+            alert.showAndWait();
         }
-        alert.showAndWait();
     }
 }

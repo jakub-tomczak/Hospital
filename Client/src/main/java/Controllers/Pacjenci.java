@@ -335,7 +335,6 @@ public class Pacjenci implements  IDisplayedScreen   {
         List<Sz_pacjenci> patients = queriesManager.getPacjenci();
         if(patients != null)
         {
-            pacjenci.refresh();
             pacjenci.getItems().clear();
             pacjenci.getItems().addAll(patients);
         }
@@ -387,12 +386,11 @@ public class Pacjenci implements  IDisplayedScreen   {
         QueriesManager queriesManager = new QueriesManager();
         if(queriesManager.ifOnWard(patient)==true)
         {
-            ExceptionHandler.showMessage("Pacjent już znajduje się na oddziale!");
+            ExceptionHandler.showMessage("Pacjent już się znajduje na oddziale!");
         }
         else
         {
             queriesManager.addPobyt(pobyt);
-            ExceptionHandler.showMessage("Pomyślnie dodano na oddział.");
         }
         getPacjenciNaOddziale();
 

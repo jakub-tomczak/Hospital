@@ -65,9 +65,7 @@ public class PokazPobytyModal {
                 Bindings.not(pobytyTableView.getSelectionModel().selectedItemProperty().isNotNull())
                         .or((wardBox.getSelectionModel().selectedItemProperty().isNull())
                         ));
-        deleteButton.disableProperty().bind(
-                Bindings.not(pobytyTableView.getSelectionModel().selectedItemProperty().isNotNull())
-        );
+        deleteButton.setDisable(true);
         ward.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Sz_pobyty, String>, ObservableValue<String>>() {
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Sz_pobyty, String> p) {
                 return new ReadOnlyStringWrapper(getOddzialIdFromComboBox(p.getValue()));
@@ -89,6 +87,7 @@ public class PokazPobytyModal {
                         year2.getSelectionModel().select(null);
                         hour2.getSelectionModel().select(null);;
                         minute2.getSelectionModel().select(null);
+                        deleteButton.setDisable(true);
                         enableCombo(true);
                     }
                     else
@@ -99,6 +98,7 @@ public class PokazPobytyModal {
                         hour2.getSelectionModel().select(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
                         minute2.getSelectionModel().select(Calendar.getInstance().get(Calendar.MINUTE));
                         year2.getSelectionModel().select(Calendar.getInstance().get(Calendar.YEAR)-1900);
+                        deleteButton.setDisable(false);
 
                     }
                     pobytID=newValue.getID();
@@ -142,11 +142,10 @@ public class PokazPobytyModal {
         int oddzialId = -1;
         //combobox with oddzialy validation
         if (wardBox.getItems().size() == 0) {
-            ExceptionHandler.displayException("Dodaj najpierw oddział!");
+            ExceptionHandler.showMessage("Dodaj najpierw oddział!");
             return oddzialId;
         }
         if (wardBox.getValue() == null) {
-            ExceptionHandler.displayException("Wybierz oddział");
             return oddzialId; //-1
         }
         String oddzialToFind = wardBox.getValue().toString();
