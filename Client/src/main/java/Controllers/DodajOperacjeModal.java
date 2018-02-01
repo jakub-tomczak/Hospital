@@ -10,7 +10,6 @@ import Utils.Constants;
 import Utils.ExceptionHandler;
 import Utils.IDisplayedScreen;
 import Utils.Validator;
-import com.sun.javafx.collections.MappingChange;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

@@ -5,6 +5,8 @@ import Utils.Constants;
 import Utils.ExceptionHandler;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -83,7 +85,7 @@ public class QueriesManager {
         try {
             statement = Connector.getInstance().getConnection().prepareCall(query);
             statement.setString(1, operacja.getRodzajoperacji());
-            statement.setString(2, operacja.getDatagodzinarozpoczecia());
+            statement.setString(2, operacja.getDatagodzinarozpoczecia().toString());
             statement.setInt(3, operacja.getPacjenci_id());
             statement.setInt(4, operacja.getOddzialy_id());
             statement.setInt(5, lekarzID);
@@ -648,6 +650,41 @@ public class QueriesManager {
         }
     }
 
+    public boolean addOddzial(Sz_oddzialy oddzialToAdd) {
+
+        Statement stmt = null;
+        boolean valToReturn = true;
+        int kierownik = oddzialToAdd.getKierownikkliniki();
+        String query = String.format("insert into sz_oddzialy(nazwa, KIEROWNIKKLINIKI, MAKSYMALNALICZBAPACJENTOW) values" +
+                        " ('%s', %d, %d )",
+                oddzialToAdd.getNazwa(), kierownik == 0 ? null : kierownik, oddzialToAdd.getMaksymalnaliczbapacjentow());
+        try {
+            stmt = Connector.getInstance().getConnection().createStatement();
+
+            int result = stmt.executeUpdate(query);
+            if (result < 1) {
+                valToReturn = false;
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.displayException("Nie można dodać oddziału");
+            valToReturn = false;
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+            valToReturn = false;
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+
+        }
+
+        return valToReturn;
+    }
+
     public boolean updateOddzial(Sz_oddzialy oddzial) {
         Statement stmt = null;
         String query = String.format("update sz_oddzialy set nazwa = '%s', KIEROWNIKKLINIKI  = %d, MAKSYMALNALICZBAPACJENTOW = %d where id = %d",
@@ -899,31 +936,6 @@ public class QueriesManager {
         return doctors;
     }
 
-    public void addPobyt(Sz_pobyty pobyt) {
-        PreparedStatement stmt = null;
-        try {
-            String insertPobyt = "insert into SZ_POBYTY " +
-                    "(sz_pacjenci_id,dataprzyjecia,sz_oddzialy_id) values " +
-                    "(?,TO_DATE(?, 'yyyy/mm/dd hh24:mi:ss'),?)";
-            stmt = Connector.getInstance().getConnection().prepareStatement(insertPobyt);
-            stmt.setInt(1, pobyt.getPacjenci_id());
-            stmt.setString(2, pobyt.getDataprzyjecia());
-            stmt.setInt(3, pobyt.getOddzialy_id());
-            stmt.execute();
-        } catch (SQLException e) {
-            ExceptionHandler.getMessage(e);
-        } catch (Exception e) {
-            ExceptionHandler.displayException(e);
-        } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-            } catch (SQLException e) {
-                ExceptionHandler.displayException("Nie udało się zamknąć");
-            }
-        }
-    }
 
 
     public boolean ifOnWard(Sz_pacjenci pacjent) {
