@@ -443,7 +443,7 @@ public class DodajOperacjeModal implements IDisplayedScreen {
         }
 
         //add relations from add list
-        for(Sz_pracownicy lekarz : doctorsDroppedFromOperation)
+        for(Sz_pracownicy lekarz : doctorsAddedToOperation)
         {
             System.out.println("Adding " + lekarz.getNazwisko());
             globalSuccess &= queriesManager.dodajUsunLekarzOperacja(lekarz.getPracownikid(), operationBeingUpdated.getOperacjaid(), false);
