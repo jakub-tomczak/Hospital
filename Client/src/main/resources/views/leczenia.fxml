@@ -13,11 +13,14 @@
     <children>
         <Label layoutX="719.0" layoutY="98.0" text="Dzień" />
         <Label layoutX="311.0" layoutY="6.0" text="Rozpoznanie" />
-        <Button fx:id="dodaj" layoutX="39.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#addLeczenie" prefHeight="69.0" prefWidth="136.0" text="Dodaj" />
+        <Button fx:id="dodaj" layoutX="39.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#addLeczenie" prefHeight="59.0" prefWidth="136.0" text="Dodaj" />
       <TextArea fx:id="rozpoznanie" layoutX="206.0" layoutY="34.0" prefHeight="411.0" prefWidth="214.0" wrapText="true" />
       <Label layoutX="82.0" layoutY="15.0" text="Daty" />
       <Label layoutX="624.0" layoutY="15.0" text="Podawane leki" />
       <TableView fx:id="leki" layoutX="429.0" layoutY="34.0" prefHeight="411.0" prefWidth="372.0">
+        <placeholder>
+          <Label text="Brak leków" />
+        </placeholder>
         <columns>
           <TableColumn fx:id="nazwaLeku" prefWidth="75.0" text="Nazwa leku" />
           <TableColumn fx:id="dawka" prefWidth="57.0" text="Dawka" />
@@ -25,7 +28,11 @@
             <TableColumn fx:id="nrSerii" prefWidth="75.0" text="Nr serii" />
         </columns>
       </TableView>
+
       <TableView fx:id="leczenia" layoutX="22.0" layoutY="46.0" prefHeight="195.0" prefWidth="170.0">
+        <placeholder>
+          <Label text="Brak rozpoznań" />
+        </placeholder>
         <columns>
           <TableColumn fx:id="dataRozpoznania" prefWidth="179.0" text="Data rozponania" />
 
@@ -40,5 +47,6 @@
       <Label layoutX="905.0" layoutY="149.0" text="mg" />
       <Label layoutX="801.0" layoutY="123.0" text="Dawka" />
       <Label layoutX="805.0" layoutY="170.0" text="Numer serii" />
+      <Button fx:id="updateLeczenie" layoutX="39.0" layoutY="326.0" mnemonicParsing="false"  prefHeight="59.0" prefWidth="136.0" text="Edytuj" />
     </children>
 </AnchorPane>

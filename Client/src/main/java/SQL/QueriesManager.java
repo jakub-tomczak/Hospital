@@ -1438,6 +1438,32 @@ public class QueriesManager {
         }
     }
 
+    public void updateLeczenia(Sz_leczenia leczenia)
+    {
+        PreparedStatement stmt = null;
+        try {
+            String insertLeczenia = "update sz_leczenia set rozpoznanie=? where leczenieid=?";
+            stmt = Connector.getInstance().getConnection().prepareStatement(insertLeczenia);
+            stmt.setString(1,leczenia.getRozpoznanie());
+            stmt.setInt(2,leczenia.getPacjenci_id());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            ExceptionHandler.showMessage("Nie można pobrać listy z pacjentami");
+        } catch (Exception e) {
+            ExceptionHandler.displayException(e);
+        } finally {
+            try {
+                if (stmt != null) {
+                    ExceptionHandler.showMessage("Pomyślnie zedytowano rozpoznanie");
+                    stmt.close();
+                }
+
+            } catch (SQLException e) {
+                ExceptionHandler.displayException("Nie udało się zamknąć");
+            }
+        }
+    }
+
     public void deleteLeczenia(Sz_leczenia leczenia)
     {
         PreparedStatement stmt = null;

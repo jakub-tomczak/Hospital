@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import java.text.SimpleDateFormat;
@@ -35,6 +36,7 @@ public class PokazLeczeniaModal implements IDisplayedScreen {
     public ComboBox lekCombo;
     public TextField dawkaT;
     public TextField seriaT;
+    public Button updateLeczenie;
     private Sz_pacjenci pacjent;
     private List<Sz_leki> lekiList;
     private Sz_leczenia pomLeczenie;
@@ -56,6 +58,10 @@ public class PokazLeczeniaModal implements IDisplayedScreen {
         usun.disableProperty().bind(
                 Bindings.not(leczenia.getSelectionModel().selectedItemProperty().isNotNull())
         );
+        updateLeczenie.disableProperty().bind(
+                Bindings.not(leczenia.getSelectionModel().selectedItemProperty().isNotNull())
+        );
+
         deleteMedicine.disableProperty().bind(
                 Bindings.not(leki.getSelectionModel().selectedItemProperty().isNotNull()
         ));
@@ -196,5 +202,17 @@ public class PokazLeczeniaModal implements IDisplayedScreen {
     public void refresh() {
         getLeczenia();
     }
+
+//    public void updateLeczenie() {
+//        if(rozpoznanie.getText().trim().equals(""))
+//        {
+//            ExceptionHandler.showMessage("Wypełnij rozpoznanie!");
+//        }
+//        else {
+//            Sz_leczenia leczenie = new Sz_leczenia(pacjent.getId(), leczenia.getSelectionModel().getSelectedItem().getLeczenieid(), null, rozpoznanie.getText());
+//            new QueriesManager().updateLeczenia(leczenie);
+//        }
+//        refresh();
+//    }
 }
 
