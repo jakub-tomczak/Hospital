@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Label?>
 <GridPane alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="gridpane" stylesheets="/styles/subviews_style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Badania">
   <columnConstraints>
     <ColumnConstraints fx:id="pierwsza" hgrow="SOMETIMES" minWidth="100.0" percentWidth="20" />
@@ -20,10 +20,10 @@
     <RowConstraints minHeight="200" prefHeight="500" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox depthTest="DISABLE" prefHeight="200.0" prefWidth="100.0" styleClass="vbox">
+      <VBox alignment="CENTER" depthTest="DISABLE" prefHeight="200.0" prefWidth="100.0" styleClass="vbox">
          <children>
-            <Button fx:id="updateE" mnemonicParsing="false" onMouseClicked="#showEdit" prefHeight="69.0" prefWidth="106.0" text="Edytuj" />
-            <Button fx:id="deleteE" mnemonicParsing="false" onMouseClicked="#deleteBadanie" prefHeight="81.0" prefWidth="106.0" text="Usuń" />
+            <Button fx:id="updateE" mnemonicParsing="false" onMouseClicked="#showEdit" prefHeight="69.0" prefWidth="106.0" styleClass="mediumbutton" text="Edytuj" />
+            <Button fx:id="deleteE" mnemonicParsing="false" onMouseClicked="#deleteBadanie" prefHeight="81.0" prefWidth="106.0" styleClass="mediumbutton" text="Usuń" />
          </children>
          <opaqueInsets>
             <Insets />

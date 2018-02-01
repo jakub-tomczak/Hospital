@@ -27,12 +27,12 @@
         <RowConstraints minHeight="200" prefHeight="500" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <VBox depthTest="DISABLE" maxHeight="80.0" prefHeight="500.0" prefWidth="91.0" styleClass="vbox">
+        <VBox alignment="TOP_CENTER" depthTest="DISABLE" maxHeight="80.0" prefHeight="500.0" prefWidth="91.0" styleClass="vbox">
             <children>
-                <Button fx:id="addPatient" mnemonicParsing="false" onMouseClicked="#showModal" text="Dodaj pacjenta" />
-                <Button mnemonicParsing="false" onMouseClicked="#getPacjenci" text="Odśwież" />
-                <Button mnemonicParsing="false" onMouseClicked="#showUpdatePatient" text="Edytuj dane" />
-                <Button mnemonicParsing="false" onMouseClicked="#deletePatient" text="Usuń pacjenta" />
+                <Button fx:id="addPatient" mnemonicParsing="false" onMouseClicked="#showModal" styleClass="mediumbutton" text="Dodaj pacjenta" />
+                <Button mnemonicParsing="false" onMouseClicked="#getPacjenci" styleClass="mediumbutton" text="Odśwież" />
+                <Button mnemonicParsing="false" onMouseClicked="#showUpdatePatient" styleClass="mediumbutton" text="Edytuj dane" />
+                <Button mnemonicParsing="false" onMouseClicked="#deletePatient" styleClass="mediumbutton" text="Usuń pacjenta" />
             </children>
             <opaqueInsets>
                 <Insets />
@@ -43,12 +43,12 @@
         </VBox>
       <Pane GridPane.columnIndex="2">
          <children>
-              <VBox maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" styleClass="vbox">
+              <VBox alignment="TOP_CENTER" maxWidth="239.0" prefHeight="353.0" prefWidth="239.0" styleClass="vbox">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#showAddExamination" text="Dodaj badanie" />
-                  <Button mnemonicParsing="false" onMouseClicked="#addOperation" text="Dodaj operację " />
-                  <Button mnemonicParsing="false" text="Dodaj leczenie" />
-                  <Button fx:id="showExamination" mnemonicParsing="false" onMouseClicked="#showExaminations" text="Pokaż badania" />
+                  <Button mnemonicParsing="false" onMouseClicked="#showAddExamination" styleClass="smallbutton" text="Dodaj badanie" />
+                  <Button mnemonicParsing="false" onMouseClicked="#addOperation" styleClass="smallbutton" text="Dodaj operację " />
+                  <Button mnemonicParsing="false" styleClass="smallbutton" text="Dodaj leczenie" />
+                  <Button fx:id="showExamination" mnemonicParsing="false" onMouseClicked="#showExaminations" styleClass="smallbutton" text="Pokaż badania" />
                </children>
             </VBox>
             <Button fx:id="dodajNaOddzial" layoutX="14.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#addToWard" prefHeight="25.0" prefWidth="136.0" text="Dodaj na oddział" />
@@ -67,10 +67,10 @@
                              <VBox alignment="CENTER">
                                  <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
                                      <image>
-                                         <Image url="/images/crying.png"/>
+                                         <Image url="/images/crying.png" />
                                      </image>
                                  </ImageView>
-                                 <Label text="Brak pacjentów na oddziałach"/>
+                                 <Label text="Brak pacjentów na oddziałach" />
                              </VBox>
                          </placeholder>
                          <columns>
@@ -90,10 +90,10 @@
                              <VBox alignment="CENTER">
                                  <ImageView fitHeight="100" pickOnBounds="true" preserveRatio="true">
                                      <image>
-                                         <Image url="/images/crying.png"/>
+                                         <Image url="/images/crying.png" />
                                      </image>
                                  </ImageView>
-                                 <Label text="Brak pacjentów w szpitalu"/>
+                                 <Label text="Brak pacjentów w szpitalu" />
                              </VBox>
                          </placeholder>
                          <columns>
